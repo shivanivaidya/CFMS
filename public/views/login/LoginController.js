@@ -14,21 +14,12 @@ app.controller('LoginController', function($scope, $http) {
 		var student = {email: $scope.username, password: $scope.password, userType: $scope.selectedUser.user};
 		$http.post("/login", student)
 		.success(function (response){
-			console.log(student);
-			console.log("successfully posted");
+			$scope.username = "";
+			$scope.password = "";
+			$scope.selectedUser = {};
 		});
 		
 	}
 
 });
-
-/*var app = angular.module('myApp', []);
-
-app.controller('LoginController', function($scope)
-{
-    $scope.login = function()
-    {
-        console.log(hvjhvjhv);
-    }
-});*/
 
