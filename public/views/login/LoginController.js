@@ -1,8 +1,8 @@
 var app = angular.module('myApp', []);
 
-app.controller('LoginController', function($scope) {
-    $scope.username= "";
-    $scope.password= "";
+app.controller('LoginController', function($scope, $http) {
+    $scope.username = "";
+    $scope.password = "";
 	
 	$scope.users = [
         {'user' : 'Student'},
@@ -10,11 +10,16 @@ app.controller('LoginController', function($scope) {
 		{'user' : 'Company'}
     ];
 	
-	$scope.print = function(){
-		console.log($scope.username);
-		console.log($scope.password);
-		console.log($scope.selectedUser.user);
+	$scope.add = function(){
+		var student = {email: $scope.username, password: $scope.password, userType: $scope.selectedUser.user};
+		$http.post("/login", student)
+		.success(function (response){
+			console.log(student);
+			console.log("successfully posted");
+		});
+		
 	}
+
 });
 
 /*var app = angular.module('myApp', []);

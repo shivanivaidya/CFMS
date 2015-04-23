@@ -29,13 +29,19 @@ app.use(multer());
   console.log('Example app listening at http://%s:%s', host, port);
 
 
-});
+});*/
 
-/*app.get("/developers", function (req, res) {
-   DeveloperModel.find(function (err, data) {
+/*app.get("/login", function (req, res) {
+   Login.find(function (err, data) {
        res.json(data);
    });  
 });*/
+
+app.post("/login", function(req, res){
+	var obj = req.body;//{email: "email", password: "password", userType: "student"};
+	var doc = new Login(obj);
+	doc.save();
+})
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/CFMS_DB');
@@ -43,14 +49,20 @@ mongoose.connect('mongodb://localhost/CFMS_DB');
 var LoginSchema = new mongoose.Schema({
   email: String,
   password: String,
-  loginas: String
+  userType: String
 }, {collection: "login"});
 
 var Login = mongoose.model('Login', LoginSchema);
 
-var record1 = new Login({ email: "shivani.9114@gmail.com", password: "abcde"});
+/*var student1 = {email: "yay@yay.com", password: "abcdefg", userType: "student"};
+
+var record1 = new Login(student1);
+
+record1.save();*/
+
+/*var record1 = new Login({ email: "shivani.9114@gmail.com", password: "abcde"});
 var record2 = new Login({ email: "vaidya.shi@husky.neu.edu", password: "abcde1234"});
 
 record1.save();
-record2.save();
+record2.save();*/
  
