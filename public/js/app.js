@@ -1,11 +1,11 @@
-var app = angular.module('myApp', []);
+angular.module('myApp', ['ngRoute'])
 
-app.controller('myController', function($scope,$http) {
-    $scope.hello="hello world";
-
-$http.get("/developer").success(function (response) {
-           $scope.developer = response;
-       });
-
-});
-
+.config(function($routeProvider){
+    $routeProvider.when('/login', {
+            templateUrl: '/views/login/login.html',
+            controller: 'LoginController'
+        });
+       
+        });
+    
+   	

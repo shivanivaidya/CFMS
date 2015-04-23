@@ -1,6 +1,6 @@
 var app = angular.module('myApp', []);
 
-app.controller('LoginController', function($scope) {
+app.controller('js.LoginController', function($scope) {
     $scope.username= "";
     $scope.password= "";
 	
@@ -10,8 +10,9 @@ app.controller('LoginController', function($scope) {
 		{'user' : 'Company'}
     ];
 	
-	$scope.go = function ( path ) {
-		$location.path( path );
-	};
+	$scope.print = function(){
+		console.log($scope.username);
+		console.log($scope.password);
+	}
 });
 
