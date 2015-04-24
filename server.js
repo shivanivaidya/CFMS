@@ -1,20 +1,19 @@
 var express = require('express');
-var app = express();
-var path = require('path');
+//var path = require('path');
 
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var mongoose = require('mongoose');
 
-app.get('/', function (req, res) {
-   res.send('Hello World');
-});
-
-app.use(express.static(path.join(__dirname,  'public')));
-app.listen(3000);
-
+var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer());
+app.use(express.static(__dirname +  '/public'))	;
+
+//app.get('/', function (req, res) {
+//   res.send('Hello World');
+//});
 
 app.post("/login", function(req, res){
 	var obj = req.body;
@@ -23,7 +22,7 @@ app.post("/login", function(req, res){
 	res.send();
 })
 
-var mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost/CFMS_DB');
 
 var LoginSchema = new mongoose.Schema({
@@ -33,3 +32,4 @@ var LoginSchema = new mongoose.Schema({
 }, {collection: "login"});
 
 var Login = mongoose.model('Login', LoginSchema);
+app.listen(3000);

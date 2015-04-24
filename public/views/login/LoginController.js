@@ -1,6 +1,6 @@
-var app = angular.module('myApp', []);
+//var app = angular.module('myApp', []);
 
-app.controller('LoginController', function($scope, $http) {
+app.controller('LoginController', function($scope, $http, $location) {
     $scope.username = "";
     $scope.password = "";
 	
@@ -20,6 +20,10 @@ app.controller('LoginController', function($scope, $http) {
 		});
 		
 	}
+
+	$scope.register = function () {
+		$location.path("/register");
+	};
 
 });
 

@@ -1,0 +1,84 @@
+		<div class = "container">
+		
+			<h3> Welcome to Career Fair Management System!! </h3> 
+			
+			<form class="form-horizontal" name="regForm">	
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Register as :</label>
+					<div class="col-sm-2">
+						<select ng-options="u.user for u in users"
+								ng-model="selectedUser"
+								ng-change="displayFields()"></select>
+					</div>
+				</div>
+				
+				<div class="form-group" ng-show="Student">
+					<label class="col-sm-2 control-label">NUID :</label>
+						<div class="col-sm-2">
+							<input type="text" ng-model="nuid"  placeholder="Enter NUID" required/>
+						</div>
+				</div> 
+				
+				<div class="form-group" ng-show="Recruiter || Company">
+					<label class="col-sm-2 control-label">Username :</label>
+						<div class="col-sm-2">
+							<input type="text" ng-model="username"  placeholder="Enter username" required/>
+						</div>
+				</div> 
+				
+			    <div class="form-group">
+					<label class="col-sm-2 control-label" for="password">Password :</label>
+						<div class="col-sm-2">
+							<input type="password" id="password" name="password" placeholder="Enter Password" ng-model="formData.password" 
+							ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required  />
+							
+							<span ng-show="regForm.password.$error.required && regForm.password.$dirty">required</span>
+							
+							<span ng-show="!regForm.password.$error.required && 
+							(regForm.password.$error.minlength || regForm.password.$error.maxlength)
+							&& regForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
+							
+							<span ng-show="!regForm.password.$error.required && !regForm.password.$error.minlength
+							&& !regForm.password.$error.maxlength 
+							&& regForm.password.$error.pattern && regForm.password.$dirty">
+							Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+							<br />
+						</div>
+				</div>
+       
+				<div class="form-group">
+					<label for="confirmPassword" class="col-sm-2 control-label"> Confirm Password :</label>
+						<div class="col-sm-2">
+							<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Retype password"
+							ng-model="formData.confirmPassword" valid-confirmPassword required/>
+							
+							<span ng-show="regForm.confirmPassword.$error.required && regForm.confirmPassword.$dirty">Please confirm your password.</span>
+							<span ng-show="!regForm.confirmPassword.$error.required && regForm.confirmPassword.$error.noMatch && regForm.password.$dirty">
+							Passwords do not match.</span> 
+							</br>
+						</div>
+				</div>
+				
+				<div class="form-group" ng-show="Recruiter">
+					<label class="col-sm-2 control-label">Select Company :</label>
+					<div class="col-sm-2">
+						<select ng-options="c.company for c in companies"
+								ng-model="selectedCompany"></select>
+					</div>
+				</div>
+				
+				<div class="form-group" ng-show="Company">
+					<label class="col-sm-2 control-label">Company Name :</label>
+						<div class="col-sm-2">
+							<input type="text" ng-model="companyName"  placeholder="Enter company name " required/>
+						</div>
+				</div> 
+				
+				
+				</hr>
+				<button type="submit" class="col-sm-2 btn btn-success" ng-disabled="!regForm.$valid" ng-click="editUser(user.id)"> Register </button> 
+			</form>
+			<button class="col-sm-2 btn btn-success" ng-click="print()"> Cancel </button> 
+		</div>
+
