@@ -19,11 +19,11 @@
 							<input type="text" ng-model="nuid"  placeholder="Enter NUID" required/>
 						</div>
 				</div> 
-				
-				<div class="form-group" ng-show="Recruiter || Company">
-					<label class="col-sm-2 control-label">Username :</label>
+
+				<div class="form-group" ng-show="Company">
+					<label class="col-sm-2 control-label">Company Name :</label>
 						<div class="col-sm-2">
-							<input type="text" ng-model="username"  placeholder="Enter username" required/>
+							<input type="text" ng-model="companyName"  placeholder="Enter company name " required/>
 						</div>
 				</div> 
 
@@ -35,10 +35,10 @@
 					</div>
 				</div>
 				
-				<div class="form-group" ng-show="Company">
-					<label class="col-sm-2 control-label">Company Name :</label>
+				<div class="form-group" ng-show="Recruiter || Company">
+					<label class="col-sm-2 control-label">Username :</label>
 						<div class="col-sm-2">
-							<input type="text" ng-model="companyName"  placeholder="Enter company name " required/>
+							<input type="text" ng-model="username"  placeholder="Enter username" required/>
 						</div>
 				</div> 
 				

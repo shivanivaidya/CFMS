@@ -52,15 +52,15 @@ var Recruiter = mongoose.model('Recruiter', RecruiterSchema);
 
 // company
 var CompanySchema = new mongoose.Schema({
+	_id: String,
 	username: {type: String, unique: true, required: true},
 	password: String,
-	firstName: String,
-	lastName: String,
-	email: String,
+	companyName: String,
+	website: String,
+	industry: String,
+	headquarters: String,
 	contactNo: String,
-	companyId: String,
-	designation: String,
-	location: String
+	description: String,
 }, {collection: "company"});
 
 var Company = mongoose.model('Company', CompanySchema);
@@ -98,7 +98,12 @@ app.post("/recruiter", function(req, res){
 
 //----------------------------------------------------------------------------------------------------------
 
-
+app.post("/company", function(req, res){
+	var obj = req.body;
+	var doc = new Company(obj);
+	doc.save();
+	res.send();
+})
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

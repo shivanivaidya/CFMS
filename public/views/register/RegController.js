@@ -47,16 +47,6 @@ app.controller('RegController', function($scope, $location, $http) {
 		}
 	}
 
-	$scope.print = function(){
-		console.log($scope.selectedUser.user);
-		console.log($scope.nuid);
-		//$scope.username = "";
-		console.log($scope.formData.confirmPassword);
-		console.log($scope.regForm.password.$viewValue);
-		//$scope.selectedCompany = "";
-		//$scope.companyName = "";*/
-	}	
-
 	$scope.checkPswdMatch = function(){
 		if($scope.formData.confirmPassword == $scope.regForm.password.$viewValue)
 			$scope.passwordMatch = true;
@@ -93,10 +83,22 @@ app.controller('RegController', function($scope, $location, $http) {
 									$scope.regForm.confirmPassword.$dirty = false;
 								});
 								break;
-			case "Company":		
+			case "Company":		var company = {_id: "056", username: $scope.username, password: $scope.formData.password, 
+								companyName: $scope.companyName, website: "", industry: "", headquarters: "",
+								contactNo: "", description: ""};
+							
+							    $http.post("/company", company)
+								.success(function (response){
+									$scope.companyName = "";
+									$scope.username = "";
+									$scope.formData.password = "";
+									$scope.formData.confirmPassword = "";
+									$scope.selectedUser = $scope.users[0];
+									$scope.regForm.password.$dirty = false;
+									$scope.regForm.confirmPassword.$dirty = false;
+								});
 								break;
-			default:			
-								break;
+			default:			break;
 		
 		}
 	}
