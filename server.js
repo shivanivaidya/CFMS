@@ -1,5 +1,4 @@
 var express = require('express');
-//var path = require('path');
 
 var bodyParser = require('body-parser');
 var multer = require('multer');
@@ -11,10 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer());
 app.use(express.static(__dirname +  '/public'))	;
 
-//app.get('/', function (req, res) {
-//   res.send('Hello World');
-//});
-
 app.post("/login", function(req, res){
 	var obj = req.body;
 	var doc = new Login(obj);
@@ -22,14 +17,34 @@ app.post("/login", function(req, res){
 	res.send();
 })
 
+// MONGOOSE SCHEMAS
 
 mongoose.connect('mongodb://localhost/CFMS_DB');
 
-var LoginSchema = new mongoose.Schema({
-  email: String,
-  password: String,
-  userType: String
-}, {collection: "login"});
+// student
+var StudentSchema = new mongoose.Schema({
+	nuid: {type: String, unique: true, required: true},
+	password: String,
+	firstName: String,
+	lastName: String,
+	email: String,
+	contactNo: String,
+	skills: String,
+	gpa: Number,
+	gradDate: Date
+}, {collection: "student"});
 
-var Login = mongoose.model('Login', LoginSchema);
+var Student = mongoose.model('Student', StudentSchema);
+
+// major
+var MajorSchema = new mongoose.Schema({
+	_id: {type: Number, unique: true, required: true},
+	major: String,
+	degrees: [{name: String}],
+	college: String,
+	students: [{nuid: String}]
+}, {collection: "major"});
+
+var Major = mongoose.model('Major', MajorSchema);
+
 app.listen(3000);

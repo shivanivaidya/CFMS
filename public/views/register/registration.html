@@ -26,12 +26,27 @@
 							<input type="text" ng-model="username"  placeholder="Enter username" required/>
 						</div>
 				</div> 
+
+				<div class="form-group" ng-show="Recruiter">
+					<label class="col-sm-2 control-label">Select Company :</label>
+					<div class="col-sm-2">
+						<select ng-options="c.company for c in companies"
+								ng-model="selectedCompany"></select>
+					</div>
+				</div>
+				
+				<div class="form-group" ng-show="Company">
+					<label class="col-sm-2 control-label">Company Name :</label>
+						<div class="col-sm-2">
+							<input type="text" ng-model="companyName"  placeholder="Enter company name " required/>
+						</div>
+				</div> 
 				
 			    <div class="form-group">
 					<label class="col-sm-2 control-label" for="password">Password :</label>
 						<div class="col-sm-2">
 							<input type="password" id="password" name="password" placeholder="Enter Password" ng-model="formData.password" 
-							ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required  />
+							ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required />
 							
 							<span ng-show="regForm.password.$error.required && regForm.password.$dirty">required</span>
 							
@@ -51,33 +66,17 @@
 					<label for="confirmPassword" class="col-sm-2 control-label"> Confirm Password :</label>
 						<div class="col-sm-2">
 							<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Retype password"
-							ng-model="formData.confirmPassword" valid-confirmPassword required/>
+							ng-model="formData.confirmPassword" ng-change="checkPswdMatch()" required/>
 							
 							<span ng-show="regForm.confirmPassword.$error.required && regForm.confirmPassword.$dirty">Please confirm your password.</span>
-							<span ng-show="!regForm.confirmPassword.$error.required && regForm.confirmPassword.$error.noMatch && regForm.password.$dirty">
+							<span ng-show="!passwordMatch && regForm.password.$dirty && regForm.confirmPassword.$dirty">
 							Passwords do not match.</span> 
 							</br>
 						</div>
 				</div>
 				
-				<div class="form-group" ng-show="Recruiter">
-					<label class="col-sm-2 control-label">Select Company :</label>
-					<div class="col-sm-2">
-						<select ng-options="c.company for c in companies"
-								ng-model="selectedCompany"></select>
-					</div>
-				</div>
-				
-				<div class="form-group" ng-show="Company">
-					<label class="col-sm-2 control-label">Company Name :</label>
-						<div class="col-sm-2">
-							<input type="text" ng-model="companyName"  placeholder="Enter company name " required/>
-						</div>
-				</div> 
-				
-				
 				</hr>
-				<button type="submit" class="col-sm-2 btn btn-success" ng-disabled="!regForm.$valid" ng-click="editUser(user.id)"> Register </button> 
+				<button type="submit" class="col-sm-2 btn btn-success" ng-disabled="!passwordMatch || !regForm.confirmPassword.$dirty" ng-click="print()">Register</button> 
 			</form>
 			<button class="col-sm-2 btn btn-success" ng-click="print()"> Cancel </button> 
 		</div>

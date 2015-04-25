@@ -3,12 +3,18 @@ app.controller('RegController', function($scope) {
 	$scope.Student = true;
 	$scope.Company = false;
 	$scope.Recruiter = false;
+
+	$scope.passwordMatch = false;
+	//$scope.enableRegister = false;
 	
 	$scope.users = [
+		{'user' : '<Select User>'},
         {'user' : 'Student'},
         {'user' : 'Recruiter'},
 		{'user' : 'Company'}
     ];
+
+    $scope.selectedUser = $scope.users[0];
 	
 	$scope.companies = [
         {'company' : 'ClickFuel'},
@@ -37,24 +43,23 @@ app.controller('RegController', function($scope) {
 								break;
 		
 		}
-		
-		/*$scope.nuid = "";
-		$scope.username = "";
-		//$scope.formData.confirmPassword = "";
-		$scope.regForm.password.$viewValue = "";
-		$scope.selectedCompany = "";
-		$scope.companyName = "";*/
+	}
+
+	$scope.print = function(){
+		console.log($scope.selectedUser.user);
+		console.log($scope.nuid);
+		//$scope.username = "";
+		console.log($scope.formData.confirmPassword);
+		console.log($scope.regForm.password.$viewValue);
+		//$scope.selectedCompany = "";
+		//$scope.companyName = "";*/
 	}	
+
+	$scope.checkPswdMatch = function(){
+		if($scope.formData.confirmPassword == $scope.regForm.password.$viewValue)
+			$scope.passwordMatch = true;
+		else
+			$scope.passwordMatch = false;
+	}
 });
 
-angular.module('UserValidation', []).directive('validPasswordC', function () {
-    return {
-        require: 'ngModel',
-        link: function (scope, elm, attrs, ctrl) {
-            ctrl.$parsers.unshift(function (viewValue, $scope) {
-                var noMatch = viewValue != scope.regForm.password.$viewValue
-                ctrl.$setValidity('noMatch', !noMatch)
-            })
-        }
-    }
-})
