@@ -16,12 +16,15 @@ app.controller('RegController', function($scope, $location, $http) {
     $scope.selectedUser = $scope.users[0];
 	
 	$scope.companies = [
+		{'company' : '<Select Company>'},
         {'company' : 'ClickFuel'},
         {'company' : 'AppNexus'},
 		{'company' : 'Amazon'},
 		{'company' : 'VMWare'}
     ];
 	
+	$scope.selectedCompany = $scope.companies[0];
+
 	$scope.displayFields = function(){
 		switch($scope.selectedUser.user) {
 			case "Student": 	$scope.Student = true;
@@ -76,7 +79,19 @@ app.controller('RegController', function($scope, $location, $http) {
 									$scope.regForm.confirmPassword.$dirty = false;
 								});
 								break;
-			case "Recruiter":	
+			case "Recruiter":	var recruiter = {username: $scope.username, password: $scope.formData.password, firstName: "", 
+								lastName: "", email: "", contactNo: "", companyId: "", designation: "", location: ""};
+							
+							    $http.post("/recruiter", recruiter)
+								.success(function (response){
+									$scope.username = "";
+									$scope.formData.password = "";
+									$scope.formData.confirmPassword = "";
+									$scope.selectedUser = $scope.users[0];
+									$scope.selectedCompany = $scope.companies[0];
+									$scope.regForm.password.$dirty = false;
+									$scope.regForm.confirmPassword.$dirty = false;
+								});
 								break;
 			case "Company":		
 								break;
