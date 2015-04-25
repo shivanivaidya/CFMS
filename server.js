@@ -54,7 +54,7 @@ var Recruiter = mongoose.model('Recruiter', RecruiterSchema);
 var CompanySchema = new mongoose.Schema({
 	_id: String,
 	username: {type: String, unique: true, required: true},
-	password: String,
+	password: {type: String, select: false},
 	companyName: String,
 	website: String,
 	industry: String,
@@ -99,11 +99,46 @@ app.post("/recruiter", function(req, res){
 //----------------------------------------------------------------------------------------------------------
 
 app.post("/company", function(req, res){
+	console.log("checking");
 	var obj = req.body;
 	var doc = new Company(obj);
 	doc.save();
 	res.send();
 })
+
+//----------------------------------------------------------------------------------------------------------
+
+/*app.get("/company", function(req, res){
+	 Company.find({}, function (err, docs) {
+        res.json({companyName: docs[0].companyName, companyId: docs[0]._id});
+    });
+})*/
+
+/*app.get("/company", function(req, res){
+	Company.find({}, function (err, docs){
+		console.log(docs[0]);
+		res.json(docs);
+	});
+})*/
+
+// select where companyName= ""
+
+/*app.get("/company/:companyName", function(req, res){
+	 if(req.params.companyName){
+	 	Company.find({ companyName: req.params.companyName }, function (err, docs){
+	 		res.json(docs);
+	 	})
+	 }
+})*/
+
+app.get("/company", function(req, res){
+	var Query = Company.find();
+	Query.select('companyName');
+
+	Query.exec(function (err, docs) {
+        res.json(docs);
+    });
+})   
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

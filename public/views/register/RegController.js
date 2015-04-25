@@ -5,6 +5,9 @@ app.controller('RegController', function($scope, $location, $http) {
 	$scope.Recruiter = false;
 
 	$scope.passwordMatch = false;
+
+	$scope.companies = [];
+	$scope.selectedCompany = {companyName: "<Select Company>"};
 	
 	$scope.users = [
 		{'user' : '<Select User>'},
@@ -14,16 +17,12 @@ app.controller('RegController', function($scope, $location, $http) {
     ];
 
     $scope.selectedUser = $scope.users[0];
-	
-	$scope.companies = [
-		{'company' : '<Select Company>'},
-        {'company' : 'ClickFuel'},
-        {'company' : 'AppNexus'},
-		{'company' : 'Amazon'},
-		{'company' : 'VMWare'}
-    ];
-	
-	$scope.selectedCompany = $scope.companies[0];
+
+	$http.get("/company").success(function (response){
+		$scope.companies = response;
+		$scope.selectedCompany = $scope.companies[0];
+	});
+		
 
 	$scope.displayFields = function(){
 		switch($scope.selectedUser.user) {
