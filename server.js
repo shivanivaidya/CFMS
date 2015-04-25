@@ -10,13 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer());
 app.use(express.static(__dirname +  '/public'))	;
 
-app.post("/login", function(req, res){
-	var obj = req.body;
-	var doc = new Login(obj);
-	doc.save();
-	res.send();
-})
-
 // MONGOOSE SCHEMAS
 
 mongoose.connect('mongodb://localhost/CFMS_DB');
@@ -46,5 +39,14 @@ var MajorSchema = new mongoose.Schema({
 }, {collection: "major"});
 
 var Major = mongoose.model('Major', MajorSchema);
+
+//---------------------------------------------------------------------------------------------------------
+
+app.post("/student", function(req, res){
+	var obj = req.body;
+	var doc = new Student(obj);
+	doc.save();
+	res.send();
+})
 
 app.listen(3000);

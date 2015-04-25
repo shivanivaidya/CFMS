@@ -2,7 +2,7 @@
 		
 			<h3> Welcome to Career Fair Management System!! </h3> 
 			
-			<form class="form-horizontal" name="regForm">	
+			<form class="form-horizontal" name="regForm" novalidate>	
 
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Register as :</label>
@@ -76,8 +76,8 @@
 				</div>
 				
 				</hr>
-				<button type="submit" class="col-sm-2 btn btn-success" ng-disabled="!passwordMatch || !regForm.confirmPassword.$dirty" ng-click="print()">Register</button> 
+				<button type="submit" class="col-sm-2 btn btn-success" ng-disabled="!passwordMatch || !regForm.confirmPassword.$dirty" ng-click="register()">Register</button> 
 			</form>
-			<button class="col-sm-2 btn btn-success" ng-click="print()"> Cancel </button> 
+			<button class="col-sm-2 btn btn-success" ng-click="cancel()"> Cancel </button> 
 		</div>
 

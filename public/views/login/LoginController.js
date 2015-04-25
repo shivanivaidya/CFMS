@@ -9,6 +9,8 @@ app.controller('LoginController', function($scope, $http, $location) {
         {'user' : 'Recruiter'},
 		{'user' : 'Company'}
     ];
+
+    $scope.selectedUser = $scope.users[0];
 	
 	$scope.add = function(){
 		var student = {email: $scope.username, password: $scope.password, userType: $scope.selectedUser.user};
