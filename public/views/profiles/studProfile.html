@@ -1,0 +1,105 @@
+
+		<div class = "container">
+		
+			<h3> Welcome to Career Fair Management System!! </h3> 
+			</br>	
+		
+			<ul class="nav nav-tabs">
+				<li role="presentation" class="active"><a ng-href="http://www.gravatar.com/avatar/{{hash}}">Edit Profile</a></li>
+				<li role="presentation"><a ng-href="http://www.gravatar.com/avatar/{{hash}}">View Companies</a></li>
+				<li role="presentation"><a ng-href="http://www.gravatar.com/avatar/{{hash}}">View Jobs</a></li>
+				<li role="presentation"><a ng-href="http://www.gravatar.com/avatar/{{hash}}">View Students</a></li>
+				<li role="presentation"><a ng-href="http://www.gravatar.com/avatar/{{hash}}">Logout</a></li>
+			</ul>
+			
+		
+			<h3> Create or Update Profile </h3> 
+			
+			<form class="form-horizontal" name="profileForm">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">First Name :</label>
+						<div class="col-sm-2">
+							<input type="text" ng-model="firstName"  placeholder="Enter first name" required/>
+						</div>
+				</div> 
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Last Name :</label>
+						<div class="col-sm-2">
+							<input type="text" ng-model="lastName"  placeholder="Enter last name" required/>
+						</div>
+				</div> 
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label"> Email ID :</label>
+						<div class="col-sm-2">
+							<input type="email" ng-model="email"  placeholder="Enter email ID"/>
+						</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label"> Contact No :</label>
+						<div class="col-sm-2">
+							<input type="text" ng-model="contactNo"  placeholder="Enter contact no."/>
+						</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Select Major :</label>
+					<div class="col-sm-2">
+						<select ng-options="m.major for m in majors"
+								ng-model="selectedMajor"
+								ng-change="updateMajorInfo()"></select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Select Degree :</label>
+					<div class="col-sm-2">
+						<select ng-options="d.name for d in degrees"
+								ng-model="selectedDegree"></select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label"> Skills :</label>
+						<div class="col-sm-2">
+							<textarea name="skills" ng-maxlength="200" ng-model="skills"  placeholder="Enter skills"></textarea>
+						</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label"> GPA :</label>
+						<div class="col-sm-2">
+							<input type="text" ng-model="gpa"  placeholder="Enter GPA"/>
+						</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Graduation Date :</label>
+					<div class="col-sm-2">
+						<input type="date" id="gradDate" name="gradDate" ng-model="gradDate"
+					</div>
+				</div>
+				
+				<form ng-upload novalidate name="uploadForm" action="/some/path">
+					<div class="form-group">
+						<label class="col-sm-2 control-label"> Upload Resume :</label>
+							<div class="col-sm-2">
+								<input file-browser required type="file" name="uploadFile" ng-model="compositeFile"/></br>
+									<button type="submit" ng-disabled="uploadForm.$invalid" class="btn btn-success" upload-submit="results(content, completed)">
+									Upload</button>
+							</div>
+					</div>
+				</form>
+				</br></br>
+
+				</hr>
+				<button class="col-sm-2 btn btn-success" ng-click="save()"> Save </button> 
+			</form>
+			
+			
+			
+			<button class="col-sm-2 btn btn-success" ng-click="editUser(user.id)"> Cancel </button> 
+			</br></br>
+		</div>

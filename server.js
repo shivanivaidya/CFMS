@@ -24,6 +24,8 @@ var StudentSchema = new mongoose.Schema({
 	lastName: String,
 	email: String,
 	contactNo: String,
+	majorId: Number,
+	degree: String,
 	skills: String,
 	gpa: Number,
 	gradDate: Date
@@ -73,7 +75,6 @@ var MajorSchema = new mongoose.Schema({
 	major: String,
 	degrees: [{name: String}],
 	college: String,
-	students: [{nuid: String}]
 }, {collection: "major"});
 
 var Major = mongoose.model('Major', MajorSchema);
@@ -122,15 +123,15 @@ app.post("/company", function(req, res){
 
 // select where companyName= ""
 
-/*app.get("/company/:companyName", function(req, res){
-	 if(req.params.companyName){
-	 	Company.find({ companyName: req.params.companyName }, function (err, docs){
+app.get("/student/:nuid", function(req, res){
+	 if(req.params.nuid){
+	 	Student.find({ nuid: req.params.nuid }, function (err, docs){
 	 		res.json(docs);
 	 	})
 	 }
-})*/
+})
 
-app.get("/company", function(req, res){
+app.get("/company", function (req, res){
 	var Query = Company.find();
 	Query.select('companyName');
 
@@ -138,6 +139,29 @@ app.get("/company", function(req, res){
         res.json(docs);
     });
 })   
+
+//------------------------------------------------------------------------------------------------------------
+
+app.get("/major", function (req, res){
+	var Query = Major.find();
+	Query.select('major degrees');
+
+	Query.exec(function (err, docs){
+		res.json(docs);
+	})
+})
+
+//-----------------------------------------------------------------------------------------------------------
+
+app.put("/student/:nuid", function (req, res){
+	Student.update({ nuid: req.params.nuid }, req.body, { upsert: true}, function (err, numAffected){
+ 		res.send();
+	});
+})
+
+//----------------------------------------------------------------------------------------------------------
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

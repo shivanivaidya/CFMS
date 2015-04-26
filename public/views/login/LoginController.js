@@ -12,16 +12,9 @@ app.controller('LoginController', function($scope, $http, $location) {
 
     $scope.selectedUser = $scope.users[0];
 	
-	$scope.add = function(){
-		var student = {email: $scope.username, password: $scope.password, userType: $scope.selectedUser.user};
-		$http.post("/login", student)
-		.success(function (response){
-			$scope.username = "";
-			$scope.password = "";
-			$scope.selectedUser = {};
-		});
-		
-	}
+	$scope.login = function(){
+		$location.path("/studentProfile");
+	};
 
 	$scope.register = function () {
 		$location.path("/register");

@@ -11,6 +11,10 @@ app.config(function($routeProvider){
             templateUrl: 'views/register/registration.html',
             controller: 'RegController'
         }).
+        when('/studentProfile', {
+            templateUrl: 'views/profiles/studProfile.html',
+            controller: 'ProfileController'
+        }).
         otherwise({
         	redirectTo:"/login"
         });
