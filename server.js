@@ -99,7 +99,6 @@ app.post("/recruiter", function(req, res){
 //----------------------------------------------------------------------------------------------------------
 
 app.post("/company", function(req, res){
-	console.log("checking");
 	var obj = req.body;
 	var doc = new Company(obj);
 	doc.save();

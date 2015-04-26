@@ -18,10 +18,24 @@ app.controller('RegController', function($scope, $location, $http) {
 
     $scope.selectedUser = $scope.users[0];
 
-	$http.get("/company").success(function (response){
-		$scope.companies = response;
-		$scope.selectedCompany = $scope.companies[0];
-	});
+	$scope.updateCompanies = function(){
+		$http.get("/company").success(function (response){
+			$scope.companies = response;
+			$scope.companies.sort( sortBy("companyName"));
+			$scope.selectedCompany = $scope.companies[0];
+		});
+	}
+
+	function sortBy(prop){
+		return function(a,b){
+	  		if( a[prop] > b[prop]){
+	      		return 1;
+	  		}else if( a[prop] < b[prop] ){
+	      		return -1;
+	  		}
+	  		return 0;
+		}
+	}
 		
 
 	$scope.displayFields = function(){
@@ -33,10 +47,12 @@ app.controller('RegController', function($scope, $location, $http) {
 			case "Recruiter":	$scope.Student = false;
 								$scope.Recruiter = true;
 								$scope.Company = false;
+								$scope.updateCompanies();
 								break;
 			case "Company":		$scope.Student = false;
 								$scope.Recruiter = false;
 								$scope.Company = true;
+								$scope.updateCompanies();
 								break;
 			default:			$scope.Student = true;
 								$scope.Recruiter = false;
@@ -69,7 +85,7 @@ app.controller('RegController', function($scope, $location, $http) {
 								});
 								break;
 			case "Recruiter":	var recruiter = {username: $scope.username, password: $scope.formData.password, firstName: "", 
-								lastName: "", email: "", contactNo: "", companyId: "", designation: "", location: ""};
+								lastName: "", email: "", contactNo: "", companyId: $scope.selectedCompany._id, designation: "", location: ""};
 							
 							    $http.post("/recruiter", recruiter)
 								.success(function (response){
@@ -82,7 +98,7 @@ app.controller('RegController', function($scope, $location, $http) {
 									$scope.regForm.confirmPassword.$dirty = false;
 								});
 								break;
-			case "Company":		var company = {_id: "056", username: $scope.username, password: $scope.formData.password, 
+			case "Company":		var company = {_id: $scope.generateId(), username: $scope.username, password: $scope.formData.password, 
 								companyName: $scope.companyName, website: "", industry: "", headquarters: "",
 								contactNo: "", description: ""};
 							
@@ -95,11 +111,25 @@ app.controller('RegController', function($scope, $location, $http) {
 									$scope.selectedUser = $scope.users[0];
 									$scope.regForm.password.$dirty = false;
 									$scope.regForm.confirmPassword.$dirty = false;
+									$scope.updateCompanies();
 								});
 								break;
 			default:			break;
 		
 		}
+	}
+
+	$scope.generateId = function(){
+		var ids = [];
+		for(var i = 0; i<$scope.companies.length; i++){
+			ids.push(Number($scope.companies[i]._id));
+		}
+		var id = (Math.max.apply( Math, ids ) + 1).toString();
+		if(id.length == 1)
+			id = "00" + id;
+		if(id.length == 2)
+			id = "0" + id;
+		return id;
 	}
 
 	$scope.cancel = function () {
