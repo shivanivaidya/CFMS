@@ -15,6 +15,14 @@ app.config(function($routeProvider){
             templateUrl: 'views/profiles/studProfile.html',
             controller: 'ProfileController'
         }).
+        when('/recruiterProfile', {
+            templateUrl: 'views/profiles/recProfile.html',
+            controller: 'ProfileController'
+        }).
+        when('/companyProfile', {
+            templateUrl: 'views/profiles/compProfile.html',
+            controller: 'ProfileController'
+        }).
         otherwise({
         	redirectTo:"/login"
         });

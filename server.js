@@ -131,6 +131,28 @@ app.get("/student/:nuid", function(req, res){
 	 }
 })
 
+//------------------------------------------------------------------------------------------------------------
+
+app.get("/recruiter/:username", function(req, res){
+	 if(req.params.username){
+	 	Recruiter.find({ username: req.params.username }, function (err, docs){
+	 		res.json(docs);
+	 	})
+	 }
+})
+
+//------------------------------------------------------------------------------------------------------------
+
+app.get("/company/:username", function(req, res){
+	 if(req.params.username){
+	 	Company.find({ username: req.params.username }, function (err, docs){
+	 		res.json(docs);
+	 	})
+	 }
+})
+
+//-------------------------------------------------------------------------------------------------------------
+
 app.get("/company", function (req, res){
 	var Query = Company.find();
 	Query.select('companyName');
@@ -161,7 +183,19 @@ app.put("/student/:nuid", function (req, res){
 
 //----------------------------------------------------------------------------------------------------------
 
+app.put("/recruiter/:username", function (req, res){
+	Recruiter.update({ username: req.params.username }, req.body, { upsert: true}, function (err, numAffected){
+ 		res.send();
+	});
+})
 
+//------------------------------------------------------------------------------------------------------------
+
+app.put("/company/:username", function (req, res){
+	Company.update({ username: req.params.username }, req.body, { upsert: true}, function (err, numAffected){
+ 		res.send();
+	});
+})
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -13,7 +13,18 @@ app.controller('LoginController', function($scope, $http, $location) {
     $scope.selectedUser = $scope.users[0];
 	
 	$scope.login = function(){
-		$location.path("/studentProfile");
+		switch($scope.selectedUser.user) {
+			case "Student": 	$location.path("/studentProfile");
+								break;
+			case "Recruiter":	$location.path("/recruiterProfile");
+								break;
+			case "Company":		$location.path("/companyProfile");
+								break;
+			default:			
+								break;
+		
+		}
+		
 	};
 
 	$scope.register = function () {
