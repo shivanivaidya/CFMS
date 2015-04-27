@@ -1,5 +1,5 @@
 
-app.controller('RegController', function($scope, $location, $http) {	
+app.controller('RegController', function($scope, $location, $http, $rootScope) {	
 	$scope.Student = true;
 	$scope.Company = false;
 	$scope.Recruiter = false;
@@ -83,7 +83,14 @@ app.controller('RegController', function($scope, $location, $http) {
 									$scope.selectedUser = $scope.users[0];
 									$scope.regForm.password.$dirty = false;
 									$scope.regForm.confirmPassword.$dirty = false;
+
+									if(response != null)
+					                {
+					                    $rootScope.currentUser = response;
+					                    $location.url("/studentProfile");
+					                }
 								});
+
 								break;
 			case "Recruiter":	var recruiter = {username: $scope.username, password: $scope.formData.password, firstName: "", 
 								lastName: "", email: "", contactNo: "", companyId: $scope.selectedCompany._id, designation: "", location: ""};
@@ -97,7 +104,16 @@ app.controller('RegController', function($scope, $location, $http) {
 									$scope.selectedCompany = $scope.companies[0];
 									$scope.regForm.password.$dirty = false;
 									$scope.regForm.confirmPassword.$dirty = false;
+
+									if(response != null)
+					                {
+					                    $rootScope.currentUser = response;
+					                    $location.url("/recruiterProfile");
+					                }
 								});
+
+								
+
 								break;
 			case "Company":		var company = {_id: $scope.generateId(), username: $scope.username, password: $scope.formData.password, 
 								companyName: $scope.companyName, website: "", industry: "", headquarters: "",
@@ -113,6 +129,12 @@ app.controller('RegController', function($scope, $location, $http) {
 									$scope.regForm.password.$dirty = false;
 									$scope.regForm.confirmPassword.$dirty = false;
 									$scope.updateCompanies();
+
+									if(response != null)
+					                {
+					                    $rootScope.currentUser = response;
+					                    $location.url("/companyProfile");
+					                }
 								});
 								break;
 			default:			break;

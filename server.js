@@ -97,8 +97,24 @@ var Major = mongoose.model('Major', MajorSchema);
 app.post("/student", function(req, res){
 	var obj = req.body;
 	var doc = new Student(obj);
-	doc.save();
-	res.send();
+	Student.findOne({nuid: obj.username}, function(err, student)
+    {
+    	if(err) { return next(err); }
+        if(student)
+        {
+            res.json(null);
+            return;
+        }
+        var newStudent = new Student(req.body);
+        newStudent.save(function(err, student)
+        {
+            req.login(student, function(err)
+            {
+                if(err) { return next(err); }
+                res.json({nuid: student.nuid, userType: "Student"});
+            });
+        });
+    });
 })
 
 //------------------------------------------------------------------------------------------------------------
@@ -106,8 +122,24 @@ app.post("/student", function(req, res){
 app.post("/recruiter", function(req, res){
 	var obj = req.body;
 	var doc = new Recruiter(obj);
-	doc.save();
-	res.send();
+	Recruiter.findOne({username: obj.username}, function(err, recruiter)
+    {
+    	if(err) { return next(err); }
+        if(recruiter)
+        {
+            res.json(null);
+            return;
+        }
+        var newRecruiter = new Recruiter(req.body);
+        newRecruiter.save(function(err, recruiter)
+        {
+            req.login(recruiter, function(err)
+            {
+                if(err) { console.log("in error"); return next(err); }
+                res.json({username: recruiter.username, companyId: recruiter.companyId, userType: "Recruiter"});
+            });
+        });
+    });
 })
 
 //----------------------------------------------------------------------------------------------------------
@@ -115,8 +147,24 @@ app.post("/recruiter", function(req, res){
 app.post("/company", function(req, res){
 	var obj = req.body;
 	var doc = new Company(obj);
-	doc.save();
-	res.send();
+	Company.findOne({username: obj.username}, function(err, company)
+    {
+    	if(err) { return next(err); }
+        if(company)
+        {
+            res.json(null);
+            return;
+        }
+        var newCompany = new Company(req.body);
+        newCompany.save(function(err, company)
+        {
+            req.login(company, function(err)
+            {
+                if(err) { return next(err); }
+                res.json({username: company.username, userType: "Company"});
+            });
+        });
+    });
 })
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
