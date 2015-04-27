@@ -22,10 +22,10 @@ app.config(function($routeProvider){
         when('/companyProfile', {
             templateUrl: 'views/profiles/compProfile.html',
             controller: 'ProfileController'
-        }).
-        otherwise({
-        	redirectTo:"/login"
         });
+        /*.otherwise({
+        	redirectTo:"/login"
+        });*/
        
         });
 
