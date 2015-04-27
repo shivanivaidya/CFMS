@@ -215,7 +215,7 @@ function(username, password, done)
 	    {
 	        if (err) { return done(err); }
 	        if (!user) { return done(null, false); }
-	        return done(null, user);
+	        return done(null, {nuid: user.nuid, userType: "Student"});
 	    })
     }
     else if (userType == "Recruiter"){
@@ -223,7 +223,7 @@ function(username, password, done)
 	    {
 	        if (err) { return done(err); }
 	        if (!user) { return done(null, false); }
-	        return done(null, user);
+	        return done(null, {username: user.username, userType: "Recruiter"});
 	    })
     }
     else if (userType == "Company"){
@@ -231,7 +231,7 @@ function(username, password, done)
 	    {
 	        if (err) { return done(err); }
 	        if (!user) { return done(null, false); }
-	        return done(null, user);
+	        return done(null, {username: user.username, userType: "Company"});
 	    })
     }
 }));

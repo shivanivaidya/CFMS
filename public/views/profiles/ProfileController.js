@@ -1,10 +1,12 @@
 
-app.controller('ProfileController', function($scope, $http) {
+app.controller('ProfileController', function($scope, $http, $rootScope, $location) {
 	$scope.Student = false;
 	$scope.Company = false;
 	$scope.Recruiter = true;
 
 	$scope.degrees = [];
+
+	console.log($rootScope.currentUser);
 
 	$http.get("/major").success(function (response){
 		$scope.majors = response;
@@ -70,4 +72,13 @@ app.controller('ProfileController', function($scope, $http) {
 			$scope.gradDate = null;
 		});
     }
+
+    $scope.logout = function(){
+       $http.post("/logout")
+       .success(function(){
+           $rootScope.currentUser = null;
+           $location.url("/login");
+           console.log($rootScope.currentUser);
+       });
+   } 
 })
