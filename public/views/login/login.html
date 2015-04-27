@@ -6,27 +6,27 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Username :</label>
 						<div class="col-sm-2">
-							<input type="text" ng-model="username"  placeholder="Enter username" required/>
+							<input type="text" ng-model="user.username"  placeholder="Enter username" required/>
 						</div>
 				</div> 
 				
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Password :</label>
 						<div class="col-sm-2">
-							<input type="password" ng-model="password" placeholder="Enter password" required/>
+							<input type="password" ng-model="user.password" placeholder="Enter password" required/>
 						</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Login as :</label>
 					<div class="col-sm-2">
-						<select ng-options="u.user for u in users"
+						<select ng-options="u for u in users"
 								ng-model="selectedUser"></select>
 					</div>
 				</div>
 				
 				</hr>
-				<button class="col-sm-2 btn btn-success" ng-disabled="loginForm.$invalid" ng-click="login()"> Login </button> 
+				<button class="col-sm-2 btn btn-success" ng-disabled="loginForm.$invalid" ng-click="login(user)"> Login </button> 
 			</form>
 			<button class="col-sm-2 btn btn-warning" ng-click="register()">Register</button> 
 		</div>		

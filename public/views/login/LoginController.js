@@ -1,24 +1,32 @@
 //var app = angular.module('myApp', []);
 
-app.controller('LoginController', function($scope, $http, $location) {
-    $scope.username = "";
-    $scope.password = "";
-	
-	$scope.users = [
-        {'user' : 'Student'},
-        {'user' : 'Recruiter'},
-		{'user' : 'Company'}
-    ];
+app.controller('LoginController', function($scope, $http, $location, $rootScope) {
+    $scope.user = {};
+
+	$scope.users = [ 'Student', 'Recruiter', 'Company'];
 
     $scope.selectedUser = $scope.users[0];
 	
-	$scope.login = function(){
-		switch($scope.selectedUser.user) {
-			case "Student": 	$location.path("/studentProfile");
+	$scope.login = function(user){
+		var sendUser = {username: user.username + " " + $scope.selectedUser, password: user.password};
+		switch($scope.selectedUser) {
+			case "Student": 	$http.post("/login", sendUser)
+        						.success(function(response){
+						            $rootScope.currentUser = response;
+						            $location.url("/studentProfile");
+						        });
 								break;
-			case "Recruiter":	$location.path("/recruiterProfile");
+			case "Recruiter":	$http.post("/login", sendUser)
+        						.success(function(response){
+						            $rootScope.currentUser = response;
+						            $location.url("/recruiterProfile");
+						        });
 								break;
-			case "Company":		$location.path("/companyProfile");
+			case "Company":		$http.post("/login", sendUser)
+        						.success(function(response){
+						            $rootScope.currentUser = response;
+						            $location.url("/companyProfile");
+						        });
 								break;
 			default:			
 								break;
