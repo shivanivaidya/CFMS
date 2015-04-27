@@ -56,7 +56,7 @@ var RecruiterSchema = new mongoose.Schema({
 	contactNo: String,
 	companyId: String,
 	designation: String,
-	location: String
+	city: String
 }, {collection: "recruiter"});
 
 var Recruiter = mongoose.model('Recruiter', RecruiterSchema);
@@ -73,7 +73,7 @@ var CompanySchema = new mongoose.Schema({
 	industry: String,
 	headquarters: String,
 	contactNo: String,
-	description: String,
+	aboutUs: String,
 }, {collection: "company"});
 
 var Company = mongoose.model('Company', CompanySchema);
@@ -223,7 +223,7 @@ function(username, password, done)
 	    {
 	        if (err) { return done(err); }
 	        if (!user) { return done(null, false); }
-	        return done(null, {username: user.username, userType: "Recruiter"});
+	        return done(null, {username: user.username, companyId: user.companyId, userType: "Recruiter"});
 	    })
     }
     else if (userType == "Company"){

@@ -72,7 +72,8 @@ app.controller('RegController', function($scope, $location, $http) {
 	$scope.register = function(){
 		switch($scope.selectedUser.user) {
 			case "Student":     var student = {nuid: $scope.nuid, password: $scope.formData.password, firstName: "", lastName: "",
-											  email: "", contactNo: "", skills: "", gpa: 0.0, gradDate: new Date()};
+											  email: "", contactNo: "", majorId: 1, degree: "", skills: "", gpa: 0.0, 
+											  gradDate: new Date()};
 								
 							    $http.post("/student", student)
 								.success(function (response){
