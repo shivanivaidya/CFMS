@@ -3,11 +3,19 @@ app.service('profileUserService', function(){
 	var profileUser;
 	this.setProfileUser = function(user){
 		profileUser = user;
-		console.log(profileUser);
 	}
 
 	this.getProfileUser = function(){
-		console.log(profileUser);
 		return profileUser;
 	}
+});
+
+app.service('loginService', function($http, $rootScope, $location){
+	 this.logout = function(){
+       $http.post("/logout")
+       .success(function(){
+           $rootScope.currentUser = null;
+           $location.url("/login");
+       });
+   } 
 });

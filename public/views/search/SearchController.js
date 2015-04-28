@@ -1,9 +1,11 @@
-app.controller('SearchController', function($scope, $http, $location, $rootScope, profileUserService) {
+app.controller('SearchController', function($scope, $http, $location, $rootScope, profileUserService, loginService) {
 
 	$scope.students = [];
 	$scope.companies = [];
 
 	$scope.goToEditProfile = function(){
+		profileUserService.setProfileUser($rootScope.currentUser);
+
 		switch($rootScope.currentUser.userType) {
 			case "Student": 	$location.url("/studentProfile");
 								break;
@@ -50,7 +52,6 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
 
     	$http.get("/company").success(function (response){
 			$scope.companies = response;
-			console.log($scope.companies);
 		});
 
     	$scope.studentSearch = false;
@@ -62,6 +63,10 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.studentSearch = false;
     	$scope.companySearch = false;
     	$scope.jobSearch = true;
+    }
+
+    $scope.logout = function(){
+   		loginService.logout();
     }
 });
 

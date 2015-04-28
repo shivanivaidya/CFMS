@@ -1,8 +1,10 @@
 
-app.controller('ProfileController', function($scope, $http, $rootScope, $location, profileUserService) {
+app.controller('ProfileController', function($scope, $http, $rootScope, $location, profileUserService, loginService) {
 	$scope.Student = true;
 	$scope.Company = false;
 	$scope.Recruiter = false;
+
+	$scope.isMyProfile = false;
 
 	$scope.degrees = [];
 
@@ -16,6 +18,13 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 	});	
 
 	$scope.getProfileData = function(user){
+		if(user == $rootScope.currentUser){
+			$scope.isMyProfile = true;
+		}
+		else{
+			$scope.isMyProfile = false;
+		}
+
 		switch(user.userType) {
 			case "Student": 	$http.get("/student/" + user.nuid).success(function (response){
 									$scope.firstName = response[0].firstName;
@@ -115,10 +124,8 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 		}
     }
 
-    $scope.viewStudentProfile = function(user){
-    	$scope.getProfileData(user);
-    	$scope.college = $scope.selectedMajor.college;
-
+    $scope.viewStudentProfile = function(){
+		profileUserService.setProfileUser($rootScope.currentUser);
     	$location.url("/viewStudent");
     }
 
@@ -127,6 +134,8 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
     }
 
     $scope.goToEditProfile = function(){
+		profileUserService.setProfileUser($rootScope.currentUser);
+
 		switch($rootScope.currentUser.userType) {
 			case "Student": 	$location.url("/studentProfile");
 								break;
@@ -139,11 +148,7 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 		}
 	}
 
-    $scope.logout = function(){
-       $http.post("/logout")
-       .success(function(){
-           $rootScope.currentUser = null;
-           $location.url("/login");
-       });
-   } 
+   $scope.logout = function(){
+   	loginService.logout();
+   }
 })
