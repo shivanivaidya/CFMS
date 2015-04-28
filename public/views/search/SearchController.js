@@ -1,4 +1,4 @@
-app.controller('SearchController', function($scope, $http, $location, $rootScope) {
+app.controller('SearchController', function($scope, $http, $location, $rootScope, profileUserService) {
 
 	$scope.students = [];
 	$scope.companies = [];
@@ -17,6 +17,7 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
 	}
 
 	$scope.viewMyProfile = function(){
+		profileUserService.setProfileUser($rootScope.currentUser);
 		switch($rootScope.currentUser.userType) {
 			case "Student": 	$location.url("/viewStudent");
 								break;
@@ -30,7 +31,8 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     } 
 
     $scope.viewStudent = function(student){
-    	$location.url("/viewStudent/" + student);
+		profileUserService.setProfileUser({nuid: student.nuid, firstName: student.firstName, lastName: student.lastName, userType: "Student"});
+		$location.url("/viewStudent");		
     }  
 
     $scope.displayStudentSearch = function(){
@@ -62,3 +64,4 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.jobSearch = true;
     }
 });
+

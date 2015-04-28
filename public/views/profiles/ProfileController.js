@@ -1,5 +1,5 @@
 
-app.controller('ProfileController', function($scope, $http, $rootScope, $location) {
+app.controller('ProfileController', function($scope, $http, $rootScope, $location, profileUserService) {
 	$scope.Student = true;
 	$scope.Company = false;
 	$scope.Recruiter = false;
@@ -63,7 +63,7 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 		}
 	}
 
-	$scope.getProfileData($rootScope.currentUser);
+	$scope.getProfileData(profileUserService.getProfileUser());
 
 	$scope.updateMajorInfo = function(){
 		$scope.degrees = $scope.selectedMajor.degrees;

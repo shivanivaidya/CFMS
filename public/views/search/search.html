@@ -57,7 +57,7 @@
          
         <ul class="list-group" ng-show="studentSearch">
             <li class="list-group-item" ng-repeat="student in students | filter:query"> 
-                <b> <a href=""> {{student.firstName + " " + student.lastName}}</a> </b>
+                <b> <a href="" ng-click="viewStudent(student)"> {{student.firstName + " " + student.lastName}}</a> </b>
             </li>
         </ul>
     </div>       
