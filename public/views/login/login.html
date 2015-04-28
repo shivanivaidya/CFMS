@@ -29,5 +29,9 @@
 				<button class="col-sm-2 btn btn-success" ng-disabled="loginForm.$invalid" ng-click="login(user)"> Login </button> 
 			</form>
 			<button class="col-sm-2 btn btn-warning" ng-click="register()">Register</button> 
+			</br> </br> </br>
+			<label style="position: fixed; text-align: left" ng-show="loginError">The username or password you entered is incorrect. 
+			</label>
+			
 		</div>		
 		

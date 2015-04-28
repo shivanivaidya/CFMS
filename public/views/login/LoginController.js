@@ -5,6 +5,8 @@ app.controller('LoginController', function($scope, $http, $location, $rootScope)
 
     $scope.selectedUser = $scope.users[0];
 	
+	$scope.loginError = false;
+
 	$scope.login = function(user){
 		var sendUser = {username: user.username + " " + $scope.selectedUser, password: user.password};
 		
@@ -12,8 +14,13 @@ app.controller('LoginController', function($scope, $http, $location, $rootScope)
 		.success(function(response){
             $rootScope.currentUser = response;
             $location.url("/search");
-	    });
-		
+	    })
+	    .error(function(response){
+    		if(response == "Unauthorized")
+		      $scope.loginError = true;
+		    else
+			  $scope.loginError = false;
+		});	
 	};
 
 	$scope.register = function () {
@@ -21,4 +28,4 @@ app.controller('LoginController', function($scope, $http, $location, $rootScope)
 	};
 
 });
-
+	
