@@ -64,7 +64,6 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
 
     	$http.get("/company").success(function (response){
 			$scope.companies = response;
-			console.log($scope.companies);
 		});
 
     	$scope.studentSearch = false;
