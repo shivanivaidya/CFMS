@@ -1,0 +1,70 @@
+
+		<div class = "container">
+		
+			<h3> Welcome to Career Fair Management System!! {{Student}}</h3> 
+			</br>
+			
+			<ul class="nav nav-tabs">
+				<li style="cursor: pointer;" ng-click="goToSearch()"><a ng-href="">Home</a></li>
+				<li style="cursor: pointer;" ng-click="goToEditProfile()"><a ng-href="">Edit Profile</a></li>
+				<li style="cursor: pointer;" class="active" ng-click="viewStudentProfile(currentUser)"><a ng-href="">My Profile</a></li>
+				<li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
+			</ul>
+			
+			<div class="panel panel-info">
+			<h3 class="panel panel-heading" align="center"> {{firstName + " " + lastName}} </h3> 
+			
+				<div class="panel-body">
+					<label>First Name :</label>
+					{{firstName}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Last Name :</label>
+					{{lastName}}
+				</div> 
+
+				<div class="panel-body"> 
+					<label>Major :</label>
+					{{selectedMajor.major}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Degree :</label>
+					{{selectedDegree.name}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Email ID :</label>
+					{{email}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Contact No :</label>
+					{{contactNo}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Skills :</label>
+					{{skills}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>GPA :</label>
+					{{gpa}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>College :</label>
+					{{college}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Graduation Date :</label>
+					{{gradDate.toDateString()}}
+				</div> 
+				</div>
+				
+				</br></br>
+		</div>
+		

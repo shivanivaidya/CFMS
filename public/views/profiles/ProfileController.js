@@ -1,8 +1,8 @@
 
 app.controller('ProfileController', function($scope, $http, $rootScope, $location) {
-	$scope.Student = false;
+	$scope.Student = true;
 	$scope.Company = false;
-	$scope.Recruiter = true;
+	$scope.Recruiter = false;
 
 	$scope.degrees = [];
 
@@ -12,11 +12,12 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 		$scope.selectedMajor = $scope.majors[0];
 		$scope.degrees = $scope.selectedMajor.degrees;
 		$scope.selectedDegree = $scope.degrees[0];
+		$scope.college = $scope.selectedMajor.college;
 	});	
 
-	$scope.getProfileData = function(){
-		switch($rootScope.currentUser.userType) {
-			case "Student": 	$http.get("/student/" + $rootScope.currentUser.nuid).success(function (response){
+	$scope.getProfileData = function(user){
+		switch(user.userType) {
+			case "Student": 	$http.get("/student/" + user.nuid).success(function (response){
 									$scope.firstName = response[0].firstName;
 									$scope.lastName = response[0].lastName;
 									$scope.email = response[0].email;
@@ -24,7 +25,7 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 									$scope.selectedMajor = $scope.majors[response[0].majorId];
 									$scope.degrees = $scope.selectedMajor.degrees;
 									$scope.selectedDegree = $scope.degrees[0];
-
+									$scope.college = $scope.selectedMajor.college;
 
 									for(var i = 0; i< $scope.degrees.length; i++){
 										if($scope.degrees[i].name == response[0].degree)
@@ -38,7 +39,7 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 								});
 
 								break;
-			case "Recruiter":	$http.get("/recruiter/" + $rootScope.currentUser.username).success(function (response){
+			case "Recruiter":	$http.get("/recruiter/" + user.username).success(function (response){
 									$scope.firstName = response[0].firstName;
 									$scope.lastName = response[0].lastName;
 									$scope.email = response[0].email;
@@ -48,7 +49,7 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 								});
 
 								break;
-			case "Company":		$http.get("/company/" + $rootScope.currentUser.username).success(function (response){
+			case "Company":		$http.get("/company/" + user.username).success(function (response){
 									$scope.website = response[0].website;
 									$scope.industry = response[0].industry;
 									$scope.headquarters = response[0].headquarters;
@@ -62,8 +63,8 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 		}
 	}
 
-	$scope.getProfileData();
-	
+	$scope.getProfileData($rootScope.currentUser);
+
 	$scope.updateMajorInfo = function(){
 		$scope.degrees = $scope.selectedMajor.degrees;
 		$scope.selectedDegree = $scope.degrees[0];
@@ -114,12 +115,35 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 		}
     }
 
+    $scope.viewStudentProfile = function(user){
+    	$scope.getProfileData(user);
+    	$scope.college = $scope.selectedMajor.college;
+
+    	$location.url("/viewStudent");
+    }
+
+    $scope.goToSearch = function(){
+    	$location.url("/search");
+    }
+
+    $scope.goToEditProfile = function(){
+		switch($rootScope.currentUser.userType) {
+			case "Student": 	$location.url("/studentProfile");
+								break;
+			case "Recruiter":	$location.url("/recruiterProfile");
+								break;
+			case "Company":		$location.url("/companyProfile");
+								break;
+			default:			
+								break;
+		}
+	}
+
     $scope.logout = function(){
        $http.post("/logout")
        .success(function(){
            $rootScope.currentUser = null;
            $location.url("/login");
-           console.log($rootScope.currentUser);
        });
    } 
 })

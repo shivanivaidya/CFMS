@@ -87,7 +87,7 @@ app.controller('RegController', function($scope, $location, $http, $rootScope) {
 									if(response != null)
 					                {
 					                    $rootScope.currentUser = response;
-					                    $location.url("/studentProfile");
+					                    $location.url("/search");
 					                }
 								});
 
@@ -108,7 +108,7 @@ app.controller('RegController', function($scope, $location, $http, $rootScope) {
 									if(response != null)
 					                {
 					                    $rootScope.currentUser = response;
-					                    $location.url("/recruiterProfile");
+					                    $location.url("/search");
 					                }
 								});
 
@@ -133,7 +133,7 @@ app.controller('RegController', function($scope, $location, $http, $rootScope) {
 									if(response != null)
 					                {
 					                    $rootScope.currentUser = response;
-					                    $location.url("/companyProfile");
+					                    $location.url("/search");
 					                }
 								});
 								break;

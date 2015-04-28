@@ -214,7 +214,7 @@ app.get("/company", function (req, res){
 
 app.get("/major", function (req, res){
 	var Query = Major.find();
-	Query.select('major degrees');
+	Query.select('major degrees college');
 
 	Query.exec(function (err, docs){
 		res.json(docs);
