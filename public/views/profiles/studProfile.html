@@ -7,7 +7,7 @@
 			<ul class="nav nav-tabs">
 				<li style="cursor: pointer;" ng-click="goToSearch()"><a ng-href="">Home</a></li>
 				<li style="cursor: pointer;" class="active" ng-click="goToEditProfile()"><a ng-href="">Edit Profile</a></li>
-				<li style="cursor: pointer;" ng-click="viewStudentProfile(currentUser)"><a ng-href="">My Profile</a></li>
+				<li style="cursor: pointer;" ng-click="viewUser(currentUser, 'Student')"><a ng-href="">My Profile</a></li>
 				<li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
 			</ul>
 			
@@ -100,6 +100,6 @@
 			
 			
 			
-			<button class="col-sm-2 btn btn-success" ng-click="getProfileData()"> Cancel </button> 
+			<button class="col-sm-2 btn btn-success" ng-click="getProfileData(currentUser)"> Cancel </button> 
 			</br></br>
 		</div>
