@@ -27,6 +27,10 @@ app.config(function($routeProvider){
             templateUrl: 'views/profiles/viewStudentProfile.html',
             controller: 'ProfileController'
         }).
+        when('/viewRecruiter/', {
+            templateUrl: 'views/profiles/viewRecruiterProfile.html',
+            controller: 'ProfileController'
+        }).
          when('/viewCompany/', {
             templateUrl: 'views/profiles/viewCompanyProfile.html',
             controller: 'ProfileController'

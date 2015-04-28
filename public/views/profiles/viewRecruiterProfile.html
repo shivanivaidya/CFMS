@@ -9,49 +9,52 @@
 				<li style="cursor: pointer;" ng-click="goToEditProfile()"><a ng-href="">Edit Profile</a></li>
 				<li style="cursor: pointer;" class="active" ng-click="viewMyProfile()" ng-show="isMyProfile"><a ng-href="">My Profile</a></li>
 				<li style="cursor: pointer;" ng-click="viewMyProfile()" ng-show="!isMyProfile"><a ng-href="">My Profile</a></li>
-				<li style="cursor: pointer;" class="active" ng-show="!isMyProfile"><a ng-href="">Company Profile</a></li>
+				<li style="cursor: pointer;" class="active" ng-show="!isMyProfile"><a ng-href="">Recruiter Profile</a></li>
 				<li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
 			</ul>
-			
+ 
 			<div class="panel panel-info">
-				<h3 class="panel panel-heading" align="center"> {{companyName}} </h3> 
+			<h3 class="panel panel-heading" align="center"> <a href="" ng-click="viewUser({_id: companyId}, 'Company')">{{companyName}}</a></h3> 
 			
 				<div class="panel-body">
-					<label>Official Website :</label>
-					{{website}}
+					<label>First Name :</label>
+					{{firstName}}
 				</div> 
+				</br>
 				
 				<div class="panel-body">
-					<label>Industry :</label>
-					{{industry}}
+					<label>Last Name :</label>
+					{{lastName}}
 				</div> 
+				</br>
 				
 				<div class="panel-body">
-					<label>Headquarters :</label>
-					{{headquarters}}
+					<label>Email ID :</label>
+					{{email}}
 				</div> 
+				</br>
 				
 				<div class="panel-body">
 					<label>Contact No :</label>
 					{{contactNo}}
 				</div> 
+				</br>
 				
 				<div class="panel-body">
-					<label>About Us :</label>
-					{{aboutUs}}
+					<label>Designation :</label>
+					{{designation}}
 				</div> 
-
-				<div class="panel-body">
-					<label>Our Recruiter(s) :</label>
-					<ul class="list-group">
-						<li class="list-group-item" ng-repeat="recruiter in recruiters"> 
-							<b> <a href="" ng-click="viewUser(recruiter, 'Recruiter')"> 
-							{{recruiter.firstName + " " + recruiter.lastName}}</a> </b>
-						</li>
-					</ul>
-				</div>
+				</br>
 				
-			</div>
+				<div class="panel-body">
+					<label>City :</label>
+					{{city}}
+				</div> 
+				</br>
+				
+				</div>
 				
 				</br></br>
 		</div>
+		
+		
