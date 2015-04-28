@@ -221,6 +221,17 @@ app.get("/major", function (req, res){
 	})
 })
 
+//------------------------------------------------------------------------------------------------------------
+
+app.get("/student", function (req, res){
+	var Query = Student.find();
+	Query.select('nuid firstName lastName');
+
+	Query.exec(function (err, docs){
+		res.json(docs);
+	})
+})
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // PUT REQUESTS

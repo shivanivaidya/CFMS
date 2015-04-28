@@ -36,7 +36,21 @@
         </div>
 
         <div class="panel-body">
-            Panel content
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Search:</label>
+                <div class="col-sm-2">
+                    <input type="text" placeholder="Enter student name" ng-model="query"/>
+                </div>
+            </div>
         </div>
-    </div>
+         
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="student in students | filter:query"> 
+                <b> <a href=""> {{student.firstName + " " + student.lastName}}</a> </b>
+            </li>
+        </ul>
+    </div>       
 </div>
+            
+          
+  
