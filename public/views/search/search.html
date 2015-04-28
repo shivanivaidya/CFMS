@@ -12,30 +12,41 @@
     </br></br>
    <div class="panel panel-success">
         <div class="panel-heading">
-            <h3 class="panel-title">Search Companies</h3>
+            <h3 class="panel-title" ng-click="displayCompanySearch()"><a href="">Look up Companies</a></h3>
         </div>
 
-        <div class="panel-body">
-            Panel content
+        <div class="panel-body" ng-show="companySearch">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Search:</label>
+                <div class="col-sm-2">
+                    <input type="text" placeholder="Enter company name" ng-model="query"/>
+                </div>
+            </div>
         </div>
+
+         <ul class="list-group" ng-show="companySearch">
+            <li class="list-group-item" ng-repeat="company in companies | filter:query"> 
+                <b> <a href=""> {{company.companyName}}</a> </b>
+            </li>
+        </ul>
     </div>
 
     <div class="panel panel-warning">
         <div class="panel-heading">
-            <h3 class="panel-title">Search Jobs</h3>
+            <h3 class="panel-title" ng-click="displayJobSearch()"><a href="">Look up Jobs</a></h3>
         </div>
 
-        <div class="panel-body">
+        <div class="panel-body" ng-show="jobSearch">
             Panel content
         </div>
     </div>
 
      <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Search Students</h3>
+            <h3 class="panel-title" ng-click="displayStudentSearch()"><a href="">Look up Students</a></h3>
         </div>
 
-        <div class="panel-body">
+        <div class="panel-body" ng-show="studentSearch">
             <div class="form-group">
                 <label class="col-sm-2 control-label">Search:</label>
                 <div class="col-sm-2">
@@ -44,7 +55,7 @@
             </div>
         </div>
          
-        <ul class="list-group">
+        <ul class="list-group" ng-show="studentSearch">
             <li class="list-group-item" ng-repeat="student in students | filter:query"> 
                 <b> <a href=""> {{student.firstName + " " + student.lastName}}</a> </b>
             </li>
