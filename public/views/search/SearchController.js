@@ -32,22 +32,9 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
 		}
     } 
 
-    $scope.viewUser = function(user, userType){
-    	switch(userType){
-    		case "Student": 	profileUserService.setProfileUser({nuid: user.nuid, firstName: user.firstName, 
-	    						lastName: user.lastName, userType: "Student"});
-								$location.url("/viewStudent");
-								break;
-			case "Recruiter": 	profileUserService.setProfileUser({username: user.username, firstName: user.firstName,
-								lastName: user.lastName, userType: "Recruiter"});
-								$location.url("/viewRecruiter");
-								break;
-			case "Company": 	profileUserService.setProfileUser({companyId: user._id, userType: "Company"});
-								$location.url("/viewCompany");
-								break;
-    	}
-			
-    }  
+   $scope.viewUser = function(user, userType){
+   	profileUserService.viewUser(user, userType);
+   }
 
     $scope.displayStudentSearch = function(){
 

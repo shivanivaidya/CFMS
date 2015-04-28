@@ -56,7 +56,12 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 									$scope.contactNo = response[0].contactNo;
 									$scope.designation = response[0].designation;
 									$scope.city = response[0].city;
+									$scope.companyId = user.companyId;
 								});
+
+								$http.get("/company/" + user.companyId).success(function (response){
+									$scope.companyName = response[0].companyName;
+								})
 
 								break;
 			case "Company":		$http.get("/company/" + user.companyId).success(function (response){
@@ -142,6 +147,10 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 			default:			
 								break;
 		}
+    }
+
+    $scope.viewUser = function(user, userType){
+   		profileUserService.viewUser(user, userType);
     }
 
     $scope.goToSearch = function(){
