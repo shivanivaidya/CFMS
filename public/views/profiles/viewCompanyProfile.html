@@ -1,0 +1,46 @@
+
+		<div class = "container">
+		
+			<h3> Welcome to Career Fair Management System!! </h3> 
+			</br>
+			
+			<ul class="nav nav-tabs">
+				<li style="cursor: pointer;" ng-click="goToSearch()"><a ng-href="">Home</a></li>
+				<li style="cursor: pointer;" ng-click="goToEditProfile()"><a ng-href="">Edit Profile</a></li>
+				<li style="cursor: pointer;" class="active" ng-click="viewMyProfile()" ng-show="isMyProfile"><a ng-href="">My Profile</a></li>
+				<li style="cursor: pointer;" ng-click="viewMyProfile()" ng-show="!isMyProfile"><a ng-href="">My Profile</a></li>
+				<li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
+			</ul>
+			
+			<div class="panel panel-info">
+			<h3 class="panel panel-heading" align="center"> {{companyName}} </h3> 
+			
+				<div class="panel-body">
+					<label>Official Website :</label>
+					{{website}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Industry :</label>
+					{{industry}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Headquarters :</label>
+					{{headquarters}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Contact No :</label>
+					{{contactNo}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>About Us :</label>
+					{{aboutUs}}
+				</div> 
+				
+				</div>
+				
+				</br></br>
+		</div>

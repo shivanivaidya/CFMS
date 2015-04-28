@@ -58,7 +58,8 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 								});
 
 								break;
-			case "Company":		$http.get("/company/" + user.username).success(function (response){
+			case "Company":		$http.get("/company/" + user.companyId).success(function (response){
+									$scope.companyName = response[0].companyName;
 									$scope.website = response[0].website;
 									$scope.industry = response[0].industry;
 									$scope.headquarters = response[0].headquarters;
@@ -124,9 +125,19 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 		}
     }
 
-    $scope.viewStudentProfile = function(){
+    $scope.viewMyProfile = function(){
 		profileUserService.setProfileUser($rootScope.currentUser);
-    	$location.url("/viewStudent");
+
+		switch($rootScope.currentUser.userType) {
+			case "Student": 	$location.url("/viewStudent");
+								break;
+			case "Recruiter":	$location.url("/viewRecruiter");
+								break;
+			case "Company":		$location.url("/viewCompany");
+								break;
+			default:			
+								break;
+		}
     }
 
     $scope.goToSearch = function(){

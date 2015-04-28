@@ -161,7 +161,7 @@ app.post("/company", function(req, res){
             req.login(company, function(err)
             {
                 if(err) { return next(err); }
-                res.json({username: company.username, userType: "Company"});
+                res.json({username: company.username, companyId: user._id, userType: "Company"});
             });
         });
     });
@@ -189,11 +189,11 @@ app.get("/recruiter/:username", function(req, res){
 	 }
 })
 
-//------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------
 
-app.get("/company/:username", function(req, res){
-	 if(req.params.username){
-	 	Company.find({ username: req.params.username }, function (err, docs){
+app.get("/company/:id", function(req, res){
+	 if(req.params.id){
+	 	Company.find({ _id: req.params.id }, function (err, docs){
 	 		res.json(docs);
 	 	})
 	 }
@@ -290,7 +290,7 @@ function(username, password, done)
 	    {
 	        if (err) { return done(err); }
 	        if (!user) { return done(null, false); }
-	        return done(null, {username: user.username, userType: "Company"});
+	        return done(null, {username: user.username, companyId: user._id, userType: "Company"});
 	    })
     }
 }));

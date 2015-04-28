@@ -32,9 +32,21 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
 		}
     } 
 
-    $scope.viewStudent = function(student){
-		profileUserService.setProfileUser({nuid: student.nuid, firstName: student.firstName, lastName: student.lastName, userType: "Student"});
-		$location.url("/viewStudent");		
+    $scope.viewUser = function(user, userType){
+    	switch(userType){
+    		case "Student": 	profileUserService.setProfileUser({nuid: user.nuid, firstName: user.firstName, 
+	    						lastName: user.lastName, userType: "Student"});
+								$location.url("/viewStudent");
+								break;
+			case "Recruiter": 	profileUserService.setProfileUser({username: user.username, firstName: user.firstName,
+								lastName: user.lastName, userType: "Recruiter"});
+								$location.url("/viewRecruiter");
+								break;
+			case "Company": 	profileUserService.setProfileUser({companyId: user._id, userType: "Company"});
+								$location.url("/viewCompany");
+								break;
+    	}
+			
     }  
 
     $scope.displayStudentSearch = function(){
@@ -52,6 +64,7 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
 
     	$http.get("/company").success(function (response){
 			$scope.companies = response;
+			console.log($scope.companies);
 		});
 
     	$scope.studentSearch = false;
@@ -63,6 +76,17 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.studentSearch = false;
     	$scope.companySearch = false;
     	$scope.jobSearch = true;
+    }
+
+    $scope.toggle = function(userType){
+    	switch(userType){
+    		case 'Student': $scope.studentSearch = !$scope.studentSearch;
+    						break;
+    		case 'Recruiter': $scope.companySearch = !$scope.companySearch;
+    						  break;
+    		case 'Company': $scope.jobSearch = !$scope.jobSearch;
+    						break;
+    	}
     }
 
     $scope.logout = function(){

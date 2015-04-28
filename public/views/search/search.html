@@ -26,7 +26,7 @@
 
          <ul class="list-group" ng-show="companySearch">
             <li class="list-group-item" ng-repeat="company in companies | filter:query"> 
-                <b> <a href=""> {{company.companyName}}</a> </b>
+                <b> <a href="" ng-click="viewUser(company, 'Company')"> {{company.companyName}}</a> </b>
             </li>
         </ul>
     </div>
@@ -57,7 +57,7 @@
          
         <ul class="list-group" ng-show="studentSearch">
             <li class="list-group-item" ng-repeat="student in students | filter:query"> 
-                <b> <a href="" ng-click="viewStudent(student)"> {{student.firstName + " " + student.lastName}}</a> </b>
+                <b> <a href="" ng-click="viewUser(student, 'Student')"> {{student.firstName + " " + student.lastName}}</a> </b>
             </li>
         </ul>
     </div>       
