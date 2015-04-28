@@ -13,7 +13,7 @@
 			</ul>
 			
 			<div class="panel panel-info">
-			<h3 class="panel panel-heading" align="center"> {{companyName}} </h3> 
+				<h3 class="panel panel-heading" align="center"> {{companyName}} </h3> 
 			
 				<div class="panel-body">
 					<label>Official Website :</label>
@@ -39,8 +39,18 @@
 					<label>About Us :</label>
 					{{aboutUs}}
 				</div> 
-				
+
+				<div class="panel-body">
+					<label>Our Recruiter(s) :</label>
+					<ul class="list-group">
+						<li class="list-group-item" ng-repeat="recruiter in recruiters"> 
+							<b> <a href="" ng-click="viewUser(recruiter, 'Recruiter')"> 
+							{{recruiter.firstName + " " + recruiter.lastName}}</a> </b>
+						</li>
+					</ul>
 				</div>
+				
+			</div>
 				
 				</br></br>
 		</div>

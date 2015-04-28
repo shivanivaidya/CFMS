@@ -189,6 +189,14 @@ app.get("/recruiter/:username", function(req, res){
 	 }
 })
 
+app.get("/recruiterByCId/:companyId", function(req, res){
+	 if(req.params.companyId){
+	 	Recruiter.find({ companyId: req.params.companyId }, function (err, docs){
+	 		res.json(docs);
+	 	})
+	 }
+})
+
 //-------------------------------------------------------------------------------------------------------------
 
 app.get("/company/:id", function(req, res){

@@ -7,6 +7,7 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 	$scope.isMyProfile = false;
 
 	$scope.degrees = [];
+	$scope.recruiters = [];
 
 	$http.get("/major").success(function (response){
 		$scope.majors = response;
@@ -65,6 +66,9 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 									$scope.headquarters = response[0].headquarters;
 									$scope.contactNo = response[0].contactNo;
 									$scope.aboutUs = response[0].aboutUs;
+									$http.get("/recruiterByCId/" + user.companyId).success(function (response){
+										$scope.recruiters = response;
+									});
 								});
 								break;
 			default:			
