@@ -1,7 +1,7 @@
 app.controller('LoginController', function($scope, $http, $location, $rootScope) {
     $scope.user = {};
 
-	$scope.users = [ 'Student', 'Recruiter', 'Company'];
+	$scope.users = [ 'Student', 'Recruiter', 'Company', 'Admin'];
 
     $scope.selectedUser = $scope.users[0];
 	

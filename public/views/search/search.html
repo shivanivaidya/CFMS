@@ -5,13 +5,18 @@
     
     <ul class="nav nav-tabs">
       <li style="cursor: pointer;" class="active" ng-click="goToSearch()"><a ng-href="">Home</a></li>
-      <li style="cursor: pointer;" ng-click="goToEditProfile()"><a ng-href="">Edit Profile</a></li>
-      <li style="cursor: pointer;" ng-click="viewMyProfile()"><a ng-href="">My Profile</a></li>
+
+      <li style="cursor: pointer;" ng-click="goToEditProfile()">
+      <a ng-href="" ng-show="!(currentUser.userType == 'Admin')">Edit Profile</a></li>
+
+      <li style="cursor: pointer;" ng-click="viewMyProfile()">
+      <a ng-href="" ng-show="!(currentUser.userType == 'Admin')">My Profile</a></li>
+
       <li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
     </ul>
     </br></br>
 
-   <div class="panel panel-success" ng-show="currentUser.userType == 'Student'">
+   <div class="panel panel-success" ng-show="currentUser.userType == 'Student' || currentUser.userType == 'Admin'">
         <div class="panel-heading">
             <h3 class="panel-title" ng-click="displayCompanySearch()"><a href="">Look up Companies</a></h3>
         </div>

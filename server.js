@@ -106,6 +106,19 @@ var JobSchema = new mongoose.Schema({
 
 var Job = mongoose.model('Job', JobSchema);
 
+//-----------------------------------------------------------------------------------------------------------
+
+//admin
+var AdminLoginSchema = new mongoose.Schema({
+	username: String,
+	password: {type: String, select: false},
+}, {collection: "adminLogin"});
+
+var AdminLogin = mongoose.model('AdminLogin', AdminLoginSchema);
+
+var admin = new AdminLogin({username: "northeastern", password: "careerNEU2015"});
+admin.save();
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // POST REQUESTS
@@ -347,6 +360,14 @@ function(username, password, done)
 	        if (err) { return done(err); }
 	        if (!user) { return done(null, false); }
 	        return done(null, {username: user.username, companyId: user._id, userType: "Company"});
+	    })
+    }
+    else if (userType == "Admin"){
+    	AdminLogin.findOne({username: username, password: password}, function(err, user)
+	    {
+	        if (err) { return done(err); }
+	        if (!user) { return done(null, false); }
+	        return done(null, {userType: "Admin"});
 	    })
     }
 }));

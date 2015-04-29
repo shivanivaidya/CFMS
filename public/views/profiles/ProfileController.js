@@ -28,8 +28,6 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 
 		switch(user.userType) {
 			case "Student": 	$http.get("/student/" + user.nuid).success(function (response){
-									console.log(response);
-									console.log($scope.majors);
 									$scope.firstName = response[0].firstName;
 									$scope.lastName = response[0].lastName;
 									$scope.email = response[0].email;	
