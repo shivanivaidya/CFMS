@@ -73,6 +73,12 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
    		profileUserService.viewUser(user, userType);
     }
 
+    $scope.deleteJob = function(id){
+    	$http.delete("/job/" + id).success(function (response){
+    		$location.url("/search");
+    	});
+    }
+
     $scope.viewMyProfile = function(){
 		profileUserService.setProfileUser($rootScope.currentUser);
 		switch($rootScope.currentUser.userType) {

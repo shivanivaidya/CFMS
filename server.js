@@ -347,6 +347,16 @@ app.delete("/recruiter/:username", function (req, res){
 	});
 })
 
+//-------------------------------------------------------------------------------------------------------------
+
+app.delete("/job/:id", function (req, res){
+	Job.remove({ _id: req.params.id }, function(err) {
+	    if (!err) {
+	          res.send();
+	    }
+	});
+})
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // PASSPORT.JS AUTHENTICATION
