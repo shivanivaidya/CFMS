@@ -73,9 +73,9 @@
             </div>
         </div>
 
-         <ul class="list-group" ng-show="companySearch">
-            <li class="list-group-item" ng-repeat="company in companies | filter:query"> 
-                <b> <a href="" ng-click="viewUser(company, 'Company')"> {{company.companyName}}</a> </b>
+         <ul class="list-group" ng-show="jobSearch">
+            <li class="list-group-item" ng-repeat="job in jobs | filter:query"> 
+                <b> <a href="" ng-click="viewJob(job)"> {{job.title}}</a> </b>
             </li>
         </ul>
     </div>
