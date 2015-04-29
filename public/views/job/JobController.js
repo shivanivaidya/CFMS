@@ -86,9 +86,9 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
 		switch($rootScope.currentUser.userType) {
 			case "Student": 	$location.url("/viewStudent");
 								break;
-			case "Recruiter":	$location.url("/recruiterProfile");
+			case "Recruiter":	$location.url("/viewRecruiter");
 								break;
-			case "Company":		$location.url("/companyProfile");
+			case "Company":		$location.url("/viewCompany");
 								break;
 			default:			
 								break;
