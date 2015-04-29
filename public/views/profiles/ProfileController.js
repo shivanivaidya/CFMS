@@ -50,6 +50,7 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 
 								break;
 			case "Recruiter":	$http.get("/recruiter/" + user.username).success(function (response){
+									$scope.username = response[0].username;
 									$scope.firstName = response[0].firstName;
 									$scope.lastName = response[0].lastName;
 									$scope.email = response[0].email;
@@ -155,6 +156,12 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 
     $scope.deleteStudent = function(nuid){
     	$http.delete("/student/" + nuid).success(function (response){});
+    }
+
+    $scope.deleteRecruiter = function(username){
+    	$http.delete("/recruiter/" + username).success(function (response){
+    		$scope.viewUser({_id: $scope.companyId}, 'Company');
+    	});
     }
 
     $scope.goToSearch = function(){

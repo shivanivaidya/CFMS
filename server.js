@@ -164,7 +164,7 @@ app.post("/recruiter", function(req, res){
         {
             req.login(recruiter, function(err)
             {
-                if(err) { console.log("in error"); return next(err); }
+                if(err) { return next(err); }
                 res.json({username: recruiter.username, companyId: recruiter.companyId, userType: "Recruiter"});
             });
         });
@@ -199,9 +199,7 @@ app.post("/company", function(req, res){
 //-----------------------------------------------------------------------------------------------------------
 
 app.post("/job", function(req, res){
-	console.log("entered");
 	var obj = req.body;
-	console.log(obj);
 	var doc = new Job(obj);
 	doc.save();
 	res.send();
@@ -333,6 +331,16 @@ app.put("/company/:username", function (req, res){
 
 app.delete("/student/:nuid", function (req, res){
 	Student.remove({ nuid: req.params.nuid }, function(err) {
+	    if (!err) {
+	          res.send();
+	    }
+	});
+})
+
+//-------------------------------------------------------------------------------------------------------------
+
+app.delete("/recruiter/:username", function (req, res){
+	Recruiter.remove({ username: req.params.username }, function(err) {
 	    if (!err) {
 	          res.send();
 	    }
