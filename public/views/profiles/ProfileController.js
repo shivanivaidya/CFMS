@@ -66,6 +66,7 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 
 								break;
 			case "Company":		$http.get("/company/" + user.companyId).success(function (response){
+									$scope.companyId = response[0]._id;
 									$scope.companyName = response[0].companyName;
 									$scope.website = response[0].website;
 									$scope.industry = response[0].industry;
@@ -163,6 +164,16 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
     $scope.deleteRecruiter = function(username){
     	$http.delete("/recruiter/" + username).success(function (response){
     		$scope.viewUser({_id: $scope.companyId}, 'Company');
+    	});
+    }
+
+     $scope.deleteCompany = function(companyId){
+    	$http.delete("/recruiterByCId/" + companyId).success(function (response){
+    		$http.delete("/jobByCId/" + companyId).success(function (response){
+    			$http.delete("/company/" + companyId).success(function (response){
+    				$location.url("/search");
+    			});
+    		});
     	});
     }
 

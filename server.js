@@ -349,6 +349,36 @@ app.delete("/recruiter/:username", function (req, res){
 
 //-------------------------------------------------------------------------------------------------------------
 
+app.delete("/recruiterByCId/:companyId", function (req, res){
+	Recruiter.remove({ companyId: req.params.companyId }, function(err) {
+	    if (!err) {
+	          res.send();
+	    }
+	});
+})
+
+//-------------------------------------------------------------------------------------------------------------
+
+app.delete("/jobByCId/:companyId", function (req, res){
+	Job.remove({ companyId: req.params.companyId }, function(err) {
+	    if (!err) {
+	          res.send();
+	    }
+	});
+})
+
+//--------------------------------------------------------------------------------------------------------------
+
+app.delete("/company/:companyId", function (req, res){
+	Company.remove({ _id: req.params.companyId }, function(err) {
+	    if (!err) {
+	          res.send();
+	    }
+	});
+})
+
+//-------------------------------------------------------------------------------------------------------------
+
 app.delete("/job/:id", function (req, res){
 	Job.remove({ _id: req.params.id }, function(err) {
 	    if (!err) {
