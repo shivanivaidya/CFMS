@@ -255,6 +255,19 @@ app.get("/company/:id", function(req, res){
 	 }
 })
 
+//------------------------------------------------------------------------------------------------------------
+
+app.get("/jobByCId/:id", function(req, res){
+	console.log("entered");
+	 if(req.params.id){
+	 	console.log(req.params.id);
+	 	Job.find({ companyId: req.params.id }, function (err, docs){
+	 		res.json(docs);
+	 		console.log(docs);
+	 	})
+	 }
+})
+
 //-------------------------------------------------------------------------------------------------------------
 
 app.get("/company", function (req, res){

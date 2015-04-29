@@ -24,9 +24,9 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
 		switch($rootScope.currentUser.userType) {
 			case "Student": 	$location.url("/viewStudent");
 								break;
-			case "Recruiter":	$location.url("/recruiterProfile");
+			case "Recruiter":	$location.url("/viewRecruiter");
 								break;
-			case "Company":		$location.url("/companyProfile");
+			case "Company":		$location.url("/viewCompany");
 								break;
 			default:			
 								break;
@@ -67,6 +67,18 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     $scope.displayJobSearch = function(){
 
     	$http.get("/job").success(function (response){
+			$scope.jobs = response;	
+		});
+
+    	$scope.studentSearch = false;
+    	$scope.companySearch = false;
+    	$scope.jobSearch = true;
+    }
+
+     $scope.displaySelectiveJobSearch = function(companyId){
+     	console.log(companyId);
+    	$http.get("/jobByCId/" + companyId).success(function (response){
+    		console.log(response);
 			$scope.jobs = response;	
 		});
 

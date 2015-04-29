@@ -59,9 +59,31 @@
     </div>
 
 
-    <div class="panel panel-warning">
+    <div class="panel panel-warning" ng-show="currentUser.userType == 'Student' || currentUser.userType == 'Admin'">
         <div class="panel-heading">
             <h3 class="panel-title" ng-click="displayJobSearch()"><a href="">Look up Jobs</a></h3>
+        </div>
+
+        <div class="panel-body" ng-show="jobSearch">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Search:</label>
+                <div class="col-sm-2">
+                    <input type="text" placeholder="Enter job title" ng-model="query"/>
+                </div>
+            </div>
+        </div>
+
+         <ul class="list-group" ng-show="companySearch">
+            <li class="list-group-item" ng-repeat="company in companies | filter:query"> 
+                <b> <a href="" ng-click="viewUser(company, 'Company')"> {{company.companyName}}</a> </b>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="panel panel-warning" ng-show="currentUser.userType == 'Recruiter' || currentUser.userType == 'Company'">
+        <div class="panel-heading">
+            <h3 class="panel-title" ng-click="displaySelectiveJobSearch(currentUser.companyId)"><a href="">Look up Jobs</a></h3>
         </div>
 
         <div class="panel-body" ng-show="jobSearch">

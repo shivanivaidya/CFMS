@@ -60,7 +60,8 @@
 				</div> 
 				
 				<div class="panel-body">
-					<button class="col-sm-2 btn btn-danger" ng-show="currentUser.userType == 'Admin'" 
+					<button class="col-sm-2 btn btn-danger" 
+					ng-show="currentUser.userType == 'Admin' || currentUser.userType == 'Recruiter'" 
 					ng-click="deleteJob(jobId)"> Delete Job </button> 
 				</div>
 				</br></br>
