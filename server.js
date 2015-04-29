@@ -116,8 +116,8 @@ var AdminLoginSchema = new mongoose.Schema({
 
 var AdminLogin = mongoose.model('AdminLogin', AdminLoginSchema);
 
-var admin = new AdminLogin({username: "northeastern", password: "careerNEU2015"});
-admin.save();
+/*var admin = new AdminLogin({username: "northeastern", password: "careerNEU2015"});
+admin.save();*/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -324,6 +324,18 @@ app.put("/recruiter/:username", function (req, res){
 app.put("/company/:username", function (req, res){
 	Company.update({ username: req.params.username }, req.body, { upsert: true}, function (err, numAffected){
  		res.send();
+	});
+})
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// DELETE REQUESTS 
+
+app.delete("/student/:nuid", function (req, res){
+	Student.remove({ nuid: req.params.nuid }, function(err) {
+	    if (!err) {
+	          res.send();
+	    }
 	});
 })
 

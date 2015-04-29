@@ -14,7 +14,7 @@
 
 				<li style="cursor: pointer;" ng-click="viewMyProfile()" 
 				ng-show="!isMyProfile && currentUser.userType != 'Admin'"><a ng-href="">My Profile</a></li>
-				
+
 				<li style="cursor: pointer;" class="active" ng-show="!isMyProfile"><a ng-href="">Student Profile</a></li>
 				<li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
 			</ul>
@@ -71,8 +71,13 @@
 					<label>Graduation Date :</label>
 					{{gradDate.toDateString()}}
 				</div> 
+
+				<div class="panel-body">
+					<button class="col-sm-2 btn btn-danger" ng-show="currentUser.userType == 'Admin'" ng-click="deleteStudent(nuid)"> Delete Student </button> 
 				</div>
-				
 				</br></br>
+
+				</div>
+
 		</div>
 		

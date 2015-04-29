@@ -153,6 +153,10 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
    		profileUserService.viewUser(user, userType);
     }
 
+    $scope.deleteStudent = function(nuid){
+    	$http.delete("/student/" + nuid).success(function (response){});
+    }
+
     $scope.goToSearch = function(){
     	$location.url("/search");
     }
