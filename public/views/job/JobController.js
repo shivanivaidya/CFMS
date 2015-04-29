@@ -11,7 +11,7 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
 
 	$scope.save = function(){
 		var job = {_id:$scope.generateId($scope.jobs), title: $scope.jobTitle, jobDescription: $scope.jobDescription, 
-					qualifications: $scope.qualifications, jobType: $scope.selectedJobType, city: $scope.city, 
+					qualifications: $scope.qualifications, type: $scope.selectedJobType, city: $scope.city, 
 					compensation: $scope.compensation, companyId: $rootScope.currentUser.companyId};
 		
 		$http.post("/job", job)
@@ -26,19 +26,21 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
 	}
 
 	$scope.getJob = function(job){
-		$http.get("/job/" + job._id).success(function (response){
-			$scope.jobTitle = response[0].title;
-			$scope.jobDescription = response[0].jobDescription;
-			$scope.qualifications = response[0].qualifications;
-			$scope.jobType = response[0].type;
-			$scope.city = response[0].city;
-			$scope.compensation = response[0].compensation;
-			$scope.jobId = response[0]._id;
-			$scope.companyId = response[0].companyId;
-			$http.get("/company/" + $scope.companyId).success(function (response){
-				$scope.companyName = response[0].companyName;
+		if(job){
+			$http.get("/job/" + job._id).success(function (response){
+				$scope.jobTitle = response[0].title;
+				$scope.jobDescription = response[0].jobDescription;
+				$scope.qualifications = response[0].qualifications;
+				$scope.jobType = response[0].type;
+				$scope.city = response[0].city;
+				$scope.compensation = response[0].compensation;
+				$scope.jobId = response[0]._id;
+				$scope.companyId = response[0].companyId;
+				$http.get("/company/" + $scope.companyId).success(function (response){
+					$scope.companyName = response[0].companyName;
+				});
 			});
-		});
+		}
 	}
 
 	$scope.getJob(jobService.getJob());
@@ -50,7 +52,7 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
 		}
 		var id = "1";
 		if(ids.length > 0 ){
-			(Math.max.apply( Math, ids ) + 1).toString();
+		 id = (Math.max.apply( Math, ids ) + 1).toString();
 		}
 
 		if(id.length == 1)

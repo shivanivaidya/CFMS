@@ -76,6 +76,7 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     }
 
   	$scope.goToAddJob = function(){
+  		jobService.setJob(null);
   		$location.url("/addJob");
   	}
 
