@@ -121,140 +121,46 @@ var sr8 = new Recruiter({username: "fong.andy", password: "Pqrstuv128", firstNam
 contactNo: "(200)265-1546", companyId: "008", designation: "HR", city: "Mountain View, CA"});
 sr8.save();
 
-var sr9 = new Recruiter({username: "clair.underwood", password: "Pqrstuv129", firstName: "Clair", lastName: "Underwood", email: "clair.underwood@intel.com",
-contactNo: "(200)265-1546", companyId: "009", designation: "HR", city: "Santa Clara, CA"});
-sr9.save();
-
-var sr10 = new Recruiter({username: "frank.underwood", password: "Pqrstuv130", firstName: "Frank", lastName: "Underwood", email: "frank.underwood@akamai.com",
-contactNo: "(200)265-1546", companyId: "010", designation: "HR", city: "Cambridge, MA"});
-sr10.save();
-
-var sr11 = new Recruiter({username: "jeff.may", password: "Pqrstuv131", firstName: "Jeff", lastName: "May", email: "jeff.may@nvidia.com",
-contactNo: "(200)265-1546", companyId: "011", designation: "HR", city: "Mountain View"});
-sr11.save();
-
-var sr12 = new Recruiter({username: "steve.buck", password: "Pqrstuv132", firstName: "Steve", lastName: "Buck", email: "steve.buck@hexaware.com",
-contactNo: "(200)265-1546", companyId: "012", designation: "HR", city: "Navi Mumbai, India"});
-sr12.save();
-
-var sr13 = new Recruiter({username: "mark.mask", password: "Pqrstuv133", firstName: "Mark", lastName: "Mask", email: "mark.mask@spacex.com",
-contactNo: "(200)265-1546", companyId: "013", designation: "HR", city: "Hawthorne, CA"});
-sr13.save();
-
-var sr14 = new Recruiter({username: "sharon.r", password: "Pqrstuv134", firstName: "Sharon", lastName: "R", email: "sharon.r@deloitte.com",
-contactNo: "(200)265-1546", companyId: "014", designation: "HR", city: "New York, NY"});
-sr14.save();
-
-var sr15 = new Recruiter({username: "samanth.bosco", password: "Pqrstuv135", firstName: "Samantha", lastName: "Bosco", email: "samanth.bosco@fidelity.com",
-contactNo: "(200)265-1546", companyId: "015", designation: "HR", city: "Boston, MA"});
-sr15.save();
-
-var sr16 = new Recruiter({username: "lebron.james", password: "Pqrstuv136", firstName: "Lebron", lastName: "James", email: "lebron.james@smartertravel.com",
-contactNo: "(200)265-1546", companyId: "018", designation: "HR", city: "Boston, MA"});
-sr16.save();
-
-var sr17 = new Recruiter({username: "kobe.brynt", password: "Pqrstuv137", firstName: "Kobe", lastName: "Brynt", email: "kobe.brynt@massmutual.com",
-contactNo: "(200)265-1546", companyId: "017", designation: "HR", city: "Boston, MA"});
-sr17.save();
-
-var sr18 = new Recruiter({username: "rector.james", password: "Pqrstuv138", firstName: "Rector", lastName: "James", email: "rector.james@vantiv.com",
-contactNo: "(200)265-1546", companyId: "019", designation: "HR", city: "Symmes Twp, OH"});
-sr18.save();
-
-var sr19 = new Recruiter({username: "crispino.dsouza", password: "Pqrstuv139", firstName: "Crispino", lastName: "Dsouza", email: "crispino.dsouza@factset.com",
-contactNo: "(200)265-1546", companyId: "020", designation: "HR", city: "Norwalk, CT"});
-sr19.save();
-
-var sr20 = new Recruiter({username: "vinjohn.park", password: "Pqrstuv140", firstName: "Vinjohn", lastName: "Park", email: "vinjohn.park@yahoo.com",
-contactNo: "(200)265-1546", companyId: "005", designation: "HR", city: "Mountain View"});
-sr20.save();
-
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------
 
 ADDING DATA TO COMPANY SCHEMA
 
-var sc1 = new Company({_id: "001", username: "microsoft", password: "Abcde1201", companyName: "Microsoft", 
-	website: "www.microsoft.com", industry: "Information Technology", headquarters: "Redmond, WA", contactNo: "3455671435", 
-	aboutUs: "Microsoft is the ideal place for people who have passion for their work and the desire to make an impact—in their careers, in the community and on the world. Microsoft is a unique company; and not just within the tech industry. Here, smart people thrive on their own terms and push their intelligence to its limit. The variety of job opportunities and career advancement at Microsoft is incredible and empowers you to constantly challenge yourself and chart your own course."});
-	
-var sc2 = new Company({_id: "002", username: "amazon", password: "Abcde1202", companyName: "Amazon", 
-	website: "www.amazon.com", industry: "Retail", headquarters: "Seattle, WA", contactNo: "8663218851", 
-	aboutUs: "What began as Earth's biggest bookstore has become Earth's biggest everything store. Expansion has propelled Amazon.com in innumerable directions. While the website still offers millions of books, movies, games, and music, electronics and other general merchandise categories, including apparel and accessories, auto parts, home furnishings, health and beauty aids, toys, and groceries ring up more than 50% of sales. Shoppers can also download e-books, games, MP3s, and films to their computers or handheld devices, including Amazon's own portable e-reader, the Kindle. Amazon also offers products and services, such as self-publishing, online advertising, e-commerce platform, hosting, and a co-branded credit card."});	
-	
-var sc3 = new Company({_id: "003", username: "ibm", password: "Abcde1203", companyName: "IBM", 
-	website: "www.ibm.com", industry: "Business Services", headquarters: "Armonk, NY", contactNo: "3435671435", 
-	aboutUs: "IBM is filled with smart people, each of whom are actively involved in helping industries around the world do something better, more efficiently and more productively. From consulting to research, software to sales, there is bound to be an opportunity for you to build the career you want at one of the most successful companies in history."});
-
-var sc4 = new Company({_id: "004", username: "google", password: "Abcde1204", companyName: "Google", 
+var sc1 = new Company({_id: "001", username: "google", password: "Abcde1204", companyName: "Google", 
 	website: "www.google.com", industry: "Information Technology", headquarters: "Mountain View, CA", contactNo: "6502530000", 
 	aboutUs: "Google is not a conventional company, and we don’t intend to become one. True, we share attributes with the world’s most successful organizations – a focus on innovation and smart business practices comes to mind – but even as we continue to grow, we’re committed to retaining a small-company feel. At Google, we know that every employee has something important to say, and that every employee is integral to our success. We provide individually-tailored compensation packages that can be comprised of competitive salary, bonus, and equity components, along with the opportunity to earn further financial bonuses and rewards. Googlers thrive in small, focused teams and high-energy environments, believe in the ability of technology to change the world, and are as passionate about their lives as they are about their work. For more information, visit www.google.com/careers."});
+
+var sc2 = new Company({_id: "002", username: "vmware", password: "Abcde1206", companyName: "VMware", 
+	website: "www.vmware.com", industry: "Information Technology", headquarters: "Palo Alto, CA", contactNo: "6501001010", 
+	aboutUs: "With 2014 revenues of $6.04 billion, VMware has more than 500,000 customers, 75,000 partners, and 18,000+ employees in 120+ locations around the world. At the core of what we do are our employees who deeply value execution, passion, integrity, customers, and community."});
+
+var sc3 = new Company({_id: "003", username: "deloitte", password: "Abcde1214", companyName: "Delloite", 
+	website: "www.deloitte.com", industry: "Accounting & Legal", headquarters: "New York, NY", contactNo: "1445676435", 
+	aboutUs: "The Deloitte U.S. Firms have 65,000+ professionals with a single focus: serving our clients and helping them solve their toughest problems. We work in four key business areas — audit & advisory, financial advisory, tax and consulting — but our real strength comes from combining the talents of those groups to address clients’ needs. Fortune consistently ranks our organization among the best places to work, which is good news for our talent and our clients alike. Come explore what a career with Deloitte might look like for you."});
+
+var sc4 = new Company({_id: "004", username: "akamai", password: "Abcde1210", companyName: "Akamai", 
+	website: "www.akamai.com", industry: "Information Technology", headquarters: "Cambridge, MA", contactNo: "5655671475", 
+	aboutUs: "Akamai Technologies offers an accelerated course on digital delivery. The company's technology enables corporations and government agencies to deliver content and applications, such as ads, business transaction tools, streaming video, and websites over the Internet. It also offers the EdgeControl suite of tools that supply network data feeds and website analytics to customers. Through its network of some 80,000 servers in more than 70 countries, Akamai analyzes and manages Internet traffic, transmitting content from the server geographically closest to the end user. Akamai has about 20 global offices, but most sales are made in the US. Customers have included Apple, Hitachi, NASDAQ, and the US Department of Defense."});
 
 var sc5 = new Company({_id: "005", username: "yahoo", password: "Abcde1205", companyName: "Yahoo", 
 	website: "www.yahoo.com", industry: "Information Technology", headquarters: "Sunnyvale, CA", contactNo: "650567222", 
 	aboutUs: "Yahoo! wants to spread some cheer to Internet users around the world. Its network of websites offers news, entertainment, and shopping, as well as search results powered by Microsoft's Bing offering. Yahoo! generates most of its revenue through providing search and display advertising to Web operations in three categories: Communications & Communities (including Yahoo! Mail, Yahoo! Messenger, Yahoo! Groups, and Flickr), Search and Marketplaces (Yahoo! Search), and Media (Yahoo! Homepage, Yahoo! Finance, and Yahoo! Sports). Other revenues come from fee-based services such as premium e-mail; royalties, licenses, and mobile products; and broadband Internet access. Yahoo! publishes content in about 25 languages."});
 
-var sc6 = new Company({_id: "006", username: "vmware", password: "Abcde1206", companyName: "VMware", 
-	website: "www.vmware.com", industry: "Information Technology", headquarters: "Palo Alto, CA", contactNo: "6501001010", 
-	aboutUs: "With 2014 revenues of $6.04 billion, VMware has more than 500,000 customers, 75,000 partners, and 18,000+ employees in 120+ locations around the world. At the core of what we do are our employees who deeply value execution, passion, integrity, customers, and community."});
-
-var sc7 = new Company({_id: "007", username: "facebook", password: "Abcde1207", companyName: "Facebook", 
+var sc6 = new Company({_id: "006", username: "facebook", password: "Abcde1207", companyName: "Facebook", 
 	website: "www.facebook.com", industry: "Information Technology", headquarters: "Menlo Park, CA", contactNo: "6505551122", 
 	aboutUs: "Facebook was built to help people connect and share, and over the last decade our tools have played a critical part in changing how people around the world communicate. With over a billion people using Facebook and more than fifty offices around the world, Facebook strives to hire the best people who want to move fast and make an impact. The company empowers people in every way it can to allow employees to focus on what they love to do."});
 
-var sc8 = new Company({_id: "008", username: "intuit", password: "Abcde1208", companyName: "Intuit", 
-	website: "www.intuit.com", industry: "Information Technology", headquarters: "Mountain View, CA", contactNo: "6509870011", 
-	aboutUs: "Intuit has driven its expansion strategy from out-of-the-box software to connected services with a five-year SaaS compound annual growth rate of 27 percent. Now in our third decade, our revenue tops $4 billion, and Intuit is recognized as America's most-admired software company with a full suite of customer-driven innovations. Discover more about our award-winning culture and entrepreneurial atmosphere, as we strive to be a 'Best Employer' year-over-year."});
-
-var sc9 = new Company({_id: "009", username: "intel", password: "Abcde1209", companyName: "Intel", 
+var sc7 = new Company({_id: "007", username: "intel", password: "Abcde1209", companyName: "Intel", 
 	website: "www.intel.com", industry: "Technology", headquarters: "Santa Clara, CA", contactNo: "3455671435", 
 	aboutUs: "Our Vision: This decade, we will create and extend computing technology to connect and enrich the lives of every person on earth. In a world of opportunity, now is the time to do more. At Intel, we never stop inventing the future because change is the essence of life. We are driven to be leaders in cutting edge technology solutions that will enrich the lives of every person on earth. We are always looking for hardworking, forward thinking, curiosity-driven individuals with a desire to do something more—inside and outside the office. A career with Intel is more than just a paycheck because world class employees deserve world class benefits."});
 
-var sc10 = new Company({_id: "010", username: "akamai", password: "Abcde1210", companyName: "Akamai", 
-	website: "www.akamai.com", industry: "Information Technology", headquarters: "Cambridge, MA", contactNo: "5655671475", 
-	aboutUs: "Akamai Technologies offers an accelerated course on digital delivery. The company's technology enables corporations and government agencies to deliver content and applications, such as ads, business transaction tools, streaming video, and websites over the Internet. It also offers the EdgeControl suite of tools that supply network data feeds and website analytics to customers. Through its network of some 80,000 servers in more than 70 countries, Akamai analyzes and manages Internet traffic, transmitting content from the server geographically closest to the end user. Akamai has about 20 global offices, but most sales are made in the US. Customers have included Apple, Hitachi, NASDAQ, and the US Department of Defense."});
-
-var sc11 = new Company({_id: "011", username: "nvidia", password: "Abcde1211", companyName: "Nvidia", 
+var sc8 = new Company({_id: "008", username: "nvidia", password: "Abcde1211", companyName: "Nvidia", 
 	website: "www.nvidia.com", industry: "Information Technology", headquarters: "Santa Clara, CA", contactNo: "7455777435", 
 	aboutUs: "For two decades, NVIDIA has pioneered visual computing, the art and science of computer graphics. With our invention of the GPU — the engine of modern visual computing — the field has expanded to encompass video games, movie production, product design, medical diagnosis and scientific research. Today, visual computing is becoming increasingly central to how people interact with technology."});
 
-var sc12 = new Company({_id: "012", username: "hexaware", password: "Abcde1212", companyName: "Hexaware", 
-	website: "www.hexaware.com", industry: "Accounting & Legal", headquarters: "Navi Mumbai, India", contactNo: "02228908391", 
-	aboutUs: "Hexaware Technologies offers IT and business process outsourcing services that take into account many sides of the equation. It assists its customers in the development, implementation, and management of their software applications. The company supports both home-grown applications and packaged offerings from such companies as Microsoft, Oracle, HP, and SAP. Hexaware has some 170 clients and targets vertical industries that include banking, financial services, and insurance; travel and transportation; and health care and life sciences. More than two-thirds of revenue comes from customers in the Americas."});
-
-var sc13 = new Company({_id: "013", username: "spacex", password: "Abcde1213", companyName: "SpaceX", 
-	website: "www.spacex.com", industry: "Aerospace & Defense", headquarters: "Hawthorne, CA", contactNo: "6505679999", 
-	aboutUs: "SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today, SpaceX is actively developing the technologies to make this possible, with the ultimate goal of enabling human life on Mars."});	
-
-var sc14 = new Company({_id: "014", username: "deloitte", password: "Abcde1214", companyName: "Delloite", 
-	website: "www.deloitte.com", industry: "Accounting & Legal", headquarters: "New York, NY", contactNo: "1445676435", 
-	aboutUs: "The Deloitte U.S. Firms have 65,000+ professionals with a single focus: serving our clients and helping them solve their toughest problems. We work in four key business areas — audit & advisory, financial advisory, tax and consulting — but our real strength comes from combining the talents of those groups to address clients’ needs. Fortune consistently ranks our organization among the best places to work, which is good news for our talent and our clients alike. Come explore what a career with Deloitte might look like for you."});
 	
-var sc15 = new Company({_id: "015", username: "fidelity", password: "Abcde1215", companyName: "Fidelity", 
-	website: "www.fidelity.com", industry: "Finance", headquarters: "Boston, MA", contactNo: "6175672235", 
-	aboutUs: "At Fidelity, we are focused on making our financial expertise broadly accessible and effective in helping people live the lives they want— from the 23 million people investing their life savings, to the 20,000 businesses managing their employee benefits programs, to the 10,000 advisors and institutions needing innovative technology solutions to invest their clients’ money. To do this well, as a privately held company, we place a high degree of value in nurturing a work environment that attracts the best talent and reflects our commitment to being an employer of choice."});
-	
-var sc16 = new Company({_id: "016", username: "appnexus", password: "Abcde1216", companyName: "AppNexus", 
-	website: "www.appnexus.com", industry: "Information Technology", headquarters: "New York, NY", contactNo: "65056766435", 
-	aboutUs: "AppNexus technology powers the most innovative trading solutions and marketplaces for Internet advertising. It’s what the world’s most influential advertising and media companies build their businesses on, and what enables them to deliver the ads that deliver the content that people love. It’s a simple value exchange: advertisers get the most from their ads, creators get the most from their content, and consumers get the most out of the Internet. This is our collective purpose: to make the Internet all that it can be, must be, will be. All that the Internet was ever meant to be: All that you ever imagined."});
 
-var sc17 = new Company({_id: "017", username: "massmutual", password: "Abcde1217", companyName: "MassMutual", 
-	website: "www.massmutual.com", industry: "Insurance", headquarters: "Springfield, MA", contactNo: "6175671435", 
-	aboutUs: "Massachusetts Mutual Life Insurance, sometimes known as MassMutual Financial Group, but usually called by its nickname, MassMutual, provides financial services including life insurance, annuities, money management, and retirement planning. Founded in 1851, MassMutual's US and global clients include individuals and businesses. The company also offers disability income insurance, long-term care insurance, structured settlement annuities, and trust services. Its subsidiaries include OppenheimerFunds (mutual funds), Babson Capital Management (investor services), Baring Asset Management (international investment), and Cornerstone Real Estate Advisors (real estate investment management)."});
-
-var sc18 = new Company({_id: "018", username: "smartertravel", password: "Abcde1218", companyName: "SmarterTravel", 
-	website: "www.smartertravel.com", industry: "Information Technology", headquarters: "Boston, MA", contactNo: "6175673634", 
-	aboutUs: "SmarterTravel, a TripAdvisor Company, offers travelers a portfolio of travel sites to help them find the right trip at the right price.  We are a team of passionate professionals who push and drive and innovate like a start-up (3 of our products are less than 5 years old), but we also have a track record of success and we benefit from being a part of a large, public company. At SmarterTravel, we have built an open & collaborative environment and we hire the people we want to work with (not just the ones with the right qualifications), but who also think different than us and challenge the status quo.  We empower people, giving the support and autonomy needed to succeed.  We embrace data to make decisions and overcome obstacles.  We choose speed over perfection, but not at the expense of quality.  We do what we do well, but we’re always looking to make it better.  Let us know if you’d like to help."});
-
-var sc19 = new Company({_id: "019", username: "vantiv", password: "Abcde1219", companyName: "Vantiv", 
-	website: "www.vantiv.com", industry: "Finance", headquarters: "Symmes Twp, OH", contactNo: "4445673435", 
-	aboutUs: "You may not know it but every time you swipe your credit card, a whole world of transactions take place in the background. And Vantiv lives to rule that world. The company, which operates through subsidiary Vantiv LLC (formerly Fifth Third Processing Solutions), is a merchant acquirer - a third party payment processor operating between merchants (and their banks) and customers (and their banks). One of the largest merchant acquirers, it also handles PIN transactions, fraud detection and management, and credit card issuing. Catering to small- to mid-size customers, Vantiv sells services specific to grocers, pharmacies, retailers, restaurants, and others. Formed in 1970, the company filed to go public in 2011."});
-
-var sc20 = new Company({_id: "020", username: "factset", password: "Abcde1220", companyName: "Factset", 
-	website: "www.factset.com", industry: "Finance", headquarters: "Norwalk, CT", contactNo: "1234441435", 
-	aboutUs: "Analysts, portfolio managers, and investment bankers know FactSet Research Systems has the facts down pat. The company offers global financial and economic information for investment analysis. FactSet also offers software for use in downloading and manipulating the data. (Its products can be fully integrated with Microsoft applications such as Excel and PowerPoint.) Among the company's applications are tools for presentations, data warehousing, portfolio analysis, and report writing. Revenues are derived from month-to-month subscriptions to services, databases, and financial applications. More than 80% of revenue comes from investment managers; investment banking clients account for the rest."});	
-	
 sc1.save();
 sc2.save();
 sc3.save();
@@ -263,20 +169,6 @@ sc5.save();
 sc6.save();
 sc7.save();
 sc8.save();
-sc9.save();
-sc10.save();
-sc11.save();
-sc12.save();
-sc13.save();
-sc14.save();
-sc15.save();
-sc16.save();
-sc17.save();
-sc18.save();
-sc19.save();
-sc20.save();
-
-
 //------------------------------------------------------------------------------------------------------------------------------------------------
 
 // FOR MIS
