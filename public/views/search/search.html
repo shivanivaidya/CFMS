@@ -102,7 +102,28 @@
         </ul>
     </div>
 
-     <div class="panel panel-info">
+    <div class="panel panel-success" ng-show="currentUser.userType == 'Company'">
+        <div class="panel-heading">
+            <h3 class="panel-title" ng-click="displayRecruiterSearch(currentUser.companyId)"><a href="">Look up Recruiters</a></h3>
+        </div>
+
+        <div class="panel-body" ng-show="recruiterSearch">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Search:</label>
+                <div class="col-sm-2">
+                    <input type="text" placeholder="Enter recruiter name" ng-model="query"/>
+                </div>
+            </div>
+        </div>
+
+        <ul class="list-group" ng-show="recruiterSearch">
+            <li class="list-group-item" ng-repeat="recruiter in recruiters | filter:query"> 
+                <b> <a href="" ng-click="viewUser(recruiter, 'Recruiter')">{{recruiter.firstName + " " + recruiter.lastName}}</a> </b>
+            </li>
+        </ul>
+    </div>
+
+     <div class="panel panel-info" ng-show="currentUser.userType != 'Company'">
         <div class="panel-heading">
             <h3 class="panel-title" ng-click="displayStudentSearch()"><a href="">Look up Students</a></h3>
         </div>

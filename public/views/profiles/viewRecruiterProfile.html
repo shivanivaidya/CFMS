@@ -16,7 +16,7 @@
 				<li style="cursor: pointer;" ng-click="viewMyProfile()" 
 				ng-show="!isMyProfile && currentUser.userType != 'Admin'"><a ng-href="">My Profile </a></li>
 
-				<li style="cursor: pointer;" class="active" ng-show="!isMyProfile"><a ng-href="">Recruiter Profile {{!isMyProfile}}</a></li>
+				<li style="cursor: pointer;" class="active" ng-show="!isMyProfile"><a ng-href="">Recruiter Profile</a></li>
 				
 				<li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
 			</ul>
@@ -61,7 +61,8 @@
 				</br>
 				
 				<div class="panel-body">
-					<button class="col-sm-2 btn btn-danger" ng-show="currentUser.userType == 'Admin'" 
+					<button class="col-sm-2 btn btn-danger" 
+					ng-show="currentUser.userType == 'Admin' || currentUser.userType == 'Company'" 
 					ng-click="deleteRecruiter(username)"> Delete Recruiter </button> 
 				</div>
 				</br></br>

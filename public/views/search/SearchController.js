@@ -51,6 +51,7 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.studentSearch = true;
     	$scope.companySearch = false;
     	$scope.jobSearch = false;
+    	$scope.recruiterSearch = false;
     }
 
     $scope.displayCompanySearch = function(){
@@ -62,6 +63,7 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.studentSearch = false;
     	$scope.companySearch = true;
     	$scope.jobSearch = false;
+    	$scope.recruiterSearch = false;
     }
 
     $scope.displayJobSearch = function(){
@@ -73,18 +75,30 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.studentSearch = false;
     	$scope.companySearch = false;
     	$scope.jobSearch = true;
+    	$scope.recruiterSearch = false;
     }
 
-     $scope.displaySelectiveJobSearch = function(companyId){
-     	console.log(companyId);
+    $scope.displaySelectiveJobSearch = function(companyId){
     	$http.get("/jobByCId/" + companyId).success(function (response){
-    		console.log(response);
 			$scope.jobs = response;	
 		});
 
     	$scope.studentSearch = false;
     	$scope.companySearch = false;
     	$scope.jobSearch = true;
+    	$scope.recruiterSearch = false;
+    }
+
+    $scope.displayRecruiterSearch = function(companyId){
+    	$http.get("/recruiterByCId/" + companyId).success(function (response){
+    		console.log(response);
+			$scope.recruiters = response;	
+		});
+
+    	$scope.studentSearch = false;
+    	$scope.companySearch = false;
+    	$scope.jobSearch = false;
+    	$scope.recruiterSearch = true;
     }
 
   	$scope.goToAddJob = function(){

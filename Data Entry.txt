@@ -89,37 +89,45 @@ ss16.save();
 
 ADDING DATA TO RECRUITER SCHEMA
 
-var sr1 = new Recruiter({username: "dale.levine", password: "Pqrstuv123", firstName: "Dale", lastName: "Levine", email: "dale.levine@appnexus.com",
-contactNo: "(200)265-1546", companyId: "016", designation: "HR", city: "New York, NY"});
+var sr1 = new Recruiter({username: "dale.levine", password: "Pqrstuv123", firstName: "Dale", lastName: "Levine", email: "dale.levine@google.com",
+contactNo: "(200)265-1546", companyId: "001", designation: "HR", city: "New York, NY"});
 sr1.save();
 
-var sr2 = new Recruiter({username: "adam.sandlar", password: "Pqrstuv121", firstName: "Adam", lastName: "Sandlar", email: "adam.sandlar@microsoft.com",
-contactNo: "(200)265-1546", companyId: "001", designation: "HR", city: "Redmond, WA"});
+var sr2 = new Recruiter({username: "adam.sandlar", password: "Pqrstuv121", firstName: "Adam", lastName: "Sandlar", email: "adam.sandlar@vmware.com",
+contactNo: "(200)265-1546", companyId: "002", designation: "HR", city: "Redmond, WA"});
 sr2.save();
 
-var sr3 = new Recruiter({username: "fi.song", password: "Pqrstuv122", firstName: "Fi", lastName: "Song", email: "fi.song@google.com",
-contactNo: "(200)265-1546", companyId: "004", designation: "HR", city: "Mountain View, CA"});
+var sr3 = new Recruiter({username: "fi.song", password: "Pqrstuv122", firstName: "Fi", lastName: "Song", email: "fi.song@deloitte.com",
+contactNo: "(200)265-1546", companyId: "003", designation: "HR", city: "Mountain View, CA"});
 sr3.save();
 
-var sr4 = new Recruiter({username: "alex.wang", password: "Pqrstuv124", firstName: "Alex", lastName: "Wang", email: "alex.wang@amazon.com",
-contactNo: "(200)265-1546", companyId: "002", designation: "HR", city: "Seattle, WA"});
+var sr4 = new Recruiter({username: "alex.wang", password: "Pqrstuv124", firstName: "Alex", lastName: "Wang", email: "alex.wang@akamai.com",
+contactNo: "(200)265-1546", companyId: "004", designation: "HR", city: "Seattle, WA"});
 sr4.save();
 
-var sr5 = new Recruiter({username: "dirk.dsouza", password: "Pqrstuv125", firstName: "Dirk", lastName: "Dsouza", email: "dirk.dsouza@ibm.com",
-contactNo: "(200)265-1546", companyId: "003", designation: "HR", city: "Armonk, NY"});
+var sr5 = new Recruiter({username: "dirk.dsouza", password: "Pqrstuv125", firstName: "Dirk", lastName: "Dsouza", email: "dirk.dsouza@yahoo.com",
+contactNo: "(200)265-1546", companyId: "005", designation: "HR", city: "Armonk, NY"});
 sr5.save();
 
-var sr6 = new Recruiter({username: "randolph.pereira", password: "Pqrstuv126", firstName: "Randolph", lastName: "Pereira", email: "randolph.pereira@vmware.com",
+var sr6 = new Recruiter({username: "randolph.pereira", password: "Pqrstuv126", firstName: "Randolph", lastName: "Pereira", email: "randolph.pereira@facebook.com",
 contactNo: "(200)265-1546", companyId: "006", designation: "HR", city: "Palo Alto, CA"});
 sr6.save();
 
-var sr7 = new Recruiter({username: "mayank.gandhi", password: "Pqrstuv127", firstName: "Mayank", lastName: "Gandhi", email: "mayank.gandhi@facebook.com",
+var sr7 = new Recruiter({username: "mayank.gandhi", password: "Pqrstuv127", firstName: "Mayank", lastName: "Gandhi", email: "mayank.gandhi@intel.com",
 contactNo: "(200)265-1546", companyId: "007", designation: "HR", city: "Palo Alto, CA"});
 sr7.save();
 
-var sr8 = new Recruiter({username: "fong.andy", password: "Pqrstuv128", firstName: "Fong", lastName: "Andy", email: "fong.andy@intuit.com",
+var sr8 = new Recruiter({username: "fong.andy", password: "Pqrstuv128", firstName: "Fong", lastName: "Andy", email: "fong.andy@nvidia.com",
 contactNo: "(200)265-1546", companyId: "008", designation: "HR", city: "Mountain View, CA"});
 sr8.save();
+
+var sr9 = new Recruiter({username: "jevon.dsouza", password: "Pqrstuv129", firstName: "Jevaon", lastName: "Dsouza", email: "jevon.dsouza@facebook.com",
+contactNo: "(615)266-1546", companyId: "006", designation: "HR", city: "Palo Alto, CA"});
+sr9.save();
+
+var sr10 = new Recruiter({username: "bharti.gupte", password: "Pqrstuv130", firstName: "Bharti", lastName: "Gupte", email: "bharti.gupte@facebook.com",
+contactNo: "(615)265-1547", companyId: "006", designation: "HR", city: "Palo Alto, CA"});
+sr10.save();
 
 
 

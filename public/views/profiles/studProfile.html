@@ -82,23 +82,11 @@
 					</div>
 				</div>
 				
-				<form ng-upload novalidate name="uploadForm" action="/some/path">
-					<div class="form-group">
-						<label class="col-sm-2 control-label"> Upload Resume :</label>
-							<div class="col-sm-2">
-								<input file-browser required type="file" name="uploadFile" ng-model="compositeFile"/></br>
-									<button type="submit" ng-disabled="uploadForm.$invalid" class="btn btn-success" upload-submit="results(content, completed)">
-									Upload</button>
-							</div>
-					</div>
-				</form>
 				</br></br>
 
 				</hr>
 				<button class="col-sm-2 btn btn-success" ng-click="save()"> Save </button> 
 			</form>
-			
-			
 			
 			<button class="col-sm-2 btn btn-danger" ng-click="getProfileData(currentUser)"> Cancel </button> 
 			</br></br>
