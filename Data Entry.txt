@@ -1,0 +1,413 @@
+ADDING DATA TO MAJOR 
+var sm3 = new Major({_id: 0, major: "Computer Science", degrees: [{name: "BS"}, {name: "MS"}, {name: "PhD"}], 
+	college: "College of Computer and Information Science"});
+
+var sm5 = new Major({_id: 1, major: "Electrical Engineering", degrees: [{name: "BS"}, {name: "MS"}, {name: "PhD"}], 
+	college: "College of Engineering"});
+
+var sm6 = new Major({_id: 2, major: "Information Assurance", degrees: [{name: "MS"}, {name: "PhD"}], 
+	college: "College of Computer and Information Science"});
+
+var sm7 = new Major({_id: 3, major: "Information Systems", degrees: [{name: "MS"}, {name: "PhD"}], 
+	college: "College of Engineering"});
+
+sm3.save();
+sm5.save();
+sm6.save();
+sm7.save();
+
+//------------------------------------------------------------------------------------------------------------
+
+ADDING DATA TO STUDENT SCHEMA
+
+var ss1 = new Student({nuid: "001998861", password: "abcd1234!", firstName: "Shivani", lastName: "Vaidya", email: "vaidya.shi@husky.neu.edu",
+contactNo: "(206)295-2163", majorId: 0, degree: "BS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.83, gradDate: new Date("04/30/2016") });
+ss1.save();
+
+var ss2 = new Student({nuid: "001998824", password: "abcd1235!", firstName: "Chinmayee", lastName: "Vaidya", email: "vaidya.chi@husky.neu.edu",
+contactNo: "(206)295-2162", majorId: 1, degree: "BS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 4.00, gradDate: new Date("12/30/2016") });
+ss2.save();
+
+var ss3 = new Student({nuid: "001998823", password: "abcd1236!", firstName: "Mayur", lastName: "Hadawale", email: "had.mayur@husky.neu.edu",
+contactNo: "(206)295-2161", majorId: 2, degree: "MS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.60, gradDate: new Date("04/30/2015") });
+ss3.save();
+
+var ss4 = new Student({nuid: "001998865", password: "abcd1237!", firstName: "Plamin", lastName: "Jose", email: "jose.pla@husky.neu.edu",
+contactNo: "(206)295-2164", majorId: 3, degree: "MS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.83, gradDate: new Date("04/30/2015") });
+ss4.save();
+
+var ss5 = new Student({nuid: "001998860", password: "abcd1238!", firstName: "Ram", lastName: "Shastri", email: "shastri.ram@husky.neu.edu",
+contactNo: "(206)295-2165", majorId: 0, degree: "MS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.83, gradDate: new Date("04/30/2016") });
+ss5.save();
+
+var ss6 = new Student({nuid: "001998677", password: "abcd1239!", firstName: "Priyanka", lastName: "Patel", email: "patel.p@husky.neu.edu",
+contactNo: "(206)295-2166", majorId: 1, degree: "MS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.83, gradDate: new Date("04/30/2015") });
+ss6.save();
+
+var ss7 = new Student({nuid: "001998490", password: "abcd1240!", firstName: "Shruti", lastName: "Valecha", email: "val.sh@husky.neu.edu",
+contactNo: "(206)295-2167", majorId: 2, degree: "PhD", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.83, gradDate: new Date("12/30/2016") });
+ss7.save();
+
+var ss8 = new Student({nuid: "001998001", password: "abcd1241!", firstName: "Rohan", lastName: "Aras", email: "aras.rohan@husky.neu.edu",
+contactNo: "(206)295-2168", majorId: 3, degree: "PhD", skills: "java, c, c++, casandra, mongodb", gpa: 3.77, gradDate: new Date("04/30/2016") });
+ss8.save();
+
+var ss9 = new Student({nuid: "001998812", password: "abcd1242!", firstName: "Kedar", lastName: "Joshi", email: "joshi.k@husky.neu.edu",
+contactNo: "(206)295-2169", majorId: 0, degree: "PhD", skills: "applied mathematics, calculus", gpa: 3.87, gradDate: new Date("04/30/2016") });
+ss9.save();
+
+var ss10 = new Student({nuid: "001998804", password: "abcd1243!", firstName: "Smith", lastName: "Von", email: "von.smith@husky.neu.edu",
+contactNo: "(206)295-2113", majorId: 1, degree: "PhD", skills: "drug supply", gpa: 3.83, gradDate: new Date("04/30/2016") });
+ss10.save();
+
+var ss11 = new Student({nuid: "001998811", password: "abcd1244!", firstName: "Binoy", lastName: "Valya", email: "valya.binoy@husky.neu.edu",
+contactNo: "(206)295-2123", majorId: 2, degree: "MS", skills: "java, c#, spring, hibernate", gpa: 3.50, gradDate: new Date("04/30/2015") });
+ss11.save();
+
+var ss12 = new Student({nuid: "001998819", password: "abcd1234!", firstName: "Nitin", lastName: "C", email: "c.nitin@husky.neu.edu",
+contactNo: "(206)295-2133", majorId: 3, degree: "MS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.83, gradDate: new Date("04/30/2016") });
+ss12.save();
+
+var ss13 = new Student({nuid: "001998820", password: "abcd1234!", firstName: "Roger", lastName: "Fedrer", email: "f.roger@husky.neu.edu",
+contactNo: "(206)295-2143", majorId: 0, degree: "BS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.83, gradDate: new Date("04/30/2016") });
+ss13.save();
+
+var ss14 = new Student({nuid: "001998800", password: "abcd1224!", firstName: "Dilip", lastName: "Joshi", email: "joshi.dilip@husky.neu.edu",
+contactNo: "(206)295-2153", majorId: 1, degree: "MS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.83, gradDate: new Date("04/30/2016") });
+ss14.save();
+
+var ss15 = new Student({nuid: "001998898", password: "abcd1264!", firstName: "Gautam", lastName: "Divekar", email: "divekar.gautam@husky.neu.edu",
+contactNo: "(206)295-2173", majorId: 2, degree: "MS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.48, gradDate: new Date("04/30/2016") });
+ss15.save();
+
+var ss16 = new Student({nuid: "001998816", password: "abcd1274!", firstName: "Nikhil", lastName: "Vaidya", email: "vaidya.nikhil@husky.neu.edu",
+contactNo: "(206)295-2183", majorId: 3, degree: "MS", skills: "java, angular js, node js, spring, hibernate, bootstrap", gpa: 3.83, gradDate: new Date("04/30/2016") });
+ss16.save();
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------
+
+ADDING DATA TO RECRUITER SCHEMA
+
+var sr1 = new Recruiter({username: "dale.levine", password: "Pqrstuv123", firstName: "Dale", lastName: "Levine", email: "dale.levine@appnexus.com",
+contactNo: "(200)265-1546", companyId: "016", designation: "HR", city: "New York, NY"});
+sr1.save();
+
+var sr2 = new Recruiter({username: "adam.sandlar", password: "Pqrstuv121", firstName: "Adam", lastName: "Sandlar", email: "adam.sandlar@microsoft.com",
+contactNo: "(200)265-1546", companyId: "001", designation: "HR", city: "Redmond, WA"});
+sr2.save();
+
+var sr3 = new Recruiter({username: "fi.song", password: "Pqrstuv122", firstName: "Fi", lastName: "Song", email: "fi.song@google.com",
+contactNo: "(200)265-1546", companyId: "004", designation: "HR", city: "Mountain View, CA"});
+sr3.save();
+
+var sr4 = new Recruiter({username: "alex.wang", password: "Pqrstuv124", firstName: "Alex", lastName: "Wang", email: "alex.wang@amazon.com",
+contactNo: "(200)265-1546", companyId: "002", designation: "HR", city: "Seattle, WA"});
+sr4.save();
+
+var sr5 = new Recruiter({username: "dirk.dsouza", password: "Pqrstuv125", firstName: "Dirk", lastName: "Dsouza", email: "dirk.dsouza@ibm.com",
+contactNo: "(200)265-1546", companyId: "003", designation: "HR", city: "Armonk, NY"});
+sr5.save();
+
+var sr6 = new Recruiter({username: "randolph.pereira", password: "Pqrstuv126", firstName: "Randolph", lastName: "Pereira", email: "randolph.pereira@vmware.com",
+contactNo: "(200)265-1546", companyId: "006", designation: "HR", city: "Palo Alto, CA"});
+sr6.save();
+
+var sr7 = new Recruiter({username: "mayank.gandhi", password: "Pqrstuv127", firstName: "Mayank", lastName: "Gandhi", email: "mayank.gandhi@facebook.com",
+contactNo: "(200)265-1546", companyId: "007", designation: "HR", city: "Palo Alto, CA"});
+sr7.save();
+
+var sr8 = new Recruiter({username: "fong.andy", password: "Pqrstuv128", firstName: "Fong", lastName: "Andy", email: "fong.andy@intuit.com",
+contactNo: "(200)265-1546", companyId: "008", designation: "HR", city: "Mountain View, CA"});
+sr8.save();
+
+var sr9 = new Recruiter({username: "clair.underwood", password: "Pqrstuv129", firstName: "Clair", lastName: "Underwood", email: "clair.underwood@intel.com",
+contactNo: "(200)265-1546", companyId: "009", designation: "HR", city: "Santa Clara, CA"});
+sr9.save();
+
+var sr10 = new Recruiter({username: "frank.underwood", password: "Pqrstuv130", firstName: "Frank", lastName: "Underwood", email: "frank.underwood@akamai.com",
+contactNo: "(200)265-1546", companyId: "010", designation: "HR", city: "Cambridge, MA"});
+sr10.save();
+
+var sr11 = new Recruiter({username: "jeff.may", password: "Pqrstuv131", firstName: "Jeff", lastName: "May", email: "jeff.may@nvidia.com",
+contactNo: "(200)265-1546", companyId: "011", designation: "HR", city: "Mountain View"});
+sr11.save();
+
+var sr12 = new Recruiter({username: "steve.buck", password: "Pqrstuv132", firstName: "Steve", lastName: "Buck", email: "steve.buck@hexaware.com",
+contactNo: "(200)265-1546", companyId: "012", designation: "HR", city: "Navi Mumbai, India"});
+sr12.save();
+
+var sr13 = new Recruiter({username: "mark.mask", password: "Pqrstuv133", firstName: "Mark", lastName: "Mask", email: "mark.mask@spacex.com",
+contactNo: "(200)265-1546", companyId: "013", designation: "HR", city: "Hawthorne, CA"});
+sr13.save();
+
+var sr14 = new Recruiter({username: "sharon.r", password: "Pqrstuv134", firstName: "Sharon", lastName: "R", email: "sharon.r@deloitte.com",
+contactNo: "(200)265-1546", companyId: "014", designation: "HR", city: "New York, NY"});
+sr14.save();
+
+var sr15 = new Recruiter({username: "samanth.bosco", password: "Pqrstuv135", firstName: "Samantha", lastName: "Bosco", email: "samanth.bosco@fidelity.com",
+contactNo: "(200)265-1546", companyId: "015", designation: "HR", city: "Boston, MA"});
+sr15.save();
+
+var sr16 = new Recruiter({username: "lebron.james", password: "Pqrstuv136", firstName: "Lebron", lastName: "James", email: "lebron.james@smartertravel.com",
+contactNo: "(200)265-1546", companyId: "018", designation: "HR", city: "Boston, MA"});
+sr16.save();
+
+var sr17 = new Recruiter({username: "kobe.brynt", password: "Pqrstuv137", firstName: "Kobe", lastName: "Brynt", email: "kobe.brynt@massmutual.com",
+contactNo: "(200)265-1546", companyId: "017", designation: "HR", city: "Boston, MA"});
+sr17.save();
+
+var sr18 = new Recruiter({username: "rector.james", password: "Pqrstuv138", firstName: "Rector", lastName: "James", email: "rector.james@vantiv.com",
+contactNo: "(200)265-1546", companyId: "019", designation: "HR", city: "Symmes Twp, OH"});
+sr18.save();
+
+var sr19 = new Recruiter({username: "crispino.dsouza", password: "Pqrstuv139", firstName: "Crispino", lastName: "Dsouza", email: "crispino.dsouza@factset.com",
+contactNo: "(200)265-1546", companyId: "020", designation: "HR", city: "Norwalk, CT"});
+sr19.save();
+
+var sr20 = new Recruiter({username: "vinjohn.park", password: "Pqrstuv140", firstName: "Vinjohn", lastName: "Park", email: "vinjohn.park@yahoo.com",
+contactNo: "(200)265-1546", companyId: "005", designation: "HR", city: "Mountain View"});
+sr20.save();
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------
+
+ADDING DATA TO COMPANY SCHEMA
+
+var sc1 = new Company({_id: "001", username: "microsoft", password: "Abcde1201", companyName: "Microsoft", 
+	website: "www.microsoft.com", industry: "Information Technology", headquarters: "Redmond, WA", contactNo: "3455671435", 
+	aboutUs: "Microsoft is the ideal place for people who have passion for their work and the desire to make an impact—in their careers, in the community and on the world. Microsoft is a unique company; and not just within the tech industry. Here, smart people thrive on their own terms and push their intelligence to its limit. The variety of job opportunities and career advancement at Microsoft is incredible and empowers you to constantly challenge yourself and chart your own course."});
+	
+var sc2 = new Company({_id: "002", username: "amazon", password: "Abcde1202", companyName: "Amazon", 
+	website: "www.amazon.com", industry: "Retail", headquarters: "Seattle, WA", contactNo: "8663218851", 
+	aboutUs: "What began as Earth's biggest bookstore has become Earth's biggest everything store. Expansion has propelled Amazon.com in innumerable directions. While the website still offers millions of books, movies, games, and music, electronics and other general merchandise categories, including apparel and accessories, auto parts, home furnishings, health and beauty aids, toys, and groceries ring up more than 50% of sales. Shoppers can also download e-books, games, MP3s, and films to their computers or handheld devices, including Amazon's own portable e-reader, the Kindle. Amazon also offers products and services, such as self-publishing, online advertising, e-commerce platform, hosting, and a co-branded credit card."});	
+	
+var sc3 = new Company({_id: "003", username: "ibm", password: "Abcde1203", companyName: "IBM", 
+	website: "www.ibm.com", industry: "Business Services", headquarters: "Armonk, NY", contactNo: "3435671435", 
+	aboutUs: "IBM is filled with smart people, each of whom are actively involved in helping industries around the world do something better, more efficiently and more productively. From consulting to research, software to sales, there is bound to be an opportunity for you to build the career you want at one of the most successful companies in history."});
+
+var sc4 = new Company({_id: "004", username: "google", password: "Abcde1204", companyName: "Google", 
+	website: "www.google.com", industry: "Information Technology", headquarters: "Mountain View, CA", contactNo: "6502530000", 
+	aboutUs: "Google is not a conventional company, and we don’t intend to become one. True, we share attributes with the world’s most successful organizations – a focus on innovation and smart business practices comes to mind – but even as we continue to grow, we’re committed to retaining a small-company feel. At Google, we know that every employee has something important to say, and that every employee is integral to our success. We provide individually-tailored compensation packages that can be comprised of competitive salary, bonus, and equity components, along with the opportunity to earn further financial bonuses and rewards. Googlers thrive in small, focused teams and high-energy environments, believe in the ability of technology to change the world, and are as passionate about their lives as they are about their work. For more information, visit www.google.com/careers."});
+
+var sc5 = new Company({_id: "005", username: "yahoo", password: "Abcde1205", companyName: "Yahoo", 
+	website: "www.yahoo.com", industry: "Information Technology", headquarters: "Sunnyvale, CA", contactNo: "650567222", 
+	aboutUs: "Yahoo! wants to spread some cheer to Internet users around the world. Its network of websites offers news, entertainment, and shopping, as well as search results powered by Microsoft's Bing offering. Yahoo! generates most of its revenue through providing search and display advertising to Web operations in three categories: Communications & Communities (including Yahoo! Mail, Yahoo! Messenger, Yahoo! Groups, and Flickr), Search and Marketplaces (Yahoo! Search), and Media (Yahoo! Homepage, Yahoo! Finance, and Yahoo! Sports). Other revenues come from fee-based services such as premium e-mail; royalties, licenses, and mobile products; and broadband Internet access. Yahoo! publishes content in about 25 languages."});
+
+var sc6 = new Company({_id: "006", username: "vmware", password: "Abcde1206", companyName: "VMware", 
+	website: "www.vmware.com", industry: "Information Technology", headquarters: "Palo Alto, CA", contactNo: "6501001010", 
+	aboutUs: "With 2014 revenues of $6.04 billion, VMware has more than 500,000 customers, 75,000 partners, and 18,000+ employees in 120+ locations around the world. At the core of what we do are our employees who deeply value execution, passion, integrity, customers, and community."});
+
+var sc7 = new Company({_id: "007", username: "facebook", password: "Abcde1207", companyName: "Facebook", 
+	website: "www.facebook.com", industry: "Information Technology", headquarters: "Menlo Park, CA", contactNo: "6505551122", 
+	aboutUs: "Facebook was built to help people connect and share, and over the last decade our tools have played a critical part in changing how people around the world communicate. With over a billion people using Facebook and more than fifty offices around the world, Facebook strives to hire the best people who want to move fast and make an impact. The company empowers people in every way it can to allow employees to focus on what they love to do."});
+
+var sc8 = new Company({_id: "008", username: "intuit", password: "Abcde1208", companyName: "Intuit", 
+	website: "www.intuit.com", industry: "Information Technology", headquarters: "Mountain View, CA", contactNo: "6509870011", 
+	aboutUs: "Intuit has driven its expansion strategy from out-of-the-box software to connected services with a five-year SaaS compound annual growth rate of 27 percent. Now in our third decade, our revenue tops $4 billion, and Intuit is recognized as America's most-admired software company with a full suite of customer-driven innovations. Discover more about our award-winning culture and entrepreneurial atmosphere, as we strive to be a 'Best Employer' year-over-year."});
+
+var sc9 = new Company({_id: "009", username: "intel", password: "Abcde1209", companyName: "Intel", 
+	website: "www.intel.com", industry: "Technology", headquarters: "Santa Clara, CA", contactNo: "3455671435", 
+	aboutUs: "Our Vision: This decade, we will create and extend computing technology to connect and enrich the lives of every person on earth. In a world of opportunity, now is the time to do more. At Intel, we never stop inventing the future because change is the essence of life. We are driven to be leaders in cutting edge technology solutions that will enrich the lives of every person on earth. We are always looking for hardworking, forward thinking, curiosity-driven individuals with a desire to do something more—inside and outside the office. A career with Intel is more than just a paycheck because world class employees deserve world class benefits."});
+
+var sc10 = new Company({_id: "010", username: "akamai", password: "Abcde1210", companyName: "Akamai", 
+	website: "www.akamai.com", industry: "Information Technology", headquarters: "Cambridge, MA", contactNo: "5655671475", 
+	aboutUs: "Akamai Technologies offers an accelerated course on digital delivery. The company's technology enables corporations and government agencies to deliver content and applications, such as ads, business transaction tools, streaming video, and websites over the Internet. It also offers the EdgeControl suite of tools that supply network data feeds and website analytics to customers. Through its network of some 80,000 servers in more than 70 countries, Akamai analyzes and manages Internet traffic, transmitting content from the server geographically closest to the end user. Akamai has about 20 global offices, but most sales are made in the US. Customers have included Apple, Hitachi, NASDAQ, and the US Department of Defense."});
+
+var sc11 = new Company({_id: "011", username: "nvidia", password: "Abcde1211", companyName: "Nvidia", 
+	website: "www.nvidia.com", industry: "Information Technology", headquarters: "Santa Clara, CA", contactNo: "7455777435", 
+	aboutUs: "For two decades, NVIDIA has pioneered visual computing, the art and science of computer graphics. With our invention of the GPU — the engine of modern visual computing — the field has expanded to encompass video games, movie production, product design, medical diagnosis and scientific research. Today, visual computing is becoming increasingly central to how people interact with technology."});
+
+var sc12 = new Company({_id: "012", username: "hexaware", password: "Abcde1212", companyName: "Hexaware", 
+	website: "www.hexaware.com", industry: "Accounting & Legal", headquarters: "Navi Mumbai, India", contactNo: "02228908391", 
+	aboutUs: "Hexaware Technologies offers IT and business process outsourcing services that take into account many sides of the equation. It assists its customers in the development, implementation, and management of their software applications. The company supports both home-grown applications and packaged offerings from such companies as Microsoft, Oracle, HP, and SAP. Hexaware has some 170 clients and targets vertical industries that include banking, financial services, and insurance; travel and transportation; and health care and life sciences. More than two-thirds of revenue comes from customers in the Americas."});
+
+var sc13 = new Company({_id: "013", username: "spacex", password: "Abcde1213", companyName: "SpaceX", 
+	website: "www.spacex.com", industry: "Aerospace & Defense", headquarters: "Hawthorne, CA", contactNo: "6505679999", 
+	aboutUs: "SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today, SpaceX is actively developing the technologies to make this possible, with the ultimate goal of enabling human life on Mars."});	
+
+var sc14 = new Company({_id: "014", username: "deloitte", password: "Abcde1214", companyName: "Delloite", 
+	website: "www.deloitte.com", industry: "Accounting & Legal", headquarters: "New York, NY", contactNo: "1445676435", 
+	aboutUs: "The Deloitte U.S. Firms have 65,000+ professionals with a single focus: serving our clients and helping them solve their toughest problems. We work in four key business areas — audit & advisory, financial advisory, tax and consulting — but our real strength comes from combining the talents of those groups to address clients’ needs. Fortune consistently ranks our organization among the best places to work, which is good news for our talent and our clients alike. Come explore what a career with Deloitte might look like for you."});
+	
+var sc15 = new Company({_id: "015", username: "fidelity", password: "Abcde1215", companyName: "Fidelity", 
+	website: "www.fidelity.com", industry: "Finance", headquarters: "Boston, MA", contactNo: "6175672235", 
+	aboutUs: "At Fidelity, we are focused on making our financial expertise broadly accessible and effective in helping people live the lives they want— from the 23 million people investing their life savings, to the 20,000 businesses managing their employee benefits programs, to the 10,000 advisors and institutions needing innovative technology solutions to invest their clients’ money. To do this well, as a privately held company, we place a high degree of value in nurturing a work environment that attracts the best talent and reflects our commitment to being an employer of choice."});
+	
+var sc16 = new Company({_id: "016", username: "appnexus", password: "Abcde1216", companyName: "AppNexus", 
+	website: "www.appnexus.com", industry: "Information Technology", headquarters: "New York, NY", contactNo: "65056766435", 
+	aboutUs: "AppNexus technology powers the most innovative trading solutions and marketplaces for Internet advertising. It’s what the world’s most influential advertising and media companies build their businesses on, and what enables them to deliver the ads that deliver the content that people love. It’s a simple value exchange: advertisers get the most from their ads, creators get the most from their content, and consumers get the most out of the Internet. This is our collective purpose: to make the Internet all that it can be, must be, will be. All that the Internet was ever meant to be: All that you ever imagined."});
+
+var sc17 = new Company({_id: "017", username: "massmutual", password: "Abcde1217", companyName: "MassMutual", 
+	website: "www.massmutual.com", industry: "Insurance", headquarters: "Springfield, MA", contactNo: "6175671435", 
+	aboutUs: "Massachusetts Mutual Life Insurance, sometimes known as MassMutual Financial Group, but usually called by its nickname, MassMutual, provides financial services including life insurance, annuities, money management, and retirement planning. Founded in 1851, MassMutual's US and global clients include individuals and businesses. The company also offers disability income insurance, long-term care insurance, structured settlement annuities, and trust services. Its subsidiaries include OppenheimerFunds (mutual funds), Babson Capital Management (investor services), Baring Asset Management (international investment), and Cornerstone Real Estate Advisors (real estate investment management)."});
+
+var sc18 = new Company({_id: "018", username: "smartertravel", password: "Abcde1218", companyName: "SmarterTravel", 
+	website: "www.smartertravel.com", industry: "Information Technology", headquarters: "Boston, MA", contactNo: "6175673634", 
+	aboutUs: "SmarterTravel, a TripAdvisor Company, offers travelers a portfolio of travel sites to help them find the right trip at the right price.  We are a team of passionate professionals who push and drive and innovate like a start-up (3 of our products are less than 5 years old), but we also have a track record of success and we benefit from being a part of a large, public company. At SmarterTravel, we have built an open & collaborative environment and we hire the people we want to work with (not just the ones with the right qualifications), but who also think different than us and challenge the status quo.  We empower people, giving the support and autonomy needed to succeed.  We embrace data to make decisions and overcome obstacles.  We choose speed over perfection, but not at the expense of quality.  We do what we do well, but we’re always looking to make it better.  Let us know if you’d like to help."});
+
+var sc19 = new Company({_id: "019", username: "vantiv", password: "Abcde1219", companyName: "Vantiv", 
+	website: "www.vantiv.com", industry: "Finance", headquarters: "Symmes Twp, OH", contactNo: "4445673435", 
+	aboutUs: "You may not know it but every time you swipe your credit card, a whole world of transactions take place in the background. And Vantiv lives to rule that world. The company, which operates through subsidiary Vantiv LLC (formerly Fifth Third Processing Solutions), is a merchant acquirer - a third party payment processor operating between merchants (and their banks) and customers (and their banks). One of the largest merchant acquirers, it also handles PIN transactions, fraud detection and management, and credit card issuing. Catering to small- to mid-size customers, Vantiv sells services specific to grocers, pharmacies, retailers, restaurants, and others. Formed in 1970, the company filed to go public in 2011."});
+
+var sc20 = new Company({_id: "020", username: "factset", password: "Abcde1220", companyName: "Factset", 
+	website: "www.factset.com", industry: "Finance", headquarters: "Norwalk, CT", contactNo: "1234441435", 
+	aboutUs: "Analysts, portfolio managers, and investment bankers know FactSet Research Systems has the facts down pat. The company offers global financial and economic information for investment analysis. FactSet also offers software for use in downloading and manipulating the data. (Its products can be fully integrated with Microsoft applications such as Excel and PowerPoint.) Among the company's applications are tools for presentations, data warehousing, portfolio analysis, and report writing. Revenues are derived from month-to-month subscriptions to services, databases, and financial applications. More than 80% of revenue comes from investment managers; investment banking clients account for the rest."});	
+	
+sc1.save();
+sc2.save();
+sc3.save();
+sc4.save();
+sc5.save();
+sc6.save();
+sc7.save();
+sc8.save();
+sc9.save();
+sc10.save();
+sc11.save();
+sc12.save();
+sc13.save();
+sc14.save();
+sc15.save();
+sc16.save();
+sc17.save();
+sc18.save();
+sc19.save();
+sc20.save();
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------
+
+// FOR MIS
+
+var j1 = new Job({
+  _id: "001",
+  title: "Manager",
+  jobDescription: "Google's projects, like our users, span the globe and require managers to keep the big picture in focus. As a Program Manager at Google, you lead complex, multi-disciplinary projects. You plan requirements with internal customers and usher projects through the entire project lifecycle. This includes managing project schedules, identifying risks and clearly communicating goals to project stakeholders. Your projects often span offices, time zones and hemispheres, and it's your job to keep all the players coordinated on the project's progress and deadlines.In this role, you will drive Mergers and Acquisitions (M&A;) Application Operations Integration engagements as the Technical Program Manager for all facets of acquisitions Development and Production Infrastructure. You will provide leadership and expertise to deliver IT programs and initiatives on schedule and within budget. You will plan and administer both projects and the overall program, and ensure that deliverables are completed correctly and on-time. You will deliver the technical solution to support an organization's vision and strategic direction. You are a leader in the IT organization, and will be held accountable for the success of enterprise-impacting technology initiatives. You will be responsible for driving the workflow(s) knowledge and leveraging your engineering background to lead the program efforts of the support teams to deliver appropriate solutions. You will be responsible for a specific domain set program (production systems, Virtualizations/WinOps, Linux, Database Engineering, etc.) that will be capable of solving client needs - including appropriate capacity growth and driving efficiency improvements through the teams.",
+  qualifications: "BA/BS degree in a technical discipline (CS/EE) or equivalent practical experience, 8 years of experience in technology, 4 years of experience in program management, Project management or technical management experience leading technical projects for customer facing systems/products",
+  compensation: "$300,000",
+  companyId: "004",
+  city: "Mountain View, CA",
+  type: "Full-Time"
+});
+
+var j3 = new Job({_id: "003", title: "Intern, Ad Creative Technology", jobDescription: "The Ad Creative Technology intern will be focused on a project to update and align our dynamic advertising reporting. The focus will be on reporting for our Personalized Creative offering, with additional opportunities to work on reporting for our other Splash and network rich media ads. Throughout the summer, our intern will have a direct manager and will be given a work experience similar to current full-time employees. This will include, but not be limited to, setting goals, attending meetings, communicating project status, collaborating with internal Googles, participating in 1:1s and creating presentations to management. The goal for each successful candidate will be to enhance skills in data analysis, problem solving, work consistency/quality, Google systems, communication, and teamwork. Interns will be held accountable to their project goals, and will make an end-of-summer presentation regarding their experience and work completed.", qualifications: "Current or graduating student at an accredited college or university, Must be pursuing a Bachelor’s degree in an Analytical, Advertising, Journalism or Marketing major, GPA of 3.5 or higher, Knowledge of Microsoft Office – Word, Excel, Powerpoint, Knowledge of Tableau and other BI tools is a nice to have, Excellent communication skills in writing and verbally, Strong attention to detail", 
+compensation: "$40", companyId: "004", city: "Omaha, NE", type: "Internship"});
+
+var j4 = new Job({_id: "004", title: "Software Engineer, Infrastructure", jobDescription: "Google was built to help people connect and share, and over the last decade our tools have played a critical part in changing how people around the world communicate with one another. With over a billion people using the service and more than fifty offices around the globe, a career at Google offers countless ways to make an impact in a fast growing organization.Google is seeking an experienced Software Engineer to join our Infrastructure Engineering team in Boston. The position is full-time and is based in our Cambridge, MA office. There are minimal travel requirements for this position. Infrastructure Engineering builds large, distributed components that run Facebook. Our code serves millions of requests per second, and it does so with subsecond latency and in a fault tolerant manner. We handle everything from Google scale data storage, to synchronization and coordination of large server clusters, to providing a runtime environment for front end Google code. We are looking for candidates who share a passion for tackling complexity and building platforms that can scale through multiple orders of magnitude.",
+ qualifications: "B.S. Computer Science or related field preferred, Extensive experience building large-scale server applications, Expert knowledge developing and debugging in C/C++ or Java/C#, Knowledge of Perl, PHP, Hack or Python a plus, Experience with operating system internals, filesystems, programming language design, compilers also a plus", 
+compensation: "$150,000", companyId: "004", city: "Menlo Park, CA", type: "Full-Time"});
+
+var j5 = new Job({_id: "005", title: "Senior Systems Engineer", jobDescription: "This position represents an opportunity to join our vibrant company and become an integral part of a talented team involved with disrupting and transforming the technology landscape of the business world. The VMware Systems Engineer plays a critical role in building and sustaining customer relationships while driving the adoption of Google solutions to surpass our revenue goals. The SE works very closely with sales to build long-term business relationships within assigned accounts in Google’s Select Account Program. This SE role is a very high impact, very visible role, responsible for ensuring pervasive enterprise adoption of VMware software and solutions, and closing enterprise transactions within assigned Select Accounts in the Boston Area.",
+ qualifications: "5+ years experience in technology related work, including most recent roles in Pre-sales and/or as a customer-facing consultant, Ability to collaborate with internal and external teams as well as motivate multiple groups toward accomplishing tasks, Strong customer facing and relationship building and ongoing relationship growing skills, with an ability to talk outside of the typical IT audience, Experience with Cisco, Arista and Juniper technologies a plus, Current Google Certified Professional Certification a plus, BA/BS or equivalent experience required", 
+compensation: "$250,000", companyId: "004", city: "Boston, MA", type: "Full-Time"});
+
+var j7 = new Job({_id: "007", title: "Computer Architecture Intern", jobDescription: "Technical internship in the PDG Architecture group TRU (Technologies for Reliability & Usage) will involve understanding & development of tools & methods for architectural studies & evaluations of reliability/power phenomena as well as evaluation & development of new architectural features. Domains will cover a broad spectrum of areas from reliability to power & performance. Internship period is for 3-6 months, 6 months preferred ",
+ qualifications: "MS or equivalent in computer engineering or computer science with a strong background in computer architecture, Requires strong programming skills in C/C and good scripting skills in Perl/Python", 
+compensation: "$45", companyId: "004", city: "Boston, MA", type: "Internship"});
+
+
+
+//FOR IA
+
+var j2 = new Job({
+ _id: "002", 
+title: "Technical Accounting Manager", 
+ jobDescription: "We are seeking a Technical Accounting Manager with a combination of Big 4 public accounting and media startup company experience to provide technical accounting and reporting support in all financial statement areas including: revenue recognition, stock-based compensation, financial disclosure, internal and external reporting. This position will function as a key member of the accounting and finance team and be responsible for providing leadership and guidance on the interpretation and application of technical accounting matters including developing necessary accounting policies, procedures and controls.  Initially, the role will be very project- oriented geared towards audit and IPO readiness and then over the 12-18 months will evolve into a combination of recurring work and special projects.",
+ qualifications: "Minimum of 5 years overall experience, with at least 4 years in a “Big 4” accounting firm and the remainder at a public company, Bachelor’s degree in accounting or related area required, “Big 4” experience required, NetSuite experience, preferred, Expert understanding of US GAAP accounting principles and SEC reporting regulations, Excellent written and verbal communication skills required; must be comfortable communicating with individuals at all levels of an organization, Advanced knowledge of Excel, including pivot tables and v-lookup formulas required", 
+compensation: "$250,000", 
+companyId: "014", 
+city: "Mountain View, CA", 
+type: "Full-Time"});
+
+var j11 = new Job({_id: "011", title: "Manager", jobDescription: "Deloitte's projects, like our users, span the globe and require managers to keep the big picture in focus. As a Program Manager at Google, you lead complex, multi-disciplinary projects. You plan requirements with internal customers and usher projects through the entire project lifecycle. This includes managing project schedules, identifying risks and clearly communicating goals to project stakeholders. Your projects often span offices, time zones and hemispheres, and it's your job to keep all the players coordinated on the project's progress and deadlines.In this role, you will drive Mergers and Acquisitions (M&A;) Application Operations Integration engagements as the Technical Program Manager for all facets of acquisitions Development and Production Infrastructure. You will provide leadership and expertise to deliver IT programs and initiatives on schedule and within budget. You will plan and administer both projects and the overall program, and ensure that deliverables are completed correctly and on-time. You will deliver the technical solution to support an organization's vision and strategic direction. You are a leader in the IT organization, and will be held accountable for the success of enterprise-impacting technology initiatives. You will be responsible for driving the workflow(s) knowledge and leveraging your engineering background to lead the program efforts of the support teams to deliver appropriate solutions. You will be responsible for a specific domain set program (production systems, Virtualizations/WinOps, Linux, Database Engineering, etc.) that will be capable of solving client needs - including appropriate capacity growth and driving efficiency improvements through the teams.",
+qualifications: "BA/BS degree in a technical discipline (CS/EE) or equivalent practical experience, 8 years of experience in technology, 4 years of experience in program management, Project management or technical management experience leading technical projects for customer facing systems/products",
+compensation: "$300,000", companyId: "014", city: "New York, NY", type: "Full-Time"});
+
+var j12 = new Job({_id: "012", title: "Network Lead", jobDescription: "The Akamai NOCC is seeking an engineer to lead the NOCCs group of network specialists as they manage Akamais 185,000+ production servers on over 1200 netwroks. The Network Lead will oversee and coordinate network training, response, and improvement across all of Akamais NOCC shifts; network specialists will continue to report to their local shift managers. Work for the Network Lead will be varied, and likely include everything from small scale troubleshooting through NOCC-wide projects. Training will be a key part, as new NOCC employees develop networking skills.",
+ qualifications: "Minimum of 5 years overall experience, with at least 4 years in a “Big 4” accounting firm and the remainder at a public company, Bachelor’s degree in accounting or related area required, “Big 4” experience required, NetSuite experience, preferred, Expert understanding of US GAAP accounting principles and SEC reporting regulations, Excellent written and verbal communication skills required; must be comfortable communicating with individuals at all levels of an organization, Advanced knowledge of Excel, including pivot tables and v-lookup formulas required", 
+compensation: "$250,000", companyId: "010", city: "Boston, MA", type: "Full-Time"});
+
+
+var j6 = new Job({_id: "006", title: "Technical Product Marketing Manager", jobDescription: "The Technical Product Marketing Manager will define and communicate the architectural vision and go-to-market strategy for Akamais Cloud Security products globally. This hire will communicate and influence internal and external audiences including customers, sales, industry and financial analysts and the media.The Product Marketing team at Akamai effectively serves as the conduit for product information to the rest of the sales and marketing organization. The team works hand in hand with Product Management to define and track product releases, and communicates the value and positioning of those products to the rest of the sales and marketing organization.",
+ qualifications: "Education: Bachelors Degree, MBA preferred, or equivalent, 3+ years of professional experience, 2+ years of Product Marketing, Product Management, or equivalent experience, 1+ years of experience working with internet-related technologies or equivalent experience", 
+compensation: "$180,000", companyId: "014", city: "Sunnyvale, CA", type: "Full-Time"});
+
+var j8 = new Job({_id: "008", title: "User Experience Designer", jobDescription: "We are seeking a UX Designer with the ability to design effective and efficient user interfaces for complex domains in a fast-pasted environment. You will be involved in every step of the design process to ensure a useful and usable web-based product including: developing and articulating user requirements and interface visions, concept design, documenting and testing your design work.",
+qualifications: "Bachelor's Degree in relevant field required, 2+ years' of experience in UX/UI design, 2+ years' experience helping advance current UX/UI design best practices, 1+ years of experience creating a portfolio of work, 2+ years of experience with UX Design tools such as: Axure, RP 7.0, Balsamiq, Adobe Creative Suite, etc.", 
+compensation: "$150,000", companyId: "010", city: "Cambridge, MA", type: "Full-Time"});
+
+
+
+
+
+
+
+
+
+
+// FOR CS
+
+var j13 = new Job({_id: "013", title: "Intern, Ad Creative Technology", jobDescription: "The Ad Creative Technology intern will be focused on a project to update and align our dynamic advertising reporting. The focus will be on reporting for our Personalized Creative offering, with additional opportunities to work on reporting for our other Splash and network rich media ads. Throughout the summer, our intern will have a direct manager and will be given a work experience similar to current full-time employees. This will include, but not be limited to, setting goals, attending meetings, communicating project status, collaborating with internal Yahoos, participating in 1:1s and creating presentations to management. The goal for each successful candidate will be to enhance skills in data analysis, problem solving, work consistency/quality, Yahoo systems, communication, and teamwork. Interns will be held accountable to their project goals, and will make an end-of-summer presentation regarding their experience and work completed.", qualifications: "Current or graduating student at an accredited college or university, Must be pursuing a Bachelor’s degree in an Analytical, Advertising, Journalism or Marketing major, GPA of 3.5 or higher, Knowledge of Microsoft Office – Word, Excel, Powerpoint, Knowledge of Tableau and other BI tools is a nice to have, Excellent communication skills in writing and verbally, Strong attention to detail", 
+compensation: "$40", companyId: "005", city: "Sunnyvale, CA", type: "Internship"});
+
+var j14 = new Job({_id: "014", title: "Software Engineer, Infrastructure", jobDescription: "Yahoo was built to help people connect and share, and over the last decade our tools have played a critical part in changing how people around the world communicate with one another. With over a billion people using the service and more than fifty offices around the globe, a career at Yahoo offers countless ways to make an impact in a fast growing organization. Yahoo is seeking an experienced Software Engineer to join our Infrastructure Engineering team in Boston. The position is full-time and is based in our Cambridge, MA office. There are minimal travel requirements for this position. Infrastructure Engineering builds large, distributed components that run Yahoo. Our code serves millions of requests per second, and it does so with subsecond latency and in a fault tolerant manner. We handle everything from Yahoo scale data storage, to synchronization and coordination of large server clusters, to providing a runtime environment for front end Facebook code. We are looking for candidates who share a passion for tackling complexity and building platforms that can scale through multiple orders of magnitude.",
+qualifications: "B.S. Computer Science or related field preferred, Extensive experience building large-scale server applications, Expert knowledge developing and debugging in C/C++ or Java/C#, Knowledge of Perl, PHP, Hack or Python a plus, Experience with operating system internals, filesystems, programming language design, compilers also a plus", 
+compensation: "$150,000", companyId: "005", city: "Boston, MA", type: "Full-Time"});
+
+var j15 = new Job({_id: "015", title: "Senior Systems Engineer", jobDescription: "This position represents an opportunity to join our vibrant company and become an integral part of a talented team involved with disrupting and transforming the technology landscape of the business world. The Yahoo Systems Engineer plays a critical role in building and sustaining customer relationships while driving the adoption of Yahoo solutions to surpass our revenue goals. The SE works very closely with sales to build long-term business relationships within assigned accounts in Yahoo’s Select Account Program. This SE role is a very high impact, very visible role, responsible for ensuring pervasive enterprise adoption of Yahoo software and solutions, and closing enterprise transactions within assigned Select Accounts in the Boston Area.",
+ qualifications: "5+ years experience in technology related work, including most recent roles in Pre-sales and/or as a customer-facing consultant, Ability to collaborate with internal and external teams as well as motivate multiple groups toward accomplishing tasks, Strong customer facing and relationship building and ongoing relationship growing skills, with an ability to talk outside of the typical IT audience, Experience with Cisco, Arista and Juniper technologies a plus, Current VMware Certified Professional Certification a plus, BA/BS or equivalent experience required", 
+compensation: "$250,000", companyId: "005", city: "Boston, MA", type: "Full-Time"});
+
+var j16 = new Job({_id: "016", title: "Senior Interaction Designer", jobDescription: "The Sr. Interaction Designer has a passion for simple and elegant designs and works closely with the product development organization to create solutions that meet world class standards for functionality and usability. The Sr. Interaction Designer rapidly prototypes concepts and provides compelling demos to catalyze development and illuminate product opportunities/challenges. The Sr. Interaction Designer is self-sufficient, has strong communication and collaboration skills, discerning taste, exacting standards, and experience in a broad array of technical disciplines (e.g. software, robotics, control systems, 3D input devices, machine vision, haptic rendering). This unique combination of characteristics enables them to work with a broad audience of product developers to explore new frontiers in complex-electromechanical interfaces.",
+ qualifications: "Bachelors degree with 8 years of experience or a Masters degree with 6 years of experience as an interaction designer, Must be a highly passionate individual that cares deeply for craftsmanship and has proven ability to collaborate with talented designers to create groundbreaking products, Excellent communication and presentation skills, Ability to travel up to 10% (mostly domestic, but also globally for user research studies).", 
+compensation: "$180,000", companyId: "005", city: "new York, NY", type: "Full-Time"});
+
+var j17 = new Job({_id: "017", title: "Computer Architecture Intern", jobDescription: "Technical internship in the PDG Architecture group TRU (Technologies for Reliability & Usage) will involve understanding & development of tools & methods for architectural studies & evaluations of reliability/power phenomena as well as evaluation & development of new architectural features. Domains will cover a broad spectrum of areas from reliability to power & performance. Internship period is for 3-6 months, 6 months preferred ",
+ qualifications: "MS or equivalent in computer engineering or computer science with a strong background in computer architecture, Requires strong programming skills in C/C and good scripting skills in Perl/Python", 
+compensation: "$45", companyId: "005", city: "Redmond, WA", type: "Internship"});
+
+
+
+// FOR ELECTRICAL
+
+
+var j19 = new Job({_id: "019", title: "Hardware Engineer", jobDescription: "As an experienced hardware engineer at a leading global chipmaker, you will research, design, develop, and test advanced computer systems and components, processors, circuit boards, memory devices, networks, and routers. You will be working to define and create collateral for innovative new platforms and devices (schematic entry, reference design layout, initial board bring-up and test, including driver bring-up). You will also be in charge of system integration and debug (including SW, FW and HW). *LI-USA-TA1",
+ qualifications: "BSc in Electrical Engineering, Computer Science or related discipline + 3 years of relevant industry experience; OR MSc in Electrical Engineering, Computer Science or related discipline + 2 years of relevant industry experience, Designing, prototyping, and optimizing reference designs and point solutions, Analog or mixed-signal circuits design, Hands-on lab experience test with analog, RF or wireless systems, New hardware bring-up, testing and troubleshooting for embedded board design, Work with board schematic and PCB layout, Technical document development with attention to detail, Small form factor experience such as phone, netbook and tablet is highly desired.", 
+compensation:  "$100,000", companyId: "020", city: "Norwalk, CT", type: "Full-Time"});
+
+
+var j18 = new Job({_id: "018", title: "Manager", jobDescription: "In this position, you will use your expertise, strong technical leadership and project management experience to be responsible for leading an ASIC project: micro-architecture, writing block-level specifications, logic design, pre-silicon verification, synthesis, static timing analysis (STA), implementation team interaction, and supporting post-silicon validation.",
+qualifications: "MS degree in Electrical Engineering, Computer Engineering or a related discipline with 12 years of experience or BS degree with 14 years experience in the following areas:- Leading a technical team, Scheduling work for a project, Collaborating with related technical teams, Chip architecture, digital design and/or verification, System Verilog",
+compensation:  "$150,000", companyId: "020", city: "Seattle, WA", type: "Full-Time"});
+
+
+var j10 = new Job({_id: "010", title: "CPU Physical design Engineer", jobDescription: "Come join Intel's*Platform Engineering Group*organization as a*Central Processing Unit (CPU) Physical Design Engineer*. In this role you will be a member of the Scalable Performance CPU Development Group (SDG) design team, working on next-generation Xeon server product SOCs and IPs. You will be part of an experienced team working to deliver complete state of the art physical implementations that meet timing and electrical requirements in a fast-paced technically challenging environment.",
+ qualifications: "Bachelor's or Master's Degree in Electrical or Computer Engineering, Minimum 3 months experience with CMOS transistor level circuit fundamentals, hardware design, and programming, Previous internship experience in CPU or SOC physical design, Experience with VLSI circuits, design techniques, and sub-micron CMOS technologies, Experience in designing high-speed, low-power digital circuits, floorplanning, timing convergence, physical design convergence, formal equivalency verification, device layout, and design rule checking, Familiarity with logic synthesis and automated place and route tools, Strong background in computer architecture and logic design fundamentals, Familiarity with hardware description languages such as Verilog or System Verilog, Exceptional scripting skills using a programming language such as Perl, TCL, or Python", 
+compensation: "$250,000", companyId: "020", city: "Redmond, WA", type: "Full-Time"});
+
+var j9 = new Job({_id: "009", title: "SPTD Metallization Pathfinding Engineer", jobDescription: "Microelectronic Packaging Engineers provide project management, package design/development and sustaining support for integrated circuit or semiconductor assemblies, various other electronic components and/or completed units. Responsible for the thermal/mechanical/electrical design, analysis, and development of electronic packages. Defines overall package performance and specification and realizes technology certification through layout design and test vehicle design. Conducts tests and research on basic materials and properties. Establishes material specifications for contract assemblers and raw material vendors and interfaces with Quality Assurance and Purchasing regarding material quality and vendor performance. Provides consultation concerning packaging problems and improvements in the packaging process. Responds to customer/client requests or events as they occur. Develops solutions to problems utilizing formal education and judgment.",
+ qualifications: "The candidate must possess a PhD in Materials Science and Engineering, Chemical Engineering, Electrical Engineering, Applied Physics or a closely related disciplines. ", 
+compensation: "$500,000", companyId: "020", city: "Santa Clara, CA", type: "Full-Time"});
+
+j1.save();
+j2.save();
+j3.save();
+j4.save();
+j5.save();
+j6.save();
+j7.save();
+j8.save();
+j19.save();
+j10.save();
+j11.save();
+j12.save();
+j13.save();
+j14.save();
+j15.save();
+j16.save();
+j17.save();
+j18.save();
+j19.save();
+

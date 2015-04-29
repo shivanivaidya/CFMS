@@ -1,0 +1,61 @@
+
+
+		<div class = "container">
+		
+			<h3> Welcome to Career Fair Management System!! </h3> 
+			</br>
+			
+			 <ul class="nav nav-tabs">
+			      <li style="cursor: pointer;" ng-click="goToSearch()"><a ng-href="">Home</a></li>
+			      <li style="cursor: pointer;" ng-click="goToEditProfile()"><a ng-href="">Edit Profile</a></li>
+			      <li style="cursor: pointer;" ng-click="viewMyProfile()"><a ng-href="">My Profile</a></li>
+  			      <li style="cursor: pointer;" class="active" ng-click="viewMyProfile()"><a ng-href="">Jobs</a></li>
+			      <li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
+		    </ul>
+			</br></br>
+			
+			
+			<div class="panel panel-info">
+			<h3 class="panel panel-heading" align="center"> <a href="" ng-click="viewUser({_id: companyId}, 'Company')">{{companyName}}</a></h3> 
+
+				<div class="panel-body">
+					<label>Job Title :</label>
+					{{jobTitle}}
+				</div> 
+
+				<div class="panel-body">
+					<label>Job ID :</label>
+					{{jobId}}
+				</div> 
+			
+				<div class="panel-body">
+					<label>Job Description :</label>
+					{{jobDescription}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Required Qualifications :</label>
+					{{qualifications}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Job Type :</label>
+					{{jobType}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Location :</label>
+					{{city}}
+				</div> 
+				
+				<div class="panel-body">
+					<label>Compensation :</label>
+					{{compensation}}
+				</div> 
+				
+				</div>
+				
+				</br></br>
+		</div>
+		
+		

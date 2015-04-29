@@ -1,5 +1,5 @@
 
-app.service('profileUserService', function($location){
+app.service('profileUserService', function($location, $rootScope){
 	var profileUser;
 	this.setProfileUser = function(user){
 		profileUser = user;
@@ -24,6 +24,32 @@ app.service('profileUserService', function($location){
 								break;
     	}		
     }  
+
+     this.goToEditProfile = function(){
+		this.setProfileUser($rootScope.currentUser);
+
+		switch($rootScope.currentUser.userType) {
+			case "Student": 	$location.url("/studentProfile");
+								break;
+			case "Recruiter":	$location.url("/recruiterProfile");
+								break;
+			case "Company":		$location.url("/companyProfile");
+								break;
+			default:			
+								break;
+		}
+	}
+});
+
+app.service('jobService', function($rootScope, $location){
+	var job;
+	this.setJob = function(j){
+		job = j;
+	}
+
+	this.getJob = function(){
+		return job;
+	}
 });
 
 app.service('loginService', function($http, $rootScope, $location){

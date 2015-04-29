@@ -38,6 +38,14 @@ app.config(function($routeProvider){
          when('/search', {
             templateUrl: 'views/search/search.html',
             controller: 'SearchController'
+        }).
+        when('/addJob', {
+            templateUrl: 'views/job/addJob.html',
+            controller: 'JobController'
+        }).
+         when('/viewJob', {
+            templateUrl: 'views/job/viewJobs.html',
+            controller: 'JobController'
         });
         /*.otherwise({
         	redirectTo:"/login"

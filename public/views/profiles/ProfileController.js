@@ -28,9 +28,11 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 
 		switch(user.userType) {
 			case "Student": 	$http.get("/student/" + user.nuid).success(function (response){
+									console.log(response);
+									console.log($scope.majors);
 									$scope.firstName = response[0].firstName;
 									$scope.lastName = response[0].lastName;
-									$scope.email = response[0].email;
+									$scope.email = response[0].email;	
 									$scope.contactNo = response[0].contactNo;
 									$scope.selectedMajor = $scope.majors[response[0].majorId];
 									$scope.degrees = $scope.selectedMajor.degrees;
@@ -157,20 +159,9 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
     	$location.url("/search");
     }
 
-    $scope.goToEditProfile = function(){
-		profileUserService.setProfileUser($rootScope.currentUser);
-
-		switch($rootScope.currentUser.userType) {
-			case "Student": 	$location.url("/studentProfile");
-								break;
-			case "Recruiter":	$location.url("/recruiterProfile");
-								break;
-			case "Company":		$location.url("/companyProfile");
-								break;
-			default:			
-								break;
-		}
-	}
+   $scope.goToEditProfile = function(){
+   		profileUserService.goToEditProfile();
+   }
 
    $scope.logout = function(){
    	loginService.logout();

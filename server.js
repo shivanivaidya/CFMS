@@ -90,6 +90,22 @@ var MajorSchema = new mongoose.Schema({
 
 var Major = mongoose.model('Major', MajorSchema);
 
+//-----------------------------------------------------------------------------------------------------------
+
+//job
+var JobSchema = new mongoose.Schema({
+	_id: {type: String, unique: true, required: true},
+	title: {type: String, required: true},
+	jobDescription: String,
+	qualifications: String,
+	compensation: String,
+	companyId: String,
+	city: String,
+	type: String,
+}, {collection: "job"});
+
+var Job = mongoose.model('Job', JobSchema);
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // POST REQUESTS
@@ -167,6 +183,17 @@ app.post("/company", function(req, res){
     });
 })
 
+//-----------------------------------------------------------------------------------------------------------
+
+app.post("/job", function(req, res){
+	console.log("entered");
+	var obj = req.body;
+	console.log(obj);
+	var doc = new Job(obj);
+	doc.save();
+	res.send();
+})
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // GET REQUESTS
@@ -199,6 +226,16 @@ app.get("/recruiterByCId/:companyId", function(req, res){
 
 //-------------------------------------------------------------------------------------------------------------
 
+app.get("/job/:id", function(req, res){
+	 if(req.params.id){
+	 	Job.find({ _id: req.params.id }, function (err, docs){
+	 		res.json(docs);
+	 	})
+	 }
+})
+
+//-------------------------------------------------------------------------------------------------------------
+
 app.get("/company/:id", function(req, res){
 	 if(req.params.id){
 	 	Company.find({ _id: req.params.id }, function (err, docs){
@@ -213,6 +250,17 @@ app.get("/company", function (req, res){
 	var Query = Company.find();
 	Query.select('companyName');
 
+	Query.exec(function (err, docs) {
+        res.json(docs);
+    });
+})   
+
+//-----------------------------------------------------------------------------------------------------------
+
+app.get("/job", function (req, res){
+	var Query = Job.find();
+	Query.select('title');
+	
 	Query.exec(function (err, docs) {
         res.json(docs);
     });
@@ -326,6 +374,7 @@ app.post('/logout', function(req, res)
     req.logOut();
     res.send(200);
 });     
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

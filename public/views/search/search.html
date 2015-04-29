@@ -10,7 +10,8 @@
       <li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
     </ul>
     </br></br>
-   <div class="panel panel-success">
+
+   <div class="panel panel-success" ng-show="currentUser.userType == 'Student'">
         <div class="panel-heading">
             <h3 class="panel-title" ng-click="displayCompanySearch()"><a href="">Look up Companies</a></h3>
         </div>
@@ -31,14 +32,47 @@
         </ul>
     </div>
 
+    <div class="panel panel-success" ng-show="currentUser.userType == 'Recruiter'">
+        <div class="panel-heading">
+            <h3 class="panel-title" ng-click="goToAddJob()"><a href="">Add New Job</a></h3>
+        </div>
+
+        <div class="panel-body" ng-show="companySearch">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Search:</label>
+                <div class="col-sm-2">
+                    <input type="text" placeholder="Enter company name" ng-model="query"/>
+                </div>
+            </div>
+        </div>
+
+         <ul class="list-group" ng-show="companySearch">
+            <li class="list-group-item" ng-repeat="company in companies | filter:query"> 
+                <b> <a href="" ng-click="viewUser(company, 'Company')"> {{company.companyName}}</a> </b>
+            </li>
+        </ul>
+    </div>
+
+
     <div class="panel panel-warning">
         <div class="panel-heading">
             <h3 class="panel-title" ng-click="displayJobSearch()"><a href="">Look up Jobs</a></h3>
         </div>
 
         <div class="panel-body" ng-show="jobSearch">
-            Panel content
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Search:</label>
+                <div class="col-sm-2">
+                    <input type="text" placeholder="Enter job title" ng-model="query"/>
+                </div>
+            </div>
         </div>
+
+        <ul class="list-group" ng-show="jobSearch">
+            <li class="list-group-item" ng-repeat="job in jobs | filter:query"> 
+                <b> <a href="" ng-click="viewJob(job)"> {{job.title}}</a> </b>
+            </li>
+        </ul>
     </div>
 
      <div class="panel panel-info">

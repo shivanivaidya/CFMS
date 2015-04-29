@@ -1,7 +1,8 @@
-app.controller('SearchController', function($scope, $http, $location, $rootScope, profileUserService, loginService) {
+app.controller('SearchController', function($scope, $http, $location, $rootScope, profileUserService, loginService, jobService) {
 
 	$scope.students = [];
 	$scope.companies = [];
+	$scope.jobs = [];
 
 	$scope.goToEditProfile = function(){
 		profileUserService.setProfileUser($rootScope.currentUser);
@@ -36,6 +37,11 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
    	profileUserService.viewUser(user, userType);
    }
 
+   $scope.viewJob = function(job){
+   	jobService.setJob(job);
+   	$location.url("/viewJob");
+   }
+
     $scope.displayStudentSearch = function(){
 
     	$http.get("/student").success(function (response){
@@ -59,21 +65,19 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     }
 
     $scope.displayJobSearch = function(){
+
+    	$http.get("/job").success(function (response){
+			$scope.jobs = response;	
+		});
+
     	$scope.studentSearch = false;
     	$scope.companySearch = false;
     	$scope.jobSearch = true;
     }
 
-    $scope.toggle = function(userType){
-    	switch(userType){
-    		case 'Student': $scope.studentSearch = !$scope.studentSearch;
-    						break;
-    		case 'Recruiter': $scope.companySearch = !$scope.companySearch;
-    						  break;
-    		case 'Company': $scope.jobSearch = !$scope.jobSearch;
-    						break;
-    	}
-    }
+  	$scope.goToAddJob = function(){
+  		$location.url("/addJob");
+  	}
 
     $scope.logout = function(){
    		loginService.logout();
