@@ -200,7 +200,7 @@ app.post("/company", function(req, res){
             req.login(company, function(err)
             {
                 if(err) { return next(err); }
-                res.json({username: company.username, companyId: user._id, userType: "Company"});
+                res.json({username: company.username, companyId: company._id, userType: "Company"});
             });
         });
     });
