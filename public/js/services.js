@@ -41,8 +41,13 @@ app.service('profileUserService', function($location, $rootScope){
 	}
 });
 
-app.service('jobService', function($rootScope, $location){
+app.service('jobService', function(){
 	var job;
+	var jobs = [];
+	var company;
+	var city;
+	var selectedSearchBy;
+
 	this.setJob = function(j){
 		job = j;
 	}
@@ -50,6 +55,40 @@ app.service('jobService', function($rootScope, $location){
 	this.getJob = function(){
 		return job;
 	}
+
+	this.setJobs = function(j){
+		jobs = j;
+	}
+
+	this.getJobs = function(){
+		return jobs;
+	}
+
+	this.setCompany = function(c){
+		company = c;	
+	}
+
+	this.getCompany = function(){
+		return company;
+	}
+
+	this.setCity = function(c){
+		city = c;	
+	}
+
+	this.getCity = function(){
+		return city;
+	}
+
+	this.setSelectedSearchBy = function(s){
+		selectedSearchBy = s;	
+	}
+
+	this.getSelectedSearchBy = function(){
+		return selectedSearchBy;
+	}
+
+
 });
 
 app.service('loginService', function($http, $rootScope, $location){

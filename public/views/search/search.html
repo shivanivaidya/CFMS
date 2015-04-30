@@ -61,23 +61,8 @@
 
     <div class="panel panel-warning" ng-show="currentUser.userType == 'Student' || currentUser.userType == 'Admin'">
         <div class="panel-heading">
-            <h3 class="panel-title" ng-click="displayJobSearch()"><a href="">Look up Jobs</a></h3>
+            <h3 class="panel-title" ng-click="goToSearchJobs()"><a href="">Look up Jobs</a></h3>
         </div>
-
-        <div class="panel-body" ng-show="jobSearch">
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Search:</label>
-                <div class="col-sm-2">
-                    <input type="text" placeholder="Enter job title" ng-model="query"/>
-                </div>
-            </div>
-        </div>
-
-         <ul class="list-group" ng-show="jobSearch">
-            <li class="list-group-item" ng-repeat="job in jobs | filter:query"> 
-                <b> <a href="" ng-click="viewJob(job)"> {{job.title}}</a> </b>
-            </li>
-        </ul>
     </div>
 
 

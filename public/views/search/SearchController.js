@@ -91,7 +91,6 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
 
     $scope.displayRecruiterSearch = function(companyId){
     	$http.get("/recruiterByCId/" + companyId).success(function (response){
-    		console.log(response);
 			$scope.recruiters = response;	
 		});
 
@@ -104,6 +103,10 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
   	$scope.goToAddJob = function(){
   		jobService.setJob(null);
   		$location.url("/addJob");
+  	}
+
+  	$scope.goToSearchJobs = function(){
+  		$location.url("/searchJobs");
   	}
 
     $scope.logout = function(){

@@ -1,13 +1,24 @@
 app.controller('JobController', function($scope, $http, $location, $rootScope, loginService, profileUserService, jobService) {
 
 	$scope.jobTypes = [ 'Full-Time', 'Co-op', 'Internship'];
+	$scope.searchBy = [ '<Select Search By>', 'Company', 'Job Title', 'Job Type', 'City'];
 	$scope.jobs = [];
+	$scope.cities = [];
+	$scope.companies = [];
 
 	$scope.selectedJobType = $scope.jobTypes[0];
+	$scope.selectedSearchBy = $scope.searchBy[0];
 
-	 $http.get("/job").success(function (response){
+	$http.get("/job").success(function (response){
 			$scope.jobs = response;
 		});
+
+	$http.get("/cities").success(function (response){
+		for(var i = 0; i< response.length; i++){
+			if($scope.cities.indexOf(response[i].city) == -1)
+				$scope.cities.push(response[i].city);
+		}
+ 	});
 
 	$scope.save = function(){
 		var job = {_id:$scope.generateId($scope.jobs), title: $scope.jobTitle, jobDescription: $scope.jobDescription, 
@@ -24,6 +35,72 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
 			$scope.compensation = "";
 		})	
 	}
+
+	$scope.viewJob = function(job){
+	   	jobService.setJob(job);
+	   	$location.url("/viewJob");
+    }
+
+	$scope.displaySearchBy = function(){
+		if($scope.selectedSearchBy == "Company"){
+			$scope.jobSearch = false;
+			$scope.companySearch = true;
+			$scope.jobTypeSearch = false;
+			$scope.citySearch = false;
+
+			$scope.displayCompanySearch();
+		}
+		else if($scope.selectedSearchBy == "Job Title"){
+			$scope.jobSearch = true;
+			$scope.companySearch = false;
+			$scope.jobTypeSearch = false;
+			$scope.citySearch = false;
+
+			$scope.displayJobSearch();
+		}
+		else if($scope.selectedSearchBy == "Job Type"){
+			$scope.jobSearch = false;
+			$scope.companySearch = false;
+			$scope.jobTypeSearch = true;
+			$scope.citySearch = false;
+
+			$scope.displayJobTypeSearch();
+		}
+		else if($scope.selectedSearchBy == "City"){
+			$scope.citySearch = true;
+			$scope.jobSearch = false;
+			$scope.companySearch = false;
+			$scope.jobTypeSearch = false;
+
+			$scope.displayCitySearch();
+		}
+		else{
+			$scope.citySearch = false;
+			$scope.jobSearch = false;
+			$scope.companySearch = false;
+			$scope.jobTypeSearch = false;
+		}
+	}
+
+	$scope.displayCompanySearch = function(){
+    	$http.get("/company").success(function (response){
+			$scope.companies = response;
+		});
+    }
+
+    $scope.displayJobSearch = function(){
+    	$http.get("/job").success(function (response){
+			$scope.jobs = response;	
+		});
+    }
+
+    $scope.displayJobTypeSearch = function(){
+    	$http.get("/jobsByType/" + $scope.selectedJobType).success(function (response){
+    		$scope.jobs = response;
+    	});
+    }
+
+    $scope.displayCitySearch = function(){}
 
 	$scope.getJob = function(job){
 		if(job){
@@ -80,6 +157,34 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
     		$location.url("/search");
     	});
     }
+
+    $scope.viewCompanyJobs = function(company){
+	   	$http.get("/jobByCId/" + company._id).success(function (response){
+	   		$scope.companyJobs = response;
+	    	jobService.setJobs($scope.companyJobs);
+	    	jobService.setCompany(company);
+	    	jobService.setSelectedSearchBy('Company');
+	    	$location.url("/displayJobs");
+	   	});
+   }
+
+   $scope.viewCityJobs = function(city){
+	   	$http.get("/jobsByCity/" + city).success(function (response){
+	   		$scope.companyJobs = response;
+	    	jobService.setJobs($scope.companyJobs);
+	    	jobService.setCity(city);
+	    	jobService.setSelectedSearchBy('City');
+	    	$location.url("/displayJobs");
+	   	});
+   }
+
+   $scope.initJobs = function(){
+   	$scope.companyJobs = jobService.getJobs();
+   	$scope.company = jobService.getCompany();
+   	$scope.place = jobService.getCity();
+
+   	$scope.selectedSearchBy = jobService.getSelectedSearchBy();
+   }
 
     $scope.viewMyProfile = function(){
 		profileUserService.setProfileUser($rootScope.currentUser);

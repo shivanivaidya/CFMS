@@ -1,0 +1,44 @@
+<div class = "container" ng-init="initJobs()">
+		
+			<h3> Welcome to Career Fair Management System!! </h3> 
+			</br>
+			
+			 <ul class="nav nav-tabs">
+			      <li style="cursor: pointer;" ng-click="goToSearch()"><a ng-href="">Home</a></li>
+
+			      <li style="cursor: pointer;" ng-click="goToEditProfile()"><a ng-href="" 
+			      ng-show="!(currentUser.userType == 'Admin')">Edit Profile</a></li>
+
+			      <li style="cursor: pointer;" ng-click="viewMyProfile()"><a ng-href="" 
+			      ng-show="!(currentUser.userType == 'Admin')">My Profile</a></li>
+
+  			      <li style="cursor: pointer;" class="active" ng-click="viewMyProfile()"><a ng-href="">Jobs</a></li>
+  			      
+			      <li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
+		    </ul>
+			</br></br>
+
+			<div class="panel panel-success" ng-show="selectedSearchBy == 'Company'">
+        		<div class="panel-heading">
+            		<h3 class="panel-title" ng-click="viewUser(company, 'Company')"><a href="">{{company.companyName}}</a></h3>
+        		</div>
+
+         		<ul class="list-group">
+            		<li class="list-group-item" ng-repeat="job in companyJobs | filter:query"> 
+               			<b> <a href="" ng-click="viewJob(job)"> {{job.title}}</a> </b>
+            		</li>
+        		</ul>
+    		</div>
+
+    		<div class="panel panel-success" ng-show="selectedSearchBy == 'City'">
+        		<div class="panel-heading">
+            		<h3 class="panel-title">{{place}}</h3>
+        		</div>
+
+         		<ul class="list-group">
+            		<li class="list-group-item" ng-repeat="job in companyJobs | filter:query"> 
+               			<b> <a href="" ng-click="viewJob(job)"> {{job.title}}</a> </b>
+            		</li>
+        		</ul>
+    		</div>
+</div>

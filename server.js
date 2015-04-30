@@ -265,6 +265,37 @@ app.get("/jobByCId/:id", function(req, res){
 	 }
 })
 
+//-----------------------------------------------------------------------------------------------------------
+
+app.get("/jobsByType/:type", function(req, res){
+	 if(req.params.type){
+	 	Job.find({ type: req.params.type }, function (err, docs){
+	 		res.json(docs);
+	 	})
+	 }
+})
+
+//-----------------------------------------------------------------------------------------------------------
+
+app.get("/jobsByCity/:city", function(req, res){
+	 if(req.params.city){
+	 	Job.find({ city: req.params.city }, function (err, docs){
+	 		res.json(docs);
+	 	})
+	 }
+})
+
+//------------------------------------------------------------------------------------------------------------
+
+app.get("/cities", function (req, res){
+	var Query = Job.find();
+	Query.select('city');
+
+	Query.exec(function (err, docs) {
+        res.json(docs);
+    });
+})   
+
 //-------------------------------------------------------------------------------------------------------------
 
 app.get("/company", function (req, res){

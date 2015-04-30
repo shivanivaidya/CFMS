@@ -1,0 +1,81 @@
+<div class = "container">
+		
+			<h3> Welcome to Career Fair Management System!! </h3> 
+			</br>
+			
+			 <ul class="nav nav-tabs">
+			      <li style="cursor: pointer;" ng-click="goToSearch()"><a ng-href="">Home</a></li>
+
+			      <li style="cursor: pointer;" ng-click="goToEditProfile()"><a ng-href="" 
+			      ng-show="!(currentUser.userType == 'Admin')">Edit Profile</a></li>
+
+			      <li style="cursor: pointer;" ng-click="viewMyProfile()"><a ng-href="" 
+			      ng-show="!(currentUser.userType == 'Admin')">My Profile</a></li>
+
+  			      <li style="cursor: pointer;" class="active" ng-click="viewMyProfile()"><a ng-href="">Jobs</a></li>
+  			      
+			      <li style="cursor: pointer;" ng-click="logout()"><a ng-href="">Logout</a></li>
+		    </ul>
+			</br></br>
+			
+			 <div class="panel panel-warning" ng-show="currentUser.userType == 'Student' || currentUser.userType == 'Admin'">
+			    <div class="panel-heading">
+			        <h3 class="panel-title"><a href="">Look up Jobs</a></h3>
+			    </div>
+
+        <div class="panel-body">
+            <div class="form-group">
+            	<label class="col-sm-2 control-label">Search by :</label>
+				<div class="col-sm-2">
+					<select ng-options="s for s in searchBy"
+							ng-model="selectedSearchBy"
+							ng-change="displaySearchBy()"></select>
+				</div>
+
+                <label class="col-sm-2 control-label" ng-show="!jobTypeSearch">Search :</label>
+                <div class="col-sm-1" ng-show="!jobTypeSearch">
+                    <input type="text" placeholder="Enter {{selectedSearchBy}}" ng-model="query"/>
+                </div>
+
+                <label class="col-sm-2 control-label" ng-show="jobTypeSearch">Job Type :</label>
+				<div class="col-sm-2" ng-show="jobTypeSearch">
+					<select ng-options="j for j in jobTypes"
+							ng-model="selectedJobType"
+							ng-change="displayJobTypeSearch()"></select>
+				</div>
+
+				<label class="col-sm-2 control-label" ng-show="jobTypeSearch">Search :</label>
+                <div class="col-sm-1" ng-show="jobTypeSearch">
+                    <input type="text" placeholder="Enter Job Title" ng-model="query"/>
+                </div>
+
+            </div>
+        </div>
+
+        <ul class="list-group" ng-show="companySearch">
+            <li class="list-group-item" ng-repeat="company in companies | filter:query"> 
+                <b> <a href="" ng-click="viewCompanyJobs(company)"> {{company.companyName}}</a> </b>
+            </li>
+        </ul>
+
+         <ul class="list-group" ng-show="jobSearch">
+            <li class="list-group-item" ng-repeat="job in jobs | filter:query"> 
+                <b> <a href="" ng-click="viewJob(job)"> {{job.title}}</a> </b>
+            </li>
+        </ul>
+
+        <ul class="list-group" ng-show="jobTypeSearch">
+            <li class="list-group-item" ng-repeat="job in jobs | filter:query"> 
+                <b> <a href="" ng-click="viewJob(job)"> {{job.title}}</a> </b>
+            </li>
+        </ul>
+
+        <ul class="list-group" ng-show="citySearch">
+            <li class="list-group-item" ng-repeat="city in cities | filter:query track by $index"> 
+                <b> <a href="" ng-click="viewCityJobs(city)"> {{city}}</a> </b>
+            </li>
+        </ul>
+    </div>
+
+</div>
+	
