@@ -119,6 +119,16 @@ var AdminLogin = mongoose.model('AdminLogin', AdminLoginSchema);
 /*var admin = new AdminLogin({username: "northeastern", password: "careerNEU2015"});
 admin.save();*/
 
+//-----------------------------------------------------------------------------------------------------------
+
+//bookmark
+var BookmarkSchema = new mongoose.Schema({
+	nuid: String,
+	jobId: String,
+}, {collection: "bookmark"});
+
+var Bookmark = mongoose.model('Bookmark', BookmarkSchema);
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // POST REQUESTS
@@ -205,6 +215,15 @@ app.post("/job", function(req, res){
 	res.send();
 })
 
+//----------------------------------------------------------------------------------------------------------
+
+app.post("/bookmark", function(req, res){
+	var obj = req.body;
+	var doc = new Bookmark(obj);
+	doc.save();
+	res.send();
+})
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // GET REQUESTS
@@ -283,6 +302,16 @@ app.get("/jobsByCity/:city", function(req, res){
 	 		res.json(docs);
 	 	})
 	 }
+})
+
+//-----------------------------------------------------------------------------------------------------------
+
+app.get("/bookmarkByNuid/:nuid", function(req, res){
+	if(req.params.nuid){
+		Bookmark.find({ nuid: req.params.nuid }, function (err, docs){
+			res.json(docs);
+		})
+	}
 })
 
 //------------------------------------------------------------------------------------------------------------
@@ -372,6 +401,37 @@ app.put("/company/:username", function (req, res){
 
 app.delete("/student/:nuid", function (req, res){
 	Student.remove({ nuid: req.params.nuid }, function(err) {
+	    if (!err) {
+	          res.send();
+	    }
+	});
+})
+
+//------------------------------------------------------------------------------------------------------------
+
+app.delete("/bookmarkByNuid/:nuid", function (req, res){
+	Bookmark.remove({ nuid: req.params.nuid }, function(err) {
+	    if (!err) {
+	          res.send();
+	    }
+	});
+})
+
+//-----------------------------------------------------------------------------------------------------------
+
+app.delete("/bookmarkByBoth/:nuid/:jobId", function (req, res){
+	Bookmark.remove({ nuid: req.params.nuid, jobId: req.params.jobId }, function(err) {
+	    if (!err) {
+	          res.send();
+	    }
+	});
+})
+
+
+//------------------------------------------------------------------------------------------------------------
+
+app.delete("/bookmarkByJId/:jobId", function (req, res){
+	Bookmark.remove({ jobId: req.params.jobId }, function(err) {
 	    if (!err) {
 	          res.send();
 	    }

@@ -6,6 +6,8 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
 	$scope.cities = [];
 	$scope.companies = [];
 
+	$scope.bookmarked = false;
+
 	$scope.selectedJobType = $scope.jobTypes[0];
 	$scope.selectedSearchBy = $scope.searchBy[0];
 
@@ -19,6 +21,40 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
 				$scope.cities.push(response[i].city);
 		}
  	});
+
+ 	$scope.toggleBookmark = function(){
+ 		$scope.bookmarked = !$scope.bookmarked;
+ 		if($scope.bookmarked == true){
+ 			$scope.saveBookmark($rootScope.currentUser.nuid, $scope.jobId);
+ 		}
+ 		else{
+ 			$scope.deleteBookmark($rootScope.currentUser.nuid, $scope.jobId);
+ 		}
+ 	}
+
+ 	$scope.saveBookmark = function(nuid, jobId){
+ 		var bookmark = {nuid: nuid, jobId: jobId};
+ 		 $http.post("/bookmark", bookmark)
+		.success(function (response){
+			var bookmarks = jobService.getBookmarks();
+			bookmarks.push(jobId);
+			jobService.setBookmarks(bookmarks);
+		});
+ 	}
+
+ 	$scope.deleteBookmark = function(nuid, jobId){
+ 		$http.delete("/bookmarkByBoth/" + nuid + "/" + jobId).success(function (response){
+ 			var bookmarks = jobService.getBookmarks();
+ 			var index = bookmarks.indexOf(jobId);
+ 			bookmarks.splice(index, 1);
+ 		});
+ 	}
+
+ 	$scope.checkBookmarked = function(){
+ 		var bookmarks = jobService.getBookmarks();
+ 		if(bookmarks.indexOf(jobService.getJob()._id) > -1)
+ 			$scope.bookmarked = true;
+ 	}
 
 	$scope.save = function(){
 		var job = {_id:$scope.generateId($scope.jobs), title: $scope.jobTitle, jobDescription: $scope.jobDescription, 
@@ -154,7 +190,9 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
 
     $scope.deleteJob = function(id){
     	$http.delete("/job/" + id).success(function (response){
-    		$location.url("/search");
+    		$http.delete("/bookmarkByJId/" + id).success(function (response){
+	    		$location.url("/search");
+    		})
     	});
     }
 

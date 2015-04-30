@@ -106,6 +106,15 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
   	}
 
   	$scope.goToSearchJobs = function(){
+  		if($rootScope.currentUser.userType == 'Student'){
+  			$http.get("/bookmarkByNuid/" + $rootScope.currentUser.nuid).success(function (response){
+  				var bookmarks = [];
+  				for(var i = 0; i<response.length; i++){
+  					bookmarks.push(response[i].jobId)
+  				}
+  				jobService.setBookmarks(bookmarks);
+  			})
+  		}
   		$location.url("/searchJobs");
   	}
 

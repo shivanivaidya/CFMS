@@ -157,7 +157,9 @@ app.controller('ProfileController', function($scope, $http, $rootScope, $locatio
 
     $scope.deleteStudent = function(nuid){
     	$http.delete("/student/" + nuid).success(function (response){
-    		$location.url("/search");
+    		$http.delete("/bookmarkByNuid/" + nuid).success(function (response){
+    			    		$location.url("/search");
+    		})
     	});
     }
 

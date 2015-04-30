@@ -1,6 +1,6 @@
 
 
-		<div class = "container">
+		<div class = "container" ng-init="checkBookmarked()">
 		
 			<h3> Welcome to Career Fair Management System!! </h3> 
 			</br>
@@ -22,7 +22,9 @@
 			
 			
 			<div class="panel panel-info">
-			<h3 class="panel panel-heading" align="center"> <a href="" ng-click="viewUser({_id: companyId}, 'Company')">{{companyName}}</a></h3> 
+			<h3 class="panel panel-heading" align="center"> <a href="" ng-click="viewUser({_id: companyId}, 'Company')">{{companyName}}</a> 
+			<a href="" ng-show="bookmarked && currentUser.userType == 'Student'" ng-click="toggleBookmark()"> <span class="glyphicon glyphicon-star"></span></a> 
+			<a href="" ng-show="!bookmarked && currentUser.userType == 'Student'" ng-click="toggleBookmark()"><span class="glyphicon glyphicon-star-empty"></span></a></h3> 
 
 				<div class="panel-body">
 					<label>Job Title :</label>

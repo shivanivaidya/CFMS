@@ -47,6 +47,7 @@ app.service('jobService', function(){
 	var company;
 	var city;
 	var selectedSearchBy;
+	var bookmarks = [];
 
 	this.setJob = function(j){
 		job = j;
@@ -88,6 +89,13 @@ app.service('jobService', function(){
 		return selectedSearchBy;
 	}
 
+	this.setBookmarks = function(bms){
+		bookmarks = bms;
+	}
+
+	this.getBookmarks = function(){
+		return bookmarks;
+	}
 
 });
 
