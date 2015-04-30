@@ -127,7 +127,28 @@
                 <b> <a href="" ng-click="viewUser(student, 'Student')"> {{student.firstName + " " + student.lastName}}</a> </b>
             </li>
         </ul>
-    </div>       
+    </div>   
+
+    <div class="panel panel-danger" ng-show="currentUser.userType == 'Student'">
+        <div class="panel-heading">
+            <h3 class="panel-title" ng-click="displayBookmarkedJobs()"><a href="">View Bookmarked Jobs</a></h3>
+        </div>
+
+        <div class="panel-body" ng-show="showBookmarks">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Search:</label>
+                <div class="col-sm-2">
+                    <input type="text" placeholder="Enter job title" ng-model="query"/>
+                </div>
+            </div>
+        </div>
+         
+        <ul class="list-group" ng-show="showBookmarks">
+            <li class="list-group-item" ng-repeat="job in bookmarkedJobs | filter:query track by $index"> 
+                <b> <a href="" ng-click="viewJob(job)"> {{job.title}}</a> </b>
+            </li>
+        </ul>
+    </div>           
 </div>
             
           

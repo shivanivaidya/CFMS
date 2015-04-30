@@ -3,6 +3,7 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
 	$scope.students = [];
 	$scope.companies = [];
 	$scope.jobs = [];
+	$scope.bookmarkedJobs = [];
 
 	$scope.goToEditProfile = function(){
 		profileUserService.setProfileUser($rootScope.currentUser);
@@ -52,6 +53,7 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.companySearch = false;
     	$scope.jobSearch = false;
     	$scope.recruiterSearch = false;
+		$scope.showBookmarks = false;
     }
 
     $scope.displayCompanySearch = function(){
@@ -64,6 +66,7 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.companySearch = true;
     	$scope.jobSearch = false;
     	$scope.recruiterSearch = false;
+		$scope.showBookmarks = false;
     }
 
     $scope.displayJobSearch = function(){
@@ -76,6 +79,8 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.companySearch = false;
     	$scope.jobSearch = true;
     	$scope.recruiterSearch = false;
+		$scope.showBookmarks = false;
+
     }
 
     $scope.displaySelectiveJobSearch = function(companyId){
@@ -87,6 +92,8 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.companySearch = false;
     	$scope.jobSearch = true;
     	$scope.recruiterSearch = false;
+		$scope.showBookmarks = false;
+
     }
 
     $scope.displayRecruiterSearch = function(companyId){
@@ -98,7 +105,45 @@ app.controller('SearchController', function($scope, $http, $location, $rootScope
     	$scope.companySearch = false;
     	$scope.jobSearch = false;
     	$scope.recruiterSearch = true;
+		$scope.showBookmarks = false;
+
     }
+
+	$scope.displayBookmarkedJobs = function(){
+		$http.get("/bookmarkByNuid/" + $rootScope.currentUser.nuid).success(function (response){
+			$scope.bookmarkedJobs = [];
+			var bookmarks = [];
+
+			for(var i = 0; i<response.length; i++){
+				bookmarks.push(response[i].jobId)
+			}
+			jobService.setBookmarks(bookmarks);
+
+			$http.get("/job").success(function (response){
+				$scope.jobs = response;	
+				var jobIds = [];
+				
+				for(var i = 0; i<$scope.jobs.length; i++){
+					$scope.jobs[i]._id
+					jobIds.push($scope.jobs[i]._id);
+				}
+				
+				for(var i = 0; i<bookmarks.length; i++){
+					if(jobIds.indexOf(bookmarks[i]) > -1){
+						$scope.bookmarkedJobs.push($scope.jobs[jobIds.indexOf(bookmarks[i])]);
+					}
+				}
+			});
+		})
+
+		$scope.studentSearch = false;
+    	$scope.companySearch = false;
+    	$scope.jobSearch = false;
+    	$scope.recruiterSearch = false;
+		$scope.showBookmarks = true;
+	}
+
+		
 
   	$scope.goToAddJob = function(){
   		jobService.setJob(null);

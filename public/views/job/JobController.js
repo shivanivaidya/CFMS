@@ -52,6 +52,7 @@ app.controller('JobController', function($scope, $http, $location, $rootScope, l
 
  	$scope.checkBookmarked = function(){
  		var bookmarks = jobService.getBookmarks();
+
  		if(bookmarks.indexOf(jobService.getJob()._id) > -1)
  			$scope.bookmarked = true;
  	}
